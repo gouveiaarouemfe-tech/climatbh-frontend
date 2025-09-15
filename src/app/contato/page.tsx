@@ -78,7 +78,7 @@ const contactStructuredData = {
 export default function Contato() {
   return (
     <div className="min-h-screen">
-<StructuredData dataType="LocalBusiness" data={contactStructuredData} />
+<StructuredData type="LocalBusiness" data={contactStructuredData} />
       <FAQStructuredData faqs={faqData} pageTitle="Contato ClimatBH" />
       
       {/* Hero Section */}
