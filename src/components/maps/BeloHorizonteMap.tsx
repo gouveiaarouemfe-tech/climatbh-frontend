@@ -6,12 +6,7 @@
 
 import { useEffect, useRef } from 'react';
 
-declare global {
-  interface Window {
-    google: any;
-    initMap: () => void;
-  }
-}
+
 
 export default function BeloHorizonteMap() {
   const mapRef = useRef<HTMLDivElement>(null);

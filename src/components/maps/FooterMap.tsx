@@ -6,12 +6,7 @@
 
 import { useEffect, useRef } from 'react';
 
-declare global {
-  interface Window {
-    google: any;
-    initFooterMap: () => void;
-  }
-}
+
 
 export default function FooterMap() {
   const mapRef = useRef<HTMLDivElement>(null);
