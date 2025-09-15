@@ -101,7 +101,7 @@ async function getPosts() {
 export default async function BlogPage() {
   const { data: posts } = await getPosts();
 
-  console.log('Posts no componente:', posts?.length || 0);
+  console.log('Posts no componente (client-side):', posts);
 
   return (
     <div className="container mx-auto px-4 py-8">
