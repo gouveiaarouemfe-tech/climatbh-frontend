@@ -3,10 +3,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Metadata } from 'next';
 import { useState, useEffect } from 'react';
+import { Metadata } from 'next';
 
-// Definindo os metadados para a página do blog (mantidos para SSR inicial)
+// Metadata for SEO (can be defined here or in layout.tsx for client components)
+// For client components, metadata is usually handled in the layout or a parent server component.
+// If this component is client-side, the metadata defined here might not be picked up by Next.js correctly for SSR.
+// We'll keep it here for now, but be aware of this potential issue.
 export const metadata: Metadata = {
   title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
   description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
@@ -65,7 +68,7 @@ export default function BlogPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchPosts() {
+    const fetchPosts = async () => {
       try {
         const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
         const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
@@ -76,8 +79,8 @@ export default function BlogPage() {
 
         const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
         
-        console.log('Fazendo requisição para:', url);
-        console.log('Token existe:', !!strapiApiToken);
+        console.log('CLIENT-SIDE: Fazendo requisição para:', url);
+        console.log('CLIENT-SIDE: Token existe:', !!strapiApiToken);
 
         const res = await fetch(url, {
           headers: {
@@ -92,14 +95,15 @@ export default function BlogPage() {
         }
 
         const data = await res.json();
+        console.log('CLIENT-SIDE: Posts recebidos:', data.data?.length || 0);
         setPosts(data.data || []);
       } catch (err: any) {
-        console.error('Erro ao buscar posts:', err);
+        console.error('CLIENT-SIDE: Erro ao buscar posts:', err);
         setError(err.message || 'Ocorreu um erro ao carregar os posts.');
       } finally {
         setLoading(false);
       }
-    }
+    };
 
     fetchPosts();
   }, []);
