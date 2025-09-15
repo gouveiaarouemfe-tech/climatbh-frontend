@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, CheckCircle, ArrowRight, Thermometer, Zap, Shield, Clock, Award, Users } from 'lucide-react';
+import { Phone, CheckCircle, ArrowRight, Thermometer, Zap, Shield, Clock, Award, User } from 'lucide-react';
 import { generateMetadata } from '@/components/seo/SEOHead';
 import StructuredData from '@/components/seo/StructuredData';
 import FAQStructuredData from '@/components/seo/FAQStructuredData';
@@ -375,7 +375,7 @@ export default function InstalacaoChiller() {
 
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Users className="h-8 w-8 text-blue-600" />
+                <User className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Equipe Especializada</h3>
               <p className="text-gray-600">Técnicos certificados em sistemas de refrigeração industrial</p>
