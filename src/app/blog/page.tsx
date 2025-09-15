@@ -1,9 +1,12 @@
 
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import { useState, useEffect } from 'react';
 
-// Definindo os metadados para a página do blog
+// Definindo os metadados para a página do blog (mantidos para SSR inicial)
 export const metadata: Metadata = {
   title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
   description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
@@ -56,51 +59,69 @@ interface Post {
   };
 }
 
-async function getPosts() {
-  const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
-  const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
+export default function BlogPage() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+        const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 
-  console.log('Fazendo requisição para:', url);
-  console.log('Token existe:', !!strapiApiToken);
+        if (!strapiApiUrl || !strapiApiToken) {
+          throw new Error('Configuração do Strapi não encontrada (URL ou Token)');
+        }
 
-  if (!strapiApiToken || !strapiApiUrl) {
-    console.error('Configuração do Strapi não encontrada (URL ou Token)');
-    return { data: [] };
-  }
+        const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
+        
+        console.log('Fazendo requisição para:', url);
+        console.log('Token existe:', !!strapiApiToken);
 
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${strapiApiToken}`,
-        'Content-Type': 'application/json',
-      },
-      next: { revalidate: 60 },
-    });
+        const res = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${strapiApiToken}`,
+            'Content-Type': 'application/json',
+          },
+        });
 
-    console.log('Status da resposta:', res.status);
+        if (!res.ok) {
+          const errorText = await res.text();
+          throw new Error(`Erro ao buscar posts: ${res.status} ${res.statusText} - ${errorText}`);
+        }
 
-    if (!res.ok) {
-      console.error(`Erro ao buscar posts: ${res.status} ${res.statusText}`);
-      const errorText = await res.text();
-      console.error('Detalhes do erro:', errorText);
-      return { data: [] };
+        const data = await res.json();
+        setPosts(data.data || []);
+      } catch (err: any) {
+        console.error('Erro ao buscar posts:', err);
+        setError(err.message || 'Ocorreu um erro ao carregar os posts.');
+      } finally {
+        setLoading(false);
+      }
     }
 
-    const data = await res.json();
-    console.log('Posts recebidos:', data.data?.length || 0);
-    return data;
-  } catch (error) {
-    console.error('Erro ao buscar posts:', error);
-    return { data: [] };
+    fetchPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <h1 className="text-4xl font-bold text-center mb-12">Nosso Blog</h1>
+        <p className="text-gray-600 text-lg">Carregando posts...</p>
+      </div>
+    );
   }
-}
 
-export default async function BlogPage() {
-  const { data: posts } = await getPosts();
-
-  console.log('Posts no componente (client-side):', posts);
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <h1 className="text-4xl font-bold text-center mb-12">Nosso Blog</h1>
+        <p className="text-red-600 text-lg">Erro: {error}</p>
+        <p className="text-gray-500 text-sm">Por favor, tente novamente mais tarde.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
