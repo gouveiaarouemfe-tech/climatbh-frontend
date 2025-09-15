@@ -56,17 +56,22 @@ interface Post {
 }
 
 async function getPosts() {
+  console.log('SERVER-SIDE: Iniciando getPosts...');
   const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
   const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 
+  console.log('SERVER-SIDE: NEXT_PUBLIC_STRAPI_API_URL:', strapiApiUrl ? 'Configurado' : 'NÃO Configurado');
+  console.log('SERVER-SIDE: NEXT_PUBLIC_API_TOKEN:', strapiApiToken ? 'Configurado' : 'NÃO Configurado');
+
   if (!strapiApiUrl || !strapiApiToken) {
-    console.error('Configuração do Strapi não encontrada (URL ou Token)');
+    console.error('SERVER-SIDE: Configuração do Strapi não encontrada (URL ou Token)');
     return { posts: [], error: 'Configuração do Strapi não encontrada.' };
   }
 
   const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
 
   try {
+    console.log('SERVER-SIDE: Fazendo requisição para:', url);
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${strapiApiToken}`,
@@ -75,17 +80,21 @@ async function getPosts() {
       next: { revalidate: 60 }, // Revalidate every 60 seconds
     });
 
+    console.log('SERVER-SIDE: Resposta da requisição - Status:', res.status, res.statusText);
+
     if (!res.ok) {
       const errorText = await res.text();
-      console.error(`Erro ao buscar posts: ${res.status} ${res.statusText} - ${errorText}`);
+      console.error(`SERVER-SIDE: Erro ao buscar posts: ${res.status} ${res.statusText} - ${errorText}`);
       return { posts: [], error: `Erro ao buscar posts: ${res.status} ${res.statusText}` };
     }
 
     const data = await res.json();
+    console.log('SERVER-SIDE: Posts recebidos:', data.data?.length || 0);
+
     return { posts: data.data || [], error: null };
   } catch (err: any) {
-    console.error('Erro ao buscar posts:', err);
-    return { posts: [], error: 'Ocorreu um erro ao carregar os posts.' };
+    console.error('SERVER-SIDE: Erro ao buscar posts:', err);
+    return { posts: [], error: `Ocorreu um erro ao carregar os posts: ${err.message}` };
   }
 }
 
