@@ -65,3 +65,217 @@ body {
 .text-gray-500 {
   color: #6b7280; /* Mais escuro que o padrão */
 }
+
+/* Melhorar visibilidade de textos brancos em fundos escuros - Mobile */
+@media (max-width: 768px) {
+  /* Garantir que textos brancos sejam visíveis em fundos escuros */
+  .bg-blue-600 .text-white,
+  .bg-blue-800 .text-white,
+  .bg-red-600 .text-white,
+  .bg-gray-800 .text-white,
+  .bg-gray-900 .text-white,
+  .bg-black .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+    font-weight: 500 !important;
+  }
+  
+  /* Melhorar visibilidade de texto blue-100 em fundos azuis */
+  .bg-blue-600 .text-blue-100,
+  .bg-blue-800 .text-blue-100 {
+    color: #dbeafe !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  /* Footer específico - melhorar visibilidade */
+  footer .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 500 !important;
+  }
+  
+  footer .text-gray-300 {
+    color: #e5e7eb !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+  }
+  
+  /* Logo e imagens no footer */
+  footer img,
+  footer svg {
+    filter: brightness(1.3) contrast(1.2) !important;
+  }
+  
+  /* Garantir visibilidade de todos os textos brancos */
+  .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  /* Seções com fundo escuro */
+  section[class*="bg-blue"] .text-white,
+  section[class*="bg-red"] .text-white,
+  section[class*="bg-gray-8"] .text-white,
+  section[class*="bg-gray-9"] .text-white,
+  section[class*="bg-black"] .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 500 !important;
+  }
+  
+  /* Botões com texto branco */
+  button .text-white,
+  a .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+  }
+}
+
+
+/* Regras adicionais para melhorar visibilidade em fundos escuros - Mobile */
+@media (max-width: 768px) {
+  /* Garantir visibilidade em todos os fundos escuros */
+  .bg-blue-600 *,
+  .bg-blue-700 *,
+  .bg-blue-800 *,
+  .bg-blue-900 *,
+  .bg-red-600 *,
+  .bg-red-700 *,
+  .bg-red-800 *,
+  .bg-red-900 *,
+  .bg-gray-700 *,
+  .bg-gray-800 *,
+  .bg-gray-900 *,
+  .bg-black * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  /* Títulos em fundos escuros */
+  .bg-blue-600 h1, .bg-blue-600 h2, .bg-blue-600 h3, .bg-blue-600 h4,
+  .bg-blue-700 h1, .bg-blue-700 h2, .bg-blue-700 h3, .bg-blue-700 h4,
+  .bg-blue-800 h1, .bg-blue-800 h2, .bg-blue-800 h3, .bg-blue-800 h4,
+  .bg-blue-900 h1, .bg-blue-900 h2, .bg-blue-900 h3, .bg-blue-900 h4,
+  .bg-red-600 h1, .bg-red-600 h2, .bg-red-600 h3, .bg-red-600 h4,
+  .bg-red-700 h1, .bg-red-700 h2, .bg-red-700 h3, .bg-red-700 h4,
+  .bg-red-800 h1, .bg-red-800 h2, .bg-red-800 h3, .bg-red-800 h4,
+  .bg-red-900 h1, .bg-red-900 h2, .bg-red-900 h3, .bg-red-900 h4,
+  .bg-gray-700 h1, .bg-gray-700 h2, .bg-gray-700 h3, .bg-gray-700 h4,
+  .bg-gray-800 h1, .bg-gray-800 h2, .bg-gray-800 h3, .bg-gray-800 h4,
+  .bg-gray-900 h1, .bg-gray-900 h2, .bg-gray-900 h3, .bg-gray-900 h4,
+  .bg-black h1, .bg-black h2, .bg-black h3, .bg-black h4 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 700 !important;
+  }
+  
+  /* Parágrafos em fundos escuros */
+  .bg-blue-600 p, .bg-blue-700 p, .bg-blue-800 p, .bg-blue-900 p,
+  .bg-red-600 p, .bg-red-700 p, .bg-red-800 p, .bg-red-900 p,
+  .bg-gray-700 p, .bg-gray-800 p, .bg-gray-900 p, .bg-black p {
+    color: #f9fafb !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 400 !important;
+  }
+  
+  /* Listas em fundos escuros */
+  .bg-blue-600 li, .bg-blue-700 li, .bg-blue-800 li, .bg-blue-900 li,
+  .bg-red-600 li, .bg-red-700 li, .bg-red-800 li, .bg-red-900 li,
+  .bg-gray-700 li, .bg-gray-800 li, .bg-gray-900 li, .bg-black li {
+    color: #f9fafb !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  /* Links em fundos escuros */
+  .bg-blue-600 a, .bg-blue-700 a, .bg-blue-800 a, .bg-blue-900 a,
+  .bg-red-600 a, .bg-red-700 a, .bg-red-800 a, .bg-red-900 a,
+  .bg-gray-700 a, .bg-gray-800 a, .bg-gray-900 a, .bg-black a {
+    color: #bfdbfe !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Footer específico - garantir máxima visibilidade */
+  footer {
+    background-color: #1f2937 !important;
+  }
+  
+  footer * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  }
+  
+  footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 700 !important;
+  }
+  
+  footer p, footer span, footer div {
+    color: #f3f4f6 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  footer a {
+    color: #dbeafe !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Logo e imagens no footer - melhorar contraste */
+  footer img {
+    filter: brightness(1.4) contrast(1.3) saturate(1.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+    padding: 2px !important;
+  }
+  
+  footer svg {
+    filter: brightness(1.4) contrast(1.3) !important;
+    color: #ffffff !important;
+  }
+  
+  /* Botões no footer */
+  footer button {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid #60a5fa !important;
+  }
+  
+  /* Ícones sociais e de contato */
+  footer .social-icon,
+  footer .contact-icon {
+    filter: brightness(1.5) contrast(1.4) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    padding: 4px !important;
+  }
+}
+
+/* Regras específicas para seções hero e CTA */
+@media (max-width: 768px) {
+  .hero-section,
+  .cta-section,
+  [class*="hero"],
+  [class*="cta"] {
+    background-color: #1e40af !important;
+  }
+  
+  .hero-section *,
+  .cta-section *,
+  [class*="hero"] *,
+  [class*="cta"] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+  }
+  
+  .hero-section h1, .hero-section h2,
+  .cta-section h1, .cta-section h2,
+  [class*="hero"] h1, [class*="hero"] h2,
+  [class*="cta"] h1, [class*="cta"] h2 {
+    color: #ffffff !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 800 !important;
+  }
+}
+

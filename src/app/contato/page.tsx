@@ -344,10 +344,80 @@ export default function Contato() {
         </div>
       </section>
 
-      {/* Service Areas */}
+      {/* PMOC Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              A Importância do PMOC para Empresas e Instituições
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              O Plano de Manutenção, Operação e Controle (PMOC) vai além de uma exigência legal da ANVISA: 
+              é uma ferramenta estratégica para garantir qualidade do ar e segurança em ambientes climatizados. 
+              Para empresas e instituições em Belo Horizonte, adotar o PMOC significa proteger a saúde de 
+              colaboradores e clientes, além de assegurar o pleno funcionamento dos sistemas de climatização.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🏥</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Saúde, Conforto e Produtividade</h3>
+              <p className="text-gray-600">
+                O ar que respiramos dentro de um prédio impacta diretamente a saúde respiratória e o bem-estar. 
+                Ambientes com climatização mal mantida podem causar alergias, irritações e doenças respiratórias, 
+                refletindo em absenteísmo e queda de desempenho. O PMOC garante ar limpo e seguro, promovendo 
+                um ambiente de trabalho saudável e mais produtivo.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Eficiência Energética e Economia</h3>
+              <p className="text-gray-600">
+                Filtros sujos, serpentinas obstruídas e manutenção irregular aumentam o esforço dos equipamentos, 
+                elevando o consumo de energia. Com o PMOC para ar condicionado, essas manutenções são realizadas 
+                de forma preventiva e programada, otimizando a operação do sistema e gerando economia significativa 
+                nos custos de eletricidade.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-yellow-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🔧</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Prevenção de Falhas e Durabilidade dos Sistemas VRF em BH</h3>
+              <p className="text-gray-600">
+                A manutenção preventiva do PMOC permite identificar desgastes e pequenos problemas antes que se 
+                tornem falhas graves. Isso prolonga a vida útil do equipamento, reduz a necessidade de reparos 
+                de emergência e garante operação contínua, evitando interrupções que impactem as atividades da empresa.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-red-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">⚖️</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Conformidade Legal e Segurança Jurídica</h3>
+              <p className="text-gray-600">
+                A Lei Federal nº 13.589/18 obriga o PMOC para edifícios de uso público e coletivo com sistemas 
+                de climatização. Cumprir o plano não só protege a saúde das pessoas, mas também evita multas e 
+                sanções legais. Com o PMOC implementado corretamente, sua empresa está totalmente em conformidade 
+                com a legislação, com segurança e tranquilidade operacional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Áreas de Atendimento
             </h2>

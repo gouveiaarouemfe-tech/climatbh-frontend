@@ -19,11 +19,46 @@ export default function BeloHorizonteMap() {
         return;
       }
 
+      // Verificar se a chave da API está disponível
+      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+      
+      if (!apiKey) {
+        console.warn('Google Maps API key não encontrada');
+        // Fallback: mostrar mapa estático ou mensagem
+        if (mapRef.current) {
+          mapRef.current.innerHTML = `
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+              <div class="text-center p-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">ClimatBH</h3>
+                <p class="text-gray-600 mb-2">Área de Atendimento: Belo Horizonte e Região Metropolitana</p>
+                <p class="text-gray-600">Telefone: (31) 99535-2139</p>
+              </div>
+            </div>
+          `;
+        }
+        return;
+      }
+
       // Carregar script do Google Maps se não estiver carregado
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`;
       script.async = true;
       script.defer = true;
+      script.onerror = () => {
+        console.error('Erro ao carregar Google Maps');
+        // Fallback: mostrar informações de contato
+        if (mapRef.current) {
+          mapRef.current.innerHTML = `
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+              <div class="text-center p-4">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2">ClimatBH</h3>
+                <p class="text-gray-600 mb-2">Área de Atendimento: Belo Horizonte e Região Metropolitana</p>
+                <p class="text-gray-600">Telefone: (31) 99535-2139</p>
+              </div>
+            </div>
+          `;
+        }
+      };
       
       // Definir callback global
       (window as any).initMap = initMap;

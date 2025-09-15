@@ -123,7 +123,6 @@ export default function InstalacaoSplitao() {
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
-
               />
             </div>
           </div>
@@ -193,152 +192,25 @@ export default function InstalacaoSplitao() {
         </div>
       </section>
 
-      {/* Types of Splitão */}
+      {/* Installation Process */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Tipos de Splitão que Instalamos
+              Processo de Instalação de Splitão
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Oferecemos diferentes tipos de splitão para atender às necessidades específicas de cada ambiente
+              Metodologia técnica especializada para garantir instalação segura e eficiente
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-600">Splitão de Teto</h3>
-              <p className="text-gray-600 mb-6">
-                Instalado no teto, oferece distribuição uniforme do ar e aproveitamento máximo do espaço útil.
-              </p>
-              
-              <h4 className="font-semibold text-gray-900 mb-3">Vantagens:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Distribuição uniforme do ar</li>
-                <li>• Não ocupa espaço útil</li>
-                <li>• Visual discreto</li>
-                <li>• Fácil manutenção</li>
-              </ul>
-              
-              <h4 className="font-semibold text-gray-900 mb-3 mt-6">Ideal para:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Auditórios</li>
-                <li>• Salas de conferência</li>
-                <li>• Escritórios amplos</li>
-                <li>• Lojas e showrooms</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-600">Splitão de Piso</h3>
-              <p className="text-gray-600 mb-6">
-                Instalado no piso, oferece facilidade de instalação e manutenção, ideal para ambientes industriais.
-              </p>
-              
-              <h4 className="font-semibold text-gray-900 mb-3">Vantagens:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Instalação simplificada</li>
-                <li>• Manutenção facilitada</li>
-                <li>• Acesso direto aos componentes</li>
-                <li>• Menor custo de instalação</li>
-              </ul>
-              
-              <h4 className="font-semibold text-gray-900 mb-3 mt-6">Ideal para:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Galpões industriais</li>
-                <li>• Depósitos</li>
-                <li>• Oficinas</li>
-                <li>• Áreas de produção</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-600">Splitão Cassete</h3>
-              <p className="text-gray-600 mb-6">
-                Embutido no forro, oferece design elegante e distribuição de ar em quatro direções.
-              </p>
-              
-              <h4 className="font-semibold text-gray-900 mb-3">Vantagens:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Design elegante e discreto</li>
-                <li>• Distribuição em 4 direções</li>
-                <li>• Integração com arquitetura</li>
-                <li>• Controle individual de direcionamento</li>
-              </ul>
-              
-              <h4 className="font-semibold text-gray-900 mb-3 mt-6">Ideal para:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Restaurantes</li>
-                <li>• Hotéis</li>
-                <li>• Centros comerciais</li>
-                <li>• Ambientes corporativos</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Vantagens da Instalação de Splitão em Belo Horizonte e Região
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">🏭</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Ideal para Galpões, Auditórios e Grandes Lojas</h3>
-              <p className="text-gray-600">Perfeito para galpões industriais, auditórios, ginásios e espaços comerciais amplos que necessitam de climatização eficiente e uniforme.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">💰</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Custo-Benefício e Instalação Rápida</h3>
-              <p className="text-gray-600">Menor custo de instalação comparado a sistemas centrais, com eficiência energética superior aos aparelhos de janela tradicionais.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">⚡</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Instalação Rápida</h3>
-              <p className="text-gray-600">Instalação mais rápida que sistemas centralizados, com menor impacto na estrutura do edifício e início de operação imediato.</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">🌡️</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Controle Preciso e Manutenção Simplificada</h3>
-              <p className="text-gray-600">Controle individual de temperatura com termostato digital, permitindo ajustes precisos conforme a necessidade do ambiente.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Installation Process */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nosso Processo de Instalação de Splitão
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Análise e Projeto</h3>
-              <p className="text-gray-600">Avaliação detalhada do ambiente, cálculo de carga térmica e elaboração do projeto de instalação.</p>
+              <h3 className="text-lg font-semibold mb-3">Análise Técnica</h3>
+              <p className="text-gray-600">Avaliação do local, cálculo de carga térmica e dimensionamento do sistema.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
@@ -346,15 +218,15 @@ export default function InstalacaoSplitao() {
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
               <h3 className="text-lg font-semibold mb-3">Preparação da Infraestrutura</h3>
-              <p className="text-gray-600">Instalação de tubulações, drenos, fiação elétrica e suportes para as unidades.</p>
+              <p className="text-gray-600">Instalação elétrica, suportes e preparação das tubulações.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">3</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Montagem dos Equipamentos</h3>
-              <p className="text-gray-600">Fixação das unidades interna e externa, conexão das tubulações e cabos elétricos.</p>
+              <h3 className="text-lg font-semibold mb-3">Instalação dos Equipamentos</h3>
+              <p className="text-gray-600">Montagem das unidades interna e externa com conexões adequadas.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
@@ -369,312 +241,120 @@ export default function InstalacaoSplitao() {
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">5</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Entrega e Orientação</h3>
-              <p className="text-gray-600">Entrega do sistema em pleno funcionamento e orientação sobre o uso e manutenção.</p>
+              <h3 className="text-lg font-semibold mb-3">Entrega e Treinamento</h3>
+              <p className="text-gray-600">Orientação sobre operação e entrega da documentação técnica.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Applications Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Aplicações do Splitão
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ideal para diversos tipos de ambientes que requerem climatização de alta capacidade
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="bg-blue-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <Factory className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">Galpões Industriais</h3>
-              <p className="text-gray-600 mb-4 text-center">Climatização de grandes áreas de produção e armazenamento</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Controle de temperatura para processos</li>
-                <li>• Conforto térmico para trabalhadores</li>
-                <li>• Proteção de equipamentos</li>
-                <li>• Melhoria da produtividade</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="bg-blue-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <Building className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">Auditórios e Teatros</h3>
-              <p className="text-gray-600 mb-4 text-center">Climatização para grandes públicos com conforto acústico</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Operação silenciosa</li>
-                <li>• Distribuição uniforme do ar</li>
-                <li>• Controle de umidade</li>
-                <li>• Design discreto</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="bg-blue-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                <Warehouse className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">Centros de Distribuição</h3>
-              <p className="text-gray-600 mb-4 text-center">Climatização de depósitos e centros logísticos</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Proteção de mercadorias</li>
-                <li>• Conforto para operadores</li>
-                <li>• Controle de umidade</li>
-                <li>• Eficiência energética</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">Academias e Ginásios</h3>
-              <p className="text-gray-600 mb-4">Climatização para atividades físicas e esportivas</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Renovação constante do ar</li>
-                <li>• Controle de umidade</li>
-                <li>• Distribuição uniforme</li>
-                <li>• Baixo nível de ruído</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">Restaurantes e Bares</h3>
-              <p className="text-gray-600 mb-4">Climatização para ambientes gastronômicos</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Controle de odores</li>
-                <li>• Conforto térmico</li>
-                <li>• Operação silenciosa</li>
-                <li>• Fácil manutenção</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-semibold mb-3">Igrejas e Templos</h3>
-              <p className="text-gray-600 mb-4">Climatização para grandes congregações</p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Operação ultra silenciosa</li>
-                <li>• Distribuição uniforme</li>
-                <li>• Design discreto</li>
-                <li>• Eficiência energética</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Vantagens da Instalação de Splitão com a ClimatBH
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Award className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Experiência Comprovada</h3>
-              <p className="text-gray-600">Mais de 15 anos instalando splitões em grandes ambientes</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Users className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Equipe Especializada</h3>
-              <p className="text-gray-600">Técnicos certificados em sistemas de grande porte</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Clock className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Instalação Rápida</h3>
-              <p className="text-gray-600">Processo otimizado que minimiza interrupções</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Wrench className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Garantia Estendida</h3>
-              <p className="text-gray-600">Garantia de instalação e suporte técnico</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Maintenance Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Manutenção de Splitão
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Além da instalação, oferecemos serviços completos de manutenção preventiva e corretiva
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4 text-green-600">Manutenção Preventiva</h3>
-              <p className="text-gray-600 mb-6">
-                Serviços programados para manter seu splitão funcionando com máxima eficiência.
-              </p>
-              
-              <h4 className="font-semibold text-gray-900 mb-3">Inclui:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Limpeza completa de filtros e serpentinas</li>
-                <li>• Verificação de pressões e temperaturas</li>
-                <li>• Inspeção de componentes elétricos</li>
-                <li>• Teste de controles e sensores</li>
-                <li>• Verificação de drenagem</li>
-                <li>• Relatório técnico detalhado</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-semibold mb-4 text-red-600">Manutenção Corretiva</h3>
-              <p className="text-gray-600 mb-6">
-                Reparo de falhas e substituição de componentes para restaurar o funcionamento.
-              </p>
-              
-              <h4 className="font-semibold text-gray-900 mb-3">Inclui:</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Diagnóstico de falhas</li>
-                <li>• Reparo de compressores</li>
-                <li>• Substituição de componentes</li>
-                <li>• Reparo de vazamentos</li>
-                <li>• Recarga de gás refrigerante</li>
-                <li>• Atendimento de emergência 24h</li>
-              </ul>
-            </div>
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Precisa de Instalação de Splitão para Grandes Ambientes?
+          </h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            Nossa equipe especializada está pronta para dimensionar e instalar o sistema splitão ideal para seu projeto. 
+            Solicite um orçamento personalizado e descubra a solução perfeita para sua climatização.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+5531995352139"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center space-x-2"
+            >
+              <Phone className="h-5 w-5" />
+              <span>Ligar Agora: (31) 99535-2139</span>
+            </a>
+            <a
+              href="https://wa.me/5531995352139?text=Olá! Preciso de orçamento para instalação de splitão."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 text-center"
+            >
+              Solicitar Orçamento WhatsApp
+            </a>
           </div>
         </div>
       </section>
 
       {/* Technology Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Tecnologia e Aplicações do Splitão Comercial
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Soluções avançadas para climatização de grandes ambientes comerciais e industriais
+              Sistemas avançados de climatização para ambientes comerciais e industriais
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">
-                Tecnologia Inverter Avançada
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Os splitões modernos utilizam tecnologia inverter que ajusta automaticamente a velocidade do compressor conforme a demanda térmica. Isso resulta em economia significativa de energia, especialmente em ambientes com variações de carga térmica ao longo do dia.
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-8">
+              <div className="bg-blue-100 rounded-full p-3 w-12 h-12 flex items-center justify-center mb-6">
+                <Building className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Ambientes Comerciais</h3>
+              <p className="text-gray-600 mb-4">
+                Ideal para lojas, restaurantes, escritórios e centros comerciais que precisam de climatização eficiente e confiável.
               </p>
-
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">
-                Controle Inteligente de Temperatura
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Sistemas de controle digital permitem ajustes precisos de temperatura, programação de horários de funcionamento e monitoramento remoto. Isso garante conforto térmico constante e otimização do consumo energético.
-              </p>
-
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900">
-                Aplicações Comerciais e Industriais
-              </h3>
-              <p className="text-gray-600">
-                Ideais para galpões industriais, auditórios, ginásios, lojas de grande porte, restaurantes, oficinas e espaços comerciais que necessitam de climatização eficiente para grandes volumes de ar.
-              </p>
+              <ul className="text-gray-600 space-y-2">
+                <li>• Shopping centers</li>
+                <li>• Supermercados</li>
+                <li>• Restaurantes</li>
+                <li>• Academias</li>
+              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-xl font-semibold mb-6 text-blue-600">
-                Principais Características Técnicas
-              </h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <span className="text-blue-600 font-bold">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Capacidade de 18.000 a 60.000 BTUs</h4>
-                    <p className="text-gray-600 text-sm">Atende desde salas médias até galpões industriais</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <span className="text-blue-600 font-bold">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Eficiência Energética A</h4>
-                    <p className="text-gray-600 text-sm">Selo PROCEL e baixo consumo de energia</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <span className="text-blue-600 font-bold">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Filtros de Alta Eficiência</h4>
-                    <p className="text-gray-600 text-sm">Purificação do ar e remoção de partículas</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <span className="text-blue-600 font-bold">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Controle Remoto Avançado</h4>
-                    <p className="text-gray-600 text-sm">Programação e monitoramento inteligente</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <span className="text-blue-600 font-bold">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Operação Silenciosa</h4>
-                    <p className="text-gray-600 text-sm">Baixo nível de ruído para ambientes comerciais</p>
-                  </div>
-                </div>
+            <div className="bg-gray-50 rounded-lg p-8">
+              <div className="bg-green-100 rounded-full p-3 w-12 h-12 flex items-center justify-center mb-6">
+                <Factory className="h-6 w-6 text-green-600" />
               </div>
+              <h3 className="text-xl font-semibold mb-4">Aplicações Industriais</h3>
+              <p className="text-gray-600 mb-4">
+                Soluções robustas para galpões industriais, depósitos e áreas de produção que exigem controle térmico preciso.
+              </p>
+              <ul className="text-gray-600 space-y-2">
+                <li>• Galpões industriais</li>
+                <li>• Centros de distribuição</li>
+                <li>• Áreas de produção</li>
+                <li>• Depósitos refrigerados</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-8">
+              <div className="bg-purple-100 rounded-full p-3 w-12 h-12 flex items-center justify-center mb-6">
+                <Warehouse className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Controle Inteligente</h3>
+              <p className="text-gray-600 mb-4">
+                Sistemas de controle digital permitem ajustes precisos de temperatura, programação de horários e monitoramento remoto.
+              </p>
+              <ul className="text-gray-600 space-y-2">
+                <li>• Controle digital avançado</li>
+                <li>• Programação de horários</li>
+                <li>• Monitoramento remoto</li>
+                <li>• Relatórios de consumo</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Perguntas Frequentes sobre Instalação de Splitão
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tire suas dúvidas sobre a instalação de sistemas splitão
-            </p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
             {faqData.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
                   {faq.question}
                 </h3>
                 <p className="text-gray-600">
@@ -685,101 +365,7 @@ export default function InstalacaoSplitao() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section id="orcamento" className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Precisa de Instalação de Splitão para Grandes Ambientes?
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Nossa equipe está pronta para projetar a solução ideal para seu ambiente.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+5531995352139"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
-            >
-              <Phone className="h-5 w-5" />
-              <span>Ligar Agora: (31) 99535-2139</span>
-            </a>
-            <a
-              href="https://wa.me/5531995352139?text=Olá! Gostaria de um orçamento para instalação de splitão."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
-            >
-              Solicitar Orçamento via WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
-}
-
-// Seção de Serviços Relacionados
-function RelatedServices() {
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Serviços Relacionados
-          </h2>
-        </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/instalacao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/instalaçãodeVRF.jpeg"
-                alt="Instalação de VRF"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Instalação de VRF</h3>
-              <p className="text-gray-600 mb-4">Sistemas VRF para climatização comercial</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/instalacao-chiller" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/iqGpec6GN4vl.jpg"
-                alt="Instalação de Chiller"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Instalação de Chiller</h3>
-              <p className="text-gray-600 mb-4">Sistemas chiller para refrigeração industrial</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/contratos-pmoc" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/PMOCembh.webp"
-                alt="Contratos PMOC"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Contratos PMOC</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e qualidade do ar</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-    );
 }
 

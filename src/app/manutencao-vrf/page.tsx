@@ -120,10 +120,9 @@ export default function ManutencaoVRF() {
               <Image
                 src="/images/manutençãodeVRFBH.jpeg"
                 alt="Manutenção de Sistema VRF em BH - ClimatBH"
-                width={400}
-                height={200}
-                className="rounded-lg shadow-2xl w-full h-48 object-cover"
-
+                width={600}
+                height={400}
+                className="rounded-lg shadow-2xl"
               />
             </div>
           </div>
