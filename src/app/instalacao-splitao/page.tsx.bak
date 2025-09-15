@@ -123,7 +123,7 @@ export default function InstalacaoSplitao() {
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
-
+                priority
               />
             </div>
           </div>
@@ -362,7 +362,7 @@ export default function InstalacaoSplitao() {
                 <span className="text-2xl font-bold text-blue-600">4</span>
               </div>
               <h3 className="text-lg font-semibold mb-3">Testes e Comissionamento</h3>
-              <p className="text-gray-600">Verificação de vazamentos, testes de funcionamento e ajustes finais.</p>
+              <p className="text-gray-600">Verificação de vazamentos, carga de gás, testes de funcionamento e ajustes finos para otimização.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">

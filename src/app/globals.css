@@ -24,3 +24,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Melhorar contraste em dispositivos móveis */
+@media (max-width: 768px) {
+  .text-gray-600 {
+    color: #374151 !important; /* Mais escuro que o padrão #6b7280 */
+  }
+  
+  .text-gray-500 {
+    color: #4b5563 !important; /* Mais escuro que o padrão #9ca3af */
+  }
+  
+  .text-blue-100 {
+    color: #dbeafe !important; /* Melhor contraste em fundos azuis */
+  }
+  
+  /* Garantir que títulos sejam sempre visíveis */
+  h1, h2, h3, h4, h5, h6 {
+    color: #111827 !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Melhorar contraste de parágrafos */
+  p {
+    color: #374151 !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Melhorar visibilidade de listas */
+  li {
+    color: #374151 !important;
+  }
+}
+
+/* Melhorar contraste geral para todos os dispositivos */
+.text-gray-600 {
+  color: #4b5563; /* Mais escuro que o padrão */
+}
+
+.text-gray-500 {
+  color: #6b7280; /* Mais escuro que o padrão */
+}

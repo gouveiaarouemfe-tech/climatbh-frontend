@@ -48,6 +48,7 @@ export default function Home() {
                 height={400}
                 className="rounded-lg shadow-2xl"
                 priority
+
               />
             </div>
           </div>
@@ -65,7 +66,6 @@ export default function Home() {
               Equipe especializada em Climatização comercial e industrial em toda Região Metropolitana focada em sistemas HVAC e contratos PMOC
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* VRF Installation */}
             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
@@ -216,7 +216,6 @@ export default function Home() {
               Por Que Escolher a ClimatBH?
             </h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -264,18 +263,15 @@ export default function Home() {
               <p className="text-lg text-gray-600 mb-6">
                 Há mais de 15 anos no mercado mineiro, somos referência em climatização comercial e industrial na região metropolitana de BH.
               </p>
-              
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 Especialistas em Climatização comercial
               </h3>
               <p className="text-gray-600 mb-6">
                 Fundada em 2009, a ClimatBH nasceu com o objetivo de oferecer soluções completas em climatização comercial e industrial para empresas de todos os portes em BH e região. Nossa experiência abrange desde pequenos estabelecimentos comerciais até gigantes complexos industriais.
               </p>
-              
               <p className="text-gray-600 mb-8">
                 Ao longo dos anos, desenvolvemos expertise em sistemas VRF, sistemas Chillers e Splitões e contratos PMOC, sempre priorizando a eficiência energética, a qualidade do ar e a satisfação dos nossos clientes.
               </p>
-
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Excelência Técnica</h4>
@@ -348,23 +344,22 @@ export default function Home() {
               Resultados consistentes em todos os nossos projetos
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">500+</div>
               <div className="text-lg font-semibold text-gray-900">Projetos Concluídos</div>
             </div>
             <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">15+</div>
+              <div className="text-lg font-semibold text-gray-900">Anos de Experiência</div>
+            </div>
+            <div className="text-center">
               <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">98%</div>
               <div className="text-lg font-semibold text-gray-900">Satisfação dos Clientes</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">40%</div>
-              <div className="text-lg font-semibold text-gray-900">Economia Média de Energia</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">24h</div>
-              <div className="text-lg font-semibold text-gray-900">Suporte Técnico</div>
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-lg font-semibold text-gray-900">Suporte de Emergência</div>
             </div>
           </div>
         </div>
@@ -377,192 +372,24 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Principais Regiões Atendidas BH e Região
             </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Belo Horizonte</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>Centro</li>
-                <li>Savassi</li>
-                <li>Funcionários</li>
-                <li>Pampulha</li>
-                <li>Barreiro</li>
-              </ul>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Contagem</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>Centro</li>
-                <li>Eldorado</li>
-                <li>Industrial</li>
-                <li>Ressaca</li>
-                <li>Petrolândia</li>
-              </ul>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Nova Lima</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>Centro</li>
-                <li>Vila da Serra</li>
-                <li>Alphaville</li>
-                <li>Vale do Sereno</li>
-                <li>Jardim Canadá</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-lg text-gray-600">
-              Atendemos outras regiões! Entre em contato para verificar disponibilidade na sua localidade.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Perguntas Frequentes sobre a ClimatBH
-            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tire suas dúvidas sobre nossos serviços de climatização em BH
+              Atendemos toda a região metropolitana de Belo Horizonte com agilidade e eficiência
             </p>
           </div>
-
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Quais serviços a ClimatBH oferece?
-              </h3>
-              <p className="text-gray-600">
-                Oferecemos instalação e manutenção de sistemas VRF, Chiller, Splitão, além de contratos PMOC para garantir a qualidade do ar e conformidade legal em ambientes comerciais e industriais em Belo Horizonte e região.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Qual a área de atendimento da ClimatBH?
-              </h3>
-              <p className="text-gray-600">
-                Atendemos toda a região metropolitana de Belo Horizonte, incluindo cidades como Contagem, Nova Lima, Betim, e outras.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Vocês oferecem atendimento de emergência?
-              </h3>
-              <p className="text-gray-600">
-                Sim, temos atendimento de emergência 24 horas por dia, 7 dias por semana, para garantir que seus sistemas de climatização estejam sempre funcionando.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Qual a experiência da ClimatBH no mercado?
-              </h3>
-              <p className="text-gray-600">
-                Contamos com mais de 15 anos de experiência no mercado de climatização comercial e industrial, sendo referência em excelência técnica e satisfação do cliente.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Como posso solicitar um orçamento?
-              </h3>
-              <p className="text-gray-600">
-                Você pode solicitar um orçamento ligando para (31) 99535-2139, enviando uma mensagem via WhatsApp para o mesmo número, ou preenchendo o formulário em nossa página de contato.
-              </p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+            <div className="bg-gray-100 p-4 rounded-lg">Centro</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Savassi</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Lourdes</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Buritis</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Pampulha</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Contagem</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Nova Lima</div>
+            <div className="bg-gray-100 p-4 rounded-lg">Betim</div>
           </div>
         </div>
       </section>
-
-
-      {/* Numbers Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Números que Comprovam Nossa Excelência
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Resultados consistentes em todos os nossos projetos
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-5xl font-bold text-blue-600">500+</p>
-              <p className="text-lg text-gray-600">Projetos Concluídos</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-blue-600">98%</p>
-              <p className="text-lg text-gray-600">Satisfação dos Clientes</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-blue-600">40%</p>
-              <p className="text-lg text-gray-600">Economia Média de Energia</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-blue-600">24h</p>
-              <p className="text-lg text-gray-600">Suporte Técnico</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Regions Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Principais Regiões Atendidas BH e Região
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Belo Horizonte</h3>
-              <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>Centro</li>
-                <li>Savassi</li>
-                <li>Funcionários</li>
-                <li>Pampulha</li>
-                <li>Barreiro</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Contagem</h3>
-              <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>Centro</li>
-                <li>Eldorado</li>
-                <li>Industrial</li>
-                <li>Ressaca</li>
-                <li>Petrolândia</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Nova Lima</h3>
-              <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>Centro</li>
-                <li>Vila da Serra</li>
-                <li>Alphaville</li>
-                <li>Vale do Sereno</li>
-                <li>Jardim Canadá</li>
-              </ul>
-            </div>
-          </div>
-          <p className="text-center text-lg text-gray-600 mt-12">
-            Atendemos outras regiões! Entre em contato para verificar disponibilidade na sua localidade.
-          </p>
-        </div>
-      </section>
-
-      {/* End of new content */}
-
-
-
     </div>
   );
 }
+
 

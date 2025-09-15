@@ -123,7 +123,7 @@ export default function ManutencaoChiller() {
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
-                priority
+
               />
             </div>
           </div>

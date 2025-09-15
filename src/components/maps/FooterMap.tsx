@@ -21,7 +21,7 @@ export default function FooterMap() {
 
       // Carregar script do Google Maps se não estiver carregado
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWTgaN2KKlqZg&libraries=places&callback=initFooterMap`;
+      script.src = `https://maps.googleapis.com/maps/api/js?libraries=places&callback=initFooterMap`;
       script.async = true;
       script.defer = true;
       script.onerror = () => {

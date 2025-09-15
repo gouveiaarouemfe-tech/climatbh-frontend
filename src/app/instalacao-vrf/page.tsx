@@ -104,7 +104,7 @@ export default function InstalacaoVRF() {
                 width={400}
                 height={200}
                 className="rounded-lg shadow-2xl w-full h-48 object-cover"
-                priority
+
               />
             </div>
           </div>
@@ -364,46 +364,6 @@ export default function InstalacaoVRF() {
         </div>
       </section>
 
-      {/* Why Choose VRF Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Por que Escolhor Sistema VRF/VRV para sua Empresa em BH?
-          </h2>
-          <p className="text-lg text-gray-600 mb-6">
-            A instalação de sistemas VRF (Variable Refrigerant Flow) representa uma revolução na climatização comercial e industrial. Em Belo Horizonte, onde as variações climáticas exigem soluções eficientes, o VRF se destaca como a tecnologia mais avançada disponível no mercado.
-          </p>
-
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">
-            Tecnologia Inverter Avançada
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Os sistemas VRF utilizam tecnologia inverter de última geração, que ajusta automaticamente a velocidade do compressor conforme a demanda térmica. Isso resulta em economia significativa de energia, especialmente em cargas parciais, que representam a maior parte do tempo operacional em edifícios comerciais.
-          </p>
-
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">
-            Flexibilidade Operacional Incomparável
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Uma das principais vantagens do VRF é sua capacidade de fornecer aquecimento e refrigeração simultâneos em diferentes zonas do mesmo sistema. Isso é particularmente útil em edifícios com orientações solares distintas ou com cargas térmicas variadas, como hospitais, hotéis e centros comerciais.
-          </p>
-
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">
-            Instalação Simplificada e Econômica
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Comparado aos sistemas tradicionais de água gelada, o VRF requer menos espaço para instalação, não necessita de casa de máquinas complexas e utiliza tubulação frigorígena de menor diâmetro. Isso reduz significativamente os custos de instalação e o tempo de obra.
-          </p>
-
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">
-            Controle Inteligente e Conectividade
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Os sistemas VRF modernos oferecem controles inteligentes com conectividade Wi-Fi, permitindo monitoramento e controle remoto através de aplicativos móveis. Isso facilita a manutenção preventiva e permite ajustes operacionais em tempo real para otimização energética.
-          </p>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section id="orcamento" className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -422,10 +382,12 @@ export default function InstalacaoVRF() {
               <span>Ligar Agora: (31) 99535-2139</span>
             </a>
             <a
-              href="mailto:contato@climatbh.com.br"
+              href="https://wa.me/5531995352139?text=Olá! Gostaria de um orçamento para instalação de VRF."
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
             >
-              Enviar E-mail
+              Solicitar Orçamento via WhatsApp
             </a>
           </div>
         </div>

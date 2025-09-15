@@ -100,7 +100,7 @@ export default function ManutencaoSplitao() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Manutenção de Splitão em BH: Assistência Técnica Especializada
+                Manutenção de Splitão em Belo Horizonte e Região: Assistência Técnica Especializada 24h em Climatização comercial
               </h1>
               <p className="text-xl mb-8 text-blue-100">
                 Manutenção preventiva e corretiva para sistemas splitão em Belo Horizonte. 

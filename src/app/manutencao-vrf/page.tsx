@@ -123,7 +123,7 @@ export default function ManutencaoVRF() {
                 width={400}
                 height={200}
                 className="rounded-lg shadow-2xl w-full h-48 object-cover"
-                priority
+
               />
             </div>
           </div>
@@ -269,10 +269,10 @@ export default function ManutencaoVRF() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nosso Processo de Manutenção VRF
+              Nosso Processo de Manutenção de VRF em BH
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Metodologia técnica especializada para garantir máxima eficiência e durabilidade do seu sistema VRF
+              Nossa metodologia técnica especializada para garantir máxima eficiência e durabilidade do seu sistema VRF em BH
             </p>
           </div>
 
@@ -489,42 +489,6 @@ export default function ManutencaoVRF() {
                 <li>• Relatório técnico completo</li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Regular Maintenance is Essential */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Por que a Manutenção Regular de VRF é Essencial?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A manutenção regular permite identificar e corrigir problemas antes que se tornem falhas graves, assegurando desempenho constante, conforto térmico contínuo e operação econômica do sistema. Além disso, uma manutenção bem feita contribui para a segurança dos equipamentos, reduz o consumo de energia e minimiza custos com reparos emergenciais, protegendo o investimento do cliente a longo prazo.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Manutenção Preventiva vs. Corretiva</h3>
-              <p className="text-gray-600">A manutenção preventiva de sistemas VRF envolve inspeções regulares, limpeza de componentes, verificação de pressões e temperaturas, e substituição de peças de desgaste antes que falhem. Isso contrasta com a manutenção corretiva, que ocorre após a falha do equipamento, resultando em custos mais altos e tempo de inatividade.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Benefícios da Manutenção Regular</h3>
-              <p className="text-gray-600">Sistemas VRF bem mantidos operam com eficiência energética até 30% superior aos negligenciados. A manutenção regular também reduz significativamente o risco de falhas inesperadas, que podem resultar em custos de reparo elevados e perda de produtividade em ambientes comerciais e industriais.</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Tecnologia de Diagnóstico Avançada</h3>
-              <p className="text-gray-600">Utilizamos equipamentos de diagnóstico de última geração para monitorar o desempenho dos sistemas VRF. Isso inclui análise de vibração, termografia infravermelha, medição de pressões e temperaturas, e verificação de parâmetros elétricos para identificar problemas potenciais antes que se tornem críticos.</p>
-            </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <h3 className="text-xl font-semibold mb-3 text-gray-900">Planos de Manutenção Personalizados</h3>
-            <p className="text-gray-600 max-w-3xl mx-auto">Oferecemos Planos de Manutenção Personalizados Cada sistema VRF apresenta características únicas, dependendo do ambiente de instalação, padrão de uso e condições operacionais, Trabalhamos com as amirores marcas do mercado VRF Daikin, VRF LG , VRF Hitachi, VRF Midea etc.</p>
           </div>
         </div>
       </section>
