@@ -121,8 +121,9 @@ export default function ManutencaoVRF() {
                 src="/images/manutençãodeVRFBH.jpeg"
                 alt="Manutenção de Sistema VRF em BH - ClimatBH"
                 width={600}
-                height={400}
-                className="rounded-lg shadow-2xl"
+                height={300}
+                className="rounded-lg shadow-2xl object-cover"
+                style={{ height: '300px' }}
               />
             </div>
           </div>
@@ -187,8 +188,9 @@ export default function ManutencaoVRF() {
                 src="/images/oqueeVRF.jpeg"
                 alt="Técnico realizando manutenção em sistema VRF"
                 width={600}
-                height={500}
-                className="rounded-lg shadow-lg"
+                height={350}
+                className="rounded-lg shadow-lg object-cover"
+                style={{ height: '350px' }}
               />
             </div>
           </div>

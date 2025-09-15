@@ -102,8 +102,9 @@ export default function InstalacaoVRF() {
                 src="/images/instalaçãodeVRF.jpeg"
                 alt="Instalação de Sistema VRF em BH - ClimatBH"
                 width={600}
-                height={400}
-                className="rounded-lg shadow-2xl"
+                height={300}
+                className="rounded-lg shadow-2xl object-cover"
+                style={{ height: '300px' }}
               />
             </div>
           </div>
@@ -165,8 +166,9 @@ export default function InstalacaoVRF() {
                 src="/images/oqueeVRF.jpeg"
                 alt="Sistema VRF - Como funciona"
                 width={600}
-                height={500}
-                className="rounded-lg shadow-lg"
+                height={350}
+                className="rounded-lg shadow-lg object-cover"
+                style={{ height: '350px' }}
               />
             </div>
           </div>

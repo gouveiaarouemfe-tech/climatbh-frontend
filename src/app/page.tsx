@@ -42,7 +42,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <Image
-                src="/images/ClimatBH-hero.jpg"
+                src="/images/VRFDAIKIN.png"
                 alt="ClimatBH - Climatização Comercial e Industrial em BH"
                 width={600}
                 height={400}
@@ -54,31 +54,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Emergency CTA */}
-      <section className="py-12 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">
-            🚨 Atendimento 24h para Emergências de Climatização
-          </h2>
-          <p className="text-lg mb-6">
-            Problemas com seu sistema de climatização? Nossa equipe está disponível 24 horas para atendimento de emergência!
-          </p>
-          <a
-            href="tel:+5531995352139"
-            className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2"
-          >
-            <Phone className="h-5 w-5" />
-            <span>Emergência 24h: (31) 99535-2139</span>
-          </a>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section id="servicos" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nossos Serviços Especializados em Climatização BH
+              Nossos Serviços Especializados de Climatização em BH
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Soluções completas em climatização comercial e industrial para Belo Horizonte e região metropolitana
@@ -112,7 +93,7 @@ export default function Home() {
             <Link href="/instalacao-chiller" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/instalação-chiller-BH.jpg"
+                  src="/images/KlYqqoaOdgqI.jpg"
                   alt="Instalação de Chiller em BH"
                   width={400}
                   height={250}
@@ -181,7 +162,7 @@ export default function Home() {
             <Link href="/manutencao-chiller" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/manutenção-chiller-BH.jpg"
+                  src="/images/2BDeBTIuBd5v.jpg"
                   alt="Manutenção de Chiller em BH"
                   width={400}
                   height={250}
@@ -204,7 +185,7 @@ export default function Home() {
             <Link href="/manutencao-splitao" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/manutençãosplitão.jpg"
+                  src="/images/ManutençãoSpliãoBH.webp"
                   alt="Manutenção de Splitão em BH"
                   width={400}
                   height={250}
@@ -280,6 +261,25 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Emergency CTA */}
+      <section className="py-12 bg-red-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            🚨 Atendimento 24h para Emergências de Climatização
+          </h2>
+          <p className="text-lg mb-6">
+            Problemas com seu sistema de climatização? Nossa equipe está disponível 24 horas para atendimento de emergência!
+          </p>
+          <a
+            href="tel:+5531995352139"
+            className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center space-x-2"
+          >
+            <Phone className="h-5 w-5" />
+            <span>Emergência 24h: (31) 99535-2139</span>
+          </a>
         </div>
       </section>
 
