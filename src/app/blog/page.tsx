@@ -1,15 +1,9 @@
 
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { GetServerSideProps } from 'next';
 import { Metadata } from 'next';
 
-// Metadata for SEO (can be defined here or in layout.tsx for client components)
-// For client components, metadata is usually handled in the layout or a parent server component.
-// If this component is client-side, the metadata defined here might not be picked up by Next.js correctly for SSR.
-// We'll keep it here for now, but be aware of this potential issue.
 export const metadata: Metadata = {
   title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
   description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
@@ -62,61 +56,12 @@ interface Post {
   };
 }
 
-export default function BlogPage() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+interface BlogPageProps {
+  posts: Post[];
+  error: string | null;
+}
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
-        const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
-
-        if (!strapiApiUrl || !strapiApiToken) {
-          throw new Error('Configuração do Strapi não encontrada (URL ou Token)');
-        }
-
-        const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
-        
-        console.log('CLIENT-SIDE: Fazendo requisição para:', url);
-        console.log('CLIENT-SIDE: Token existe:', !!strapiApiToken);
-
-        const res = await fetch(url, {
-          headers: {
-            Authorization: `Bearer ${strapiApiToken}`,
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (!res.ok) {
-          const errorText = await res.text();
-          throw new Error(`Erro ao buscar posts: ${res.status} ${res.statusText} - ${errorText}`);
-        }
-
-        const data = await res.json();
-        console.log('CLIENT-SIDE: Posts recebidos:', data.data?.length || 0);
-        setPosts(data.data || []);
-      } catch (err: any) {
-        console.error('CLIENT-SIDE: Erro ao buscar posts:', err);
-        setError(err.message || 'Ocorreu um erro ao carregar os posts.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <h1 className="text-4xl font-bold text-center mb-12">Nosso Blog</h1>
-        <p className="text-gray-600 text-lg">Carregando posts...</p>
-      </div>
-    );
-  }
-
+export default function BlogPage({ posts, error }: BlogPageProps) {
   if (error) {
     return (
       <div className="container mx-auto px-4 py-8 text-center">
@@ -194,5 +139,51 @@ export default function BlogPage() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<BlogPageProps> = async () => {
+  try {
+    const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+    const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
+
+    if (!strapiApiUrl || !strapiApiToken) {
+      throw new Error('Configuração do Strapi não encontrada (URL ou Token)');
+    }
+
+    const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
+    
+    console.log('SERVER-SIDE: Fazendo requisição para:', url);
+    console.log('SERVER-SIDE: Token existe:', !!strapiApiToken);
+
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${strapiApiToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`Erro ao buscar posts: ${res.status} ${res.statusText} - ${errorText}`);
+    }
+
+    const data = await res.json();
+    console.log('SERVER-SIDE: Posts recebidos:', data.data?.length || 0);
+
+    return {
+      props: {
+        posts: data.data || [],
+        error: null,
+      },
+    };
+  } catch (err: any) {
+    console.error('SERVER-SIDE: Erro ao buscar posts:', err);
+    return {
+      props: {
+        posts: [],
+        error: err.message || 'Ocorreu um erro ao carregar os posts.',
+      },
+    };
+  }
+};
 
 
