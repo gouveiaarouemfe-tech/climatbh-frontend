@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, CheckCircle, ArrowRight, Thermometer, Zap, Shield, Clock, Award, User } from 'lucide-react';
+import { Phone, CheckCircle, ArrowRight, Thermometer, Zap, Shield, Clock, Award, User, Wrench } from 'lucide-react';
 import { generateMetadata } from '@/components/seo/SEOHead';
 import StructuredData from '@/components/seo/StructuredData';
 import FAQStructuredData from '@/components/seo/FAQStructuredData';
