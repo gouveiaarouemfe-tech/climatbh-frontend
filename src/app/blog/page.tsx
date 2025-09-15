@@ -57,7 +57,6 @@ interface Post {
 }
 
 async function getPosts() {
-  // Acessando as variáveis de ambiente diretamente aqui, pois esta função é executada no servidor
   const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
   const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 
