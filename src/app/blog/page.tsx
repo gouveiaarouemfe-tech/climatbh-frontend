@@ -1,5 +1,36 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+// Definindo os metadados para a página do blog
+export const metadata: Metadata = {
+  title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
+  description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
+  keywords: ['blog climatização', 'notícias ar condicionado', 'dicas VRF', 'manutenção chiller', 'PMOC'],
+  openGraph: {
+    title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
+    description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
+    url: 'https://climatbh-site-frontend.onrender.com/blog',
+    siteName: 'ClimatBH',
+    images: [
+      {
+        url: 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png', // Substitua pela URL da sua imagem de capa do blog
+        width: 800,
+        height: 600,
+        alt: 'Blog ClimatBH',
+      },
+    ],
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
+    description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
+    images: ['https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png'], // Substitua pela URL da sua imagem de capa do blog
+  },
+};
 
 interface Post {
   id: number;
@@ -11,34 +42,39 @@ interface Post {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    featured_image?: Array<{
-      id: number;
-      attributes: {
-        url: string;
-        alternativeText?: string;
-        width: number;
-        height: number;
-      };
-    }>;
+    featured_image?: {
+      data: Array<{
+        id: number;
+        attributes: {
+          url: string;
+          alternativeText?: string;
+          width: number;
+          height: number;
+        };
+      }>;
+    };
   };
 }
 
 async function getPosts() {
-  const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?populate=*`;
-  const token = process.env.NEXT_PUBLIC_API_TOKEN;
+  // Acessando as variáveis de ambiente diretamente aqui, pois esta função é executada no servidor
+  const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+  const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
+
+  const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
 
   console.log('Fazendo requisição para:', url);
-  console.log('Token existe:', !!token);
+  console.log('Token existe:', !!strapiApiToken);
 
-  if (!token || !process.env.NEXT_PUBLIC_STRAPI_API_URL) {
-    console.error('Configuração do Strapi não encontrada');
+  if (!strapiApiToken || !strapiApiUrl) {
+    console.error('Configuração do Strapi não encontrada (URL ou Token)');
     return { data: [] };
   }
 
   try {
     const res = await fetch(url, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${strapiApiToken}`,
         'Content-Type': 'application/json',
       },
       next: { revalidate: 60 },
@@ -73,13 +109,12 @@ export default async function BlogPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts && Array.isArray(posts) && posts.length > 0 ? (
           posts.map((post: Post) => {
-            // Verificação robusta de dados
             if (!post || !post.attributes || !post.attributes.slug || !post.attributes.title) {
               console.warn('Post inválido encontrado:', post);
               return null;
             }
             
-            const featuredImage = post.attributes.featured_image?.[0];
+            const featuredImage = post.attributes.featured_image?.data?.[0];
             
             return (
               <Link 
@@ -135,4 +170,5 @@ export default async function BlogPage() {
     </div>
   );
 }
+
 
