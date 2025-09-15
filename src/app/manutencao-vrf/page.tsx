@@ -120,9 +120,9 @@ export default function ManutencaoVRF() {
               <Image
                 src="/images/manutençãodeVRFBH.jpeg"
                 alt="Manutenção de Sistema VRF em BH - ClimatBH"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl"
+                width={400}
+                height={200}
+                className="rounded-lg shadow-2xl w-full h-48 object-cover"
                 priority
               />
             </div>
@@ -136,10 +136,13 @@ export default function ManutencaoVRF() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Por Que Manter seu Sistema VRF?
+                Por que a Manutenção VRF é Essencial?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Sistemas VRF são investimentos significativos que requerem manutenção especializada para manter sua eficiência, confiabilidade e vida útil. A manutenção adequada garante conforto térmico constante e economia de energia.
+                Os sistemas de ar condicionado VRF são investimentos de alto valor e exigem manutenção especializada para garantir eficiência energética, prolongar sua vida útil e evitar falhas que possam gerar prejuízos operacionais ao seu sistema.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                Nossa equipe técnica certificada realiza serviços preventivos e corretivos de VRF em BH com foco em otimizar o desempenho do SEU sistema, reduzir custos de operação e assegurar que a climatização funcione de forma contínua e confiável em todos os ambientes assegurando saúde de seus colaboradores.
               </p>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -266,10 +269,10 @@ export default function ManutencaoVRF() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Processo de Manutenção VRF
+              Nosso Processo de Manutenção VRF
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Metodologia técnica especializada para garantir máxima eficiência do seu sistema VRF
+              Metodologia técnica especializada para garantir máxima eficiência e durabilidade do seu sistema VRF
             </p>
           </div>
 
@@ -278,34 +281,61 @@ export default function ManutencaoVRF() {
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Inspeção Visual</h3>
-              <p className="text-gray-600">Verificação geral do estado das unidades internas e externas</p>
+              <h3 className="text-lg font-semibold mb-3">Inspeção e Diagnóstico</h3>
+              <p className="text-gray-600">Realizamos uma inspeção detalhada para identificar quaisquer anomalias e diagnosticar problemas potenciais.</p>
             </div>
 
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Limpeza Técnica</h3>
-              <p className="text-gray-600">Limpeza especializada de filtros, serpentinas e componentes</p>
+              <h3 className="text-lg font-semibold mb-3">Limpeza e Higienização</h3>
+              <p className="text-gray-600">Limpeza profunda de filtros, serpentinas e bandejas, eliminando fungos, bactérias e poeira para um ar mais puro.</p>
             </div>
 
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">3</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Testes Operacionais</h3>
-              <p className="text-gray-600">Verificação de pressões, temperaturas e funcionamento dos controles</p>
+              <h3 className="text-lg font-semibold mb-3">Ajustes e Calibração</h3>
+              <p className="text-gray-600">Verificação e ajuste de pressões, temperaturas, componentes elétricos e eletrônicos para otimizar o desempenho.</p>
             </div>
 
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">4</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Relatório Final</h3>
-              <p className="text-gray-600">Entrega de relatório técnico com recomendações e próximas ações</p>
+              <h3 className="text-lg font-semibold mb-3">Testes Finais e Relatório</h3>
+              <p className="text-gray-600">Testes de funcionamento completo e entrega de relatório técnico com recomendações para a saúde do seu sistema.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-blue-600 text-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Mantenha seu Sistema VRF Funcionando Perfeitamente
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Não espere por problemas! Agende agora a manutenção do seu sistema VRF e garanta eficiência, economia e funcionamento contínuo.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contrato-pmoc"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200"
+            >
+              Agendar Manutenção
+            </Link>
+            <a
+              href="tel:+5531995352139"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+            >
+              Ligar Agora
+            </a>
+          </div>
+          <p className="mt-6 text-sm text-blue-200">Atendimento de Emergência 24h: (31) 99535-2139</p>
         </div>
       </section>
 
@@ -419,9 +449,9 @@ export default function ManutencaoVRF() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Cronograma de Manutenção Recomendado
-            </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Checklist de Manutenção VRF em BH
+              </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Frequência ideal para manter seu sistema VRF em perfeito funcionamento
             </p>
@@ -459,6 +489,42 @@ export default function ManutencaoVRF() {
                 <li>• Relatório técnico completo</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Regular Maintenance is Essential */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Por que a Manutenção Regular de VRF é Essencial?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              A manutenção regular permite identificar e corrigir problemas antes que se tornem falhas graves, assegurando desempenho constante, conforto térmico contínuo e operação econômica do sistema. Além disso, uma manutenção bem feita contribui para a segurança dos equipamentos, reduz o consumo de energia e minimiza custos com reparos emergenciais, protegendo o investimento do cliente a longo prazo.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Manutenção Preventiva vs. Corretiva</h3>
+              <p className="text-gray-600">A manutenção preventiva de sistemas VRF envolve inspeções regulares, limpeza de componentes, verificação de pressões e temperaturas, e substituição de peças de desgaste antes que falhem. Isso contrasta com a manutenção corretiva, que ocorre após a falha do equipamento, resultando em custos mais altos e tempo de inatividade.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Benefícios da Manutenção Regular</h3>
+              <p className="text-gray-600">Sistemas VRF bem mantidos operam com eficiência energética até 30% superior aos negligenciados. A manutenção regular também reduz significativamente o risco de falhas inesperadas, que podem resultar em custos de reparo elevados e perda de produtividade em ambientes comerciais e industriais.</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Tecnologia de Diagnóstico Avançada</h3>
+              <p className="text-gray-600">Utilizamos equipamentos de diagnóstico de última geração para monitorar o desempenho dos sistemas VRF. Isso inclui análise de vibração, termografia infravermelha, medição de pressões e temperaturas, e verificação de parâmetros elétricos para identificar problemas potenciais antes que se tornem críticos.</p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <h3 className="text-xl font-semibold mb-3 text-gray-900">Planos de Manutenção Personalizados</h3>
+            <p className="text-gray-600 max-w-3xl mx-auto">Oferecemos Planos de Manutenção Personalizados Cada sistema VRF apresenta características únicas, dependendo do ambiente de instalação, padrão de uso e condições operacionais, Trabalhamos com as amirores marcas do mercado VRF Daikin, VRF LG , VRF Hitachi, VRF Midea etc.</p>
           </div>
         </div>
       </section>
@@ -508,6 +574,87 @@ export default function ManutencaoVRF() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Mantenha seu Sistema VRF Funcionando Perfeitamente
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Não espere por problemas! Agende agora a manutenção do seu sistema VRF e garanta eficiência, economia e funcionamento contínuo.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+5531995352139"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+            >
+              <Phone className="h-5 w-5" />
+              <span>Ligar Agora</span>
+            </a>
+            <a
+              href="https://wa.me/5531995352139?text=Olá! Gostaria de agendar manutenção VRF."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+            >
+              Agendar Manutenção
+            </a>
+          </div>
+          <p className="text-blue-100 mt-4">
+            Atendimento de Emergência 24h: (31) 99535-2139
+          </p>
+        </div>
+      </section>
+
+      {/* Why Regular Maintenance Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Por que a Manutenção Regular de VRF é Essencial?
+            </h2>
+          </div>
+
+          <div className="space-y-12">
+            <div>
+              <p className="text-lg text-gray-600 mb-8">
+                A manutenção regular permite identificar e corrigir problemas antes que se tornem falhas graves, assegurando desempenho constante, conforto térmico contínuo e operação econômica do sistema. Além disso, uma manutenção bem feita contribui para a segurança dos equipamentos, reduz o consumo de energia e minimiza custos com reparos emergenciais, protegendo o investimento do cliente a longo prazo.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Manutenção Preventiva vs. Corretiva</h3>
+                <p className="text-gray-600 mb-6">
+                  A manutenção preventiva de sistemas VRF envolve inspeções regulares, limpeza de componentes, verificação de pressões e temperaturas, e substituição de peças de desgaste antes que falhem. Isso contrasta com a manutenção corretiva, que ocorre após a falha do equipamento, resultando em custos mais altos e tempo de inatividade.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Benefícios da Manutenção Regular</h3>
+                <p className="text-gray-600 mb-6">
+                  Sistemas VRF bem mantidos operam com eficiência energética até 30% superior aos negligenciados. A manutenção regular também reduz significativamente o risco de falhas inesperadas, que podem resultar em custos de reparo elevados e perda de produtividade em ambientes comerciais e industriais.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Tecnologia de Diagnóstico Avançada</h3>
+                <p className="text-gray-600 mb-6">
+                  Utilizamos equipamentos de diagnóstico de última geração para monitorar o desempenho dos sistemas VRF. Isso inclui análise de vibração, termografia infravermelha, medição de pressões e temperaturas, e verificação de parâmetros elétricos para identificar problemas potenciais antes que se tornem críticos.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Planos de Manutenção Personalizados</h3>
+                <p className="text-gray-600 mb-6">
+                  Oferecemos Planos de Manutenção Personalizados Cada sistema VRF apresenta características únicas, dependendo do ambiente de instalação, padrão de uso e condições operacionais, Trabalhamos com as amirores marcas do mercado VRF Daikin, VRF LG , VRF Hitachi, VRF Midea etc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -535,100 +682,67 @@ export default function ManutencaoVRF() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contrato" className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Garanta a Eficiência do seu VRF com a ClimatBH
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Não espere seu sistema falhar. Invista em manutenção preventiva e tenha tranquilidade.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+5531995352139"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
-            >
-              <Phone className="h-5 w-5" />
-              <span>Ligar Agora: (31) 99535-2139</span>
-            </a>
-            <a
-              href="https://wa.me/5531995352139?text=Olá! Gostaria de um orçamento para manutenção de VRF."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
-            >
-              Solicitar Orçamento via WhatsApp
-            </a>
+      {/* Outros Serviços de Climatização */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Outros Serviços de Climatização
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link href="/instalacao-vrf" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🏢</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instalação de VRF</h3>
+              <p className="text-gray-600">Sistemas VRF para climatização eficiente e controle individual</p>
+            </Link>
+
+            <Link href="/instalacao-chiller" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">❄️</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instalação de Chiller</h3>
+              <p className="text-gray-600">Chillers industriais para refrigeração de grande porte</p>
+            </Link>
+
+            <Link href="/manutencao-chiller" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">⚙️</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Manutenção de Chiller</h3>
+              <p className="text-gray-600">Assistência técnica especializada para chillers industriais</p>
+            </Link>
+
+            <Link href="/instalacao-splitao" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🌀</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instalação de Splitão</h3>
+              <p className="text-gray-600">Sistemas split de grande capacidade para indústrias</p>
+            </Link>
+
+            <Link href="/manutencao-splitao" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🛠️</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Manutenção de Splitão</h3>
+              <p className="text-gray-600">Manutenção especializada para sistemas split industriais</p>
+            </Link>
+
+            <Link href="/contratos-pmoc" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">📋</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Contratos PMOC</h3>
+              <p className="text-gray-600">Planos de manutenção operação e controle para climatização</p>
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
-}
-
-// Seção de Serviços Relacionados
-function RelatedServices() {
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Serviços Relacionados
-          </h2>
-        </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/instalacao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/instalaçãodeVRF.jpeg"
-                alt="Instalação de VRF"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Instalação de VRF</h3>
-              <p className="text-gray-600 mb-4">Instalação profissional de sistemas VRF</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/manutencao-chiller" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/wywuHOV9kejq.jpg"
-                alt="Manutenção de Chiller"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Manutenção de Chiller</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e corretiva para chillers</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/contratos-pmoc" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/PMOCembh.webp"
-                alt="Contratos PMOC"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Contratos PMOC</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e qualidade do ar</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-    );
 }
 

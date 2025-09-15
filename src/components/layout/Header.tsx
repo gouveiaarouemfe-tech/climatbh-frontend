@@ -28,7 +28,7 @@ export default function Header() {
               Início
             </Link>
             <div className="relative group">
-              <button className="text-gray-700 hover:text-blue-600 transition-colors">
+              <button aria-label="Menu de Serviços" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Serviços
               </button>
               <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
@@ -81,6 +81,7 @@ export default function Header() {
             <button
               onClick={toggleMenu}
               className="text-gray-700 hover:text-blue-600 transition-colors"
+              aria-label="Abrir/Fechar menu de navegação"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

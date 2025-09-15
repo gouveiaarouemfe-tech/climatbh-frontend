@@ -90,6 +90,69 @@ export default function InstalacaoChiller() {
         </div>
       </section>
 
+      {/* Advantages Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Vantagens da Instalação de Chiller Industrial em BH
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Invista em refrigeração de alta performance para sua indústria ou comércio
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🏭</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Alta Capacidade de Refrigeração para Grandes Demandas</h3>
+              <p className="text-gray-600">Capacidade de refrigeração de 50 a 5.000 TR, ideal para grandes edifícios, complexos industriais e aplicações de processo que exigem alta demanda térmica.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🎯</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Controle Preciso de Temperatura para Processos Críticos</h3>
+              <p className="text-gray-600">Precisão de ±0.5°C na temperatura da água gelada, essencial para processos industriais críticos e ambientes que exigem controle rigoroso.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Eficiência Energética e Redução de Custos Operacionais</h3>
+              <p className="text-gray-600">Tecnologia inverter e controles inteligentes proporcionam economia de até 35% no consumo de energia comparado a sistemas convencionais.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🔧</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Flexibilidade Operacional e Confiabilidade Industrial</h3>
+              <p className="text-gray-600">Possibilidade de operação modular, permitindo funcionamento parcial para otimização energética conforme a demanda térmica.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">🛡️</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Confiabilidade Industrial</h3>
+              <p className="text-gray-600">Equipamentos robustos projetados para operação contínua 24/7, com sistemas de backup e redundância para aplicações críticas.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">💰</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Menor Custo Operacional a Longo Prazo</h3>
+              <p className="text-gray-600">Centralização da refrigeração reduz custos de manutenção, operação e permite melhor controle de consumo energético.</p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* What is Chiller Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -220,60 +283,52 @@ export default function InstalacaoChiller() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Processo de Instalação de Chiller
+              Processo de Instalação de Chiller Industrial
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Metodologia técnica especializada para garantir instalação segura e eficiente
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-center">Análise e Projeto</h3>
-              <p className="text-gray-600 text-center">Estudo de carga térmica, dimensionamento e projeto executivo detalhado</p>
+              <h3 className="text-lg font-semibold mb-3">Estudo de Viabilidade e Dimensionamento</h3>
+              <p className="text-gray-600">Análise da carga térmica, estudo de viabilidade técnica e econômica, dimensionamento do chiller e sistemas auxiliares (bombas, torres, tubulações).</p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-center">Preparação da Infraestrutura</h3>
-              <p className="text-gray-600 text-center">Preparação da base, infraestrutura elétrica e hidráulica</p>
+              <h3 className="text-lg font-semibold mb-3">Projeto Executivo Detalhado</h3>
+              <p className="text-gray-600">Elaboração do projeto executivo com especificações técnicas, layout de instalação, memorial de cálculo e cronograma de execução.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">3</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-center">Transporte e Posicionamento</h3>
-              <p className="text-gray-600 text-center">Transporte especializado e posicionamento preciso do equipamento</p>
+              <h3 className="text-lg font-semibold mb-3">Preparação da Infraestrutura</h3>
+              <p className="text-gray-600">Preparação da base de concreto, instalações elétricas, hidráulicas e sistemas de drenagem necessários para o chiller.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">4</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-center">Conexões e Tubulações</h3>
-              <p className="text-gray-600 text-center">Instalação de tubulações de água gelada, condensação e conexões elétricas</p>
+              <h3 className="text-lg font-semibold mb-3">Instalação e Montagem</h3>
+              <p className="text-gray-600">Instalação do chiller, conexões hidráulicas e elétricas, montagem de sistemas auxiliares e integração com automação predial.</p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">5</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-center">Comissionamento</h3>
-              <p className="text-gray-600 text-center">Testes de funcionamento, ajustes e calibração do sistema</p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">6</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-3 text-center">Treinamento e Entrega</h3>
-              <p className="text-gray-600 text-center">Treinamento da equipe operacional e entrega técnica do sistema</p>
+              <h3 className="text-lg font-semibold mb-3">Comissionamento e Start-up</h3>
+              <p className="text-gray-600">Testes de performance, calibração de controles, treinamento da equipe operacional e entrega da documentação técnica.</p>
             </div>
           </div>
         </div>
@@ -404,10 +459,10 @@ export default function InstalacaoChiller() {
       <section id="orcamento" className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Solicite um Orçamento para Instalação de Chiller
+            Precisa de Instalação de Chiller Industrial?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Nossa equipe está pronta para dimensionar e instalar o sistema chiller ideal para sua aplicação industrial
+            Nossa equipe especializada está pronta para dimensionar e instalar o chiller ideal para sua aplicação industrial em Belo Horizonte, Contagem e Nova Lima.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -415,14 +470,68 @@ export default function InstalacaoChiller() {
               className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
             >
               <Phone className="h-5 w-5" />
-              <span>Ligar Agora: (31) 99535-2139</span>
+              <span>Solicitar Orçamento Gratuito</span>
             </a>
             <a
-              href="mailto:contato@climatbh.com.br"
+              href="https://wa.me/5531995352139?text=Olá! Gostaria de consultoria técnica para chiller."
+              target="_blank"
+              rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
             >
-              Enviar E-mail
+              Consultoria Técnica Especializada
             </a>
+          </div>
+          <p className="text-blue-100 mt-4">
+            Atendimento 24h para emergências: (31) 995352139
+          </p>
+        </div>
+      </section>
+
+      {/* Advanced Technology Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Tecnologia Avançada em Chillers Industriais
+            </h2>
+          </div>
+
+          <div className="space-y-12">
+            <div>
+              <p className="text-lg text-gray-600 mb-8">
+                Os chillers industriais representam a solução mais eficiente para refrigeração de grande porte em Belo Horizonte. Estes sistemas são projetados para fornecer água gelada de forma consistente e eficiente para processos industriais, climatização de grandes edifícios e aplicações especializadas que demandam controle preciso de temperatura.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Tipos de Chillers e Aplicações</h3>
+                <p className="text-gray-600 mb-6">
+                  Oferecemos instalação de chillers centrífugos, parafuso e scroll, cada um adequado para diferentes capacidades e aplicações. Chillers centrífugos são ideais para grandes capacidades (acima de 500 TR), enquanto chillers parafuso atendem aplicações médias (50-500 TR) e chillers scroll são perfeitos para aplicações menores com alta eficiência.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Eficiência Energética e Sustentabilidade</h3>
+                <p className="text-gray-600 mb-6">
+                  Os chillers modernos incorporam tecnologias como compressores de velocidade variável, condensadores de alta eficiência e sistemas de controle inteligente que otimizam o consumo energético. Isso resulta em economia de até 40% no consumo de energia comparado a sistemas convencionais, contribuindo significativamente para a sustentabilidade operacional.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Integração com Sistemas de Automação</h3>
+                <p className="text-gray-600 mb-6">
+                  Nossos chillers são integrados com sistemas de automação predial (BMS) permitindo monitoramento remoto, controle preciso de temperatura, programação de horários de funcionamento e diagnóstico preventivo. Esta integração maximiza a eficiência operacional e reduz custos de manutenção.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Redundância e Confiabilidade</h3>
+                <p className="text-gray-600 mb-6">
+                  Para aplicações críticas como hospitais, data centers e processos industriais contínuos, projetamos sistemas com redundância N+1, garantindo que a falha de um chiller não comprometa a operação. Isso inclui sistemas de backup automático e distribuição de carga inteligente entre múltiplas unidades.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -442,145 +551,57 @@ export default function InstalacaoChiller() {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Quanto custa para instalar um chiller industrial?
+                Qual é a capacidade ideal de chiller para minha aplicação?
               </h3>
               <p className="text-gray-600">
-                O custo varia de R$ 150.000 a R$ 800.000 dependendo da capacidade (50 a 500 TR), tipo (parafuso, centrífugo, scroll) e complexidade da instalação. Para projetos específicos, fazemos orçamento detalhado após análise técnica no local.
+                A capacidade ideal depende da carga térmica do ambiente e do processo. Para edifícios comerciais, calculamos cerca de 400-600 BTU/h por m². Para processos industriais, analisamos o calor gerado pelos equipamentos. Nossa equipe realiza cálculo de carga térmica detalhado para dimensionar corretamente o sistema.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Quanto tempo demora para instalar um chiller?
+                Quanto tempo leva para instalar um chiller industrial?
               </h3>
               <p className="text-gray-600">
-                Instalação completa leva de 2 a 6 semanas, incluindo preparação da infraestrutura, montagem, tubulações, conexões elétricas e comissionamento. Projetos maiores podem levar até 3 meses. Fornecemos cronograma detalhado no início.
+                O prazo varia conforme a complexidade: chillers de 50-100 TR levam 2-3 semanas, sistemas de 200-500 TR precisam de 4-6 semanas, e instalações acima de 500 TR podem levar 2-3 meses. Isso inclui preparação da infraestrutura, montagem, tubulações, testes e comissionamento completo.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Chiller consome muita energia elétrica?
+                Chillers consomem muita energia elétrica?
               </h3>
               <p className="text-gray-600">
-                Chillers modernos são muito eficientes. Um chiller de 100 TR consome cerca de 60-80 kW/h, mas pode substituir 20-30 splits que consumiriam 120-150 kW/h. A economia chega a 40% comparado a sistemas convencionais.
+                Chillers modernos são altamente eficientes. Um chiller de 100 TR consome cerca de 60-80 kW, mas substitui múltiplos equipamentos menores que consumiriam 120-150 kW. Com tecnologia inverter e controles inteligentes, a economia energética pode chegar a 40% comparado a sistemas convencionais.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Que tipo de chiller é melhor para minha empresa?
+                É necessário casa de máquinas específica para chiller?
               </h3>
               <p className="text-gray-600">
-                Depende da aplicação: Scroll (até 50 TR) para pequenos comércios, Parafuso (50-500 TR) para indústrias médias, Centrífugo (500+ TR) para grandes edifícios. Analisamos sua demanda para recomendar o ideal.
+                Sim, chillers requerem casa de máquinas com ventilação adequada, acesso para manutenção, base estrutural reforçada e sistemas auxiliares (bombas, torres de resfriamento). Projetamos a casa de máquinas conforme normas técnicas e necessidades específicas do equipamento escolhido.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Precisa de muito espaço para instalar chiller?
+                Qual é a vida útil de um chiller industrial?
               </h3>
               <p className="text-gray-600">
-                Sim, chillers precisam de casa de máquinas adequada com ventilação, acesso para manutenção e base estrutural reforçada. Área mínima de 20-50m² dependendo da capacidade. Fazemos projeto da casa de máquinas se necessário.
+                Com manutenção adequada, chillers industriais têm vida útil de 15-25 anos. Chillers centrífugos podem durar até 30 anos, enquanto sistemas parafuso e scroll têm vida útil de 15-20 anos. A manutenção preventiva regular é fundamental para maximizar a durabilidade e eficiência.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Chiller funciona 24 horas por dia?
+                Vocês fazem retrofit de sistemas antigos?
               </h3>
               <p className="text-gray-600">
-                Sim, chillers são projetados para operação contínua 24/7. Para aplicações críticas como hospitais e data centers, recomendamos sistema redundante (N+1) para garantir funcionamento mesmo durante manutenção.
+                Sim, realizamos retrofit completo de sistemas antigos, incluindo substituição de chillers obsoletos, modernização de controles, upgrade de sistemas auxiliares e integração com automação predial. O retrofit pode resultar em economia de até 50% no consumo energético comparado ao sistema original.
               </p>
             </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Qual a vida útil de um chiller?
-              </h3>
-              <p className="text-gray-600">
-                Com manutenção adequada, chillers duram 15-25 anos. Compressores podem precisar de revisão aos 10-15 anos. Investimento se paga em 5-8 anos através da economia energética e menor custo operacional.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Chiller faz muito barulho?
-              </h3>
-              <p className="text-gray-600">
-                Chillers modernos são relativamente silenciosos (60-75 dB), mas devem ficar em casa de máquinas isolada acusticamente. Modelos com compressor centrífugo são mais silenciosos que parafuso. Fazemos projeto acústico quando necessário.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                E se o chiller quebrar, vocês atendem rápido?
-              </h3>
-              <p className="text-gray-600">
-                Temos atendimento 24h para emergências em chillers. Estoque de peças principais em BH. Contratos de manutenção incluem atendimento prioritário e peças em consignação para reduzir tempo de parada.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Services */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Serviços Relacionados
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/manutencao-chiller" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/wywuHOV9kejq.jpg"
-                alt="Manutenção de Chiller"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Manutenção de Chiller</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e corretiva para sistemas chiller</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/instalacao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/instalaçãodeVRF.jpeg"
-                alt="Instalação de VRF"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Instalação de VRF</h3>
-              <p className="text-gray-600 mb-4">Sistemas VRF para climatização comercial</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/contratos-pmoc" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/PMOCembh.webp"
-                alt="Contratos PMOC"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Contratos PMOC</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e qualidade do ar</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
           </div>
         </div>
       </section>

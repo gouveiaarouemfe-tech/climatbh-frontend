@@ -18,12 +18,14 @@ export default function Footer() {
               <a
                 href="tel:+5531995352139"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
+                aria-label="Ligar para ClimatBH"
               >
                 <Phone className="h-5 w-5" />
               </a>
               <a
                 href="mailto:contato@climatbh.com.br"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
+                aria-label="Enviar e-mail para ClimatBH"
               >
                 <Mail className="h-5 w-5" />
               </a>

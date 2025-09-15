@@ -52,39 +52,39 @@ const serviceStructuredData = {
 const faqData = [
   {
     question: "Com que frequência devo fazer manutenção no splitão?",
-    answer: "Recomendamos manutenção preventiva a cada 6 meses para uso comercial e anual para uso residencial. Em ambientes com muita poeira ou uso intenso, pode ser necessário a cada 3-4 meses."
+    answer: "A frequência ideal para a manutenção de um splitão depende do seu uso e do ambiente. Para ambientes comerciais com uso intenso, recomendamos a manutenção preventiva a cada 3 a 6 meses. Já para uso menos frequente, uma manutenção anual pode ser suficiente. A ClimatBH pode te ajudar a definir o plano ideal."
   },
   {
     question: "Quanto custa a manutenção de splitão em BH?",
-    answer: "Manutenção preventiva custa entre R$ 200 a R$ 500 dependendo da capacidade do splitão. Manutenção corretiva varia conforme o problema. Fazemos orçamento gratuito antes de qualquer reparo."
+    answer: "O custo da manutenção de splitão em Belo Horizonte varia conforme o tipo de serviço (preventiva ou corretiva), a capacidade do equipamento e a complexidade do problema. Oferecemos orçamentos transparentes e sem compromisso após uma avaliação técnica. Entre em contato para saber mais!"
   },
   {
     question: "Vocês atendem emergência de splitão 24 horas?",
-    answer: "Sim, temos atendimento 24h para emergências. Cobramos taxa de urgência fora do horário comercial, mas garantimos atendimento rápido para não prejudicar suas atividades."
+    answer: "Sim, a ClimatBH entende que problemas com climatização podem surgir a qualquer momento. Por isso, oferecemos atendimento de emergência 24 horas para splitão em BH e região. Nossa equipe está pronta para agir rapidamente e minimizar qualquer transtorno."
   },
   {
-    question: "Splitão parou de gelar, qual pode ser o problema?",
-    answer: "Pode ser gás baixo, filtros sujos, problemas no compressor ou sensor de temperatura. Nossa equipe faz diagnóstico completo e explica o problema antes de iniciar qualquer reparo."
+    question: "Meu splitão parou de gelar, qual pode ser o problema?",
+    answer: "Quando um splitão para de gelar, as causas podem ser diversas: falta de gás refrigerante, filtros sujos, problemas no compressor, falha no sensor de temperatura, entre outros. Nossos técnicos especializados realizam um diagnóstico preciso para identificar a raiz do problema e propor a solução mais eficaz."
   },
   {
     question: "Vocês usam peças originais na manutenção?",
-    answer: "Sempre priorizamos peças originais do fabricante. Quando não disponíveis, usamos peças compatíveis de qualidade equivalente com garantia. Informamos sempre qual tipo de peça será usada."
+    answer: "Priorizamos sempre o uso de peças originais e de alta qualidade em todas as manutenções de splitão. Caso uma peça original não esteja disponível, utilizamos componentes compatíveis que atendam aos mais altos padrões de desempenho e durabilidade, sempre com garantia."
   },
   {
     question: "Splitão fazendo barulho estranho, é grave?",
-    answer: "Barulhos podem indicar problemas no compressor, ventilador ou falta de lubrificação. Recomendamos desligar o equipamento e chamar técnico imediatamente para evitar danos maiores."
+    answer: "Barulhos incomuns no splitão podem ser um sinal de alerta. Eles podem indicar problemas no motor do ventilador, no compressor, desalinhamento de componentes ou falta de lubrificação. É fundamental que um técnico avalie a situação o quanto antes para evitar danos maiores e mais caros."
   },
   {
     question: "Qual a garantia da manutenção de splitão?",
-    answer: "Oferecemos 90 dias de garantia para manutenção preventiva e 6 meses para reparos com troca de peças. Se o mesmo problema voltar no período, retornamos sem custo adicional."
+    answer: "A ClimatBH oferece garantia em todos os serviços de manutenção de splitão. A duração da garantia pode variar conforme o tipo de serviço e as peças substituídas, mas sempre garantimos a qualidade do nosso trabalho e a sua tranquilidade."
   },
   {
     question: "Splitão consome muita energia após manutenção?",
-    answer: "Após manutenção adequada, o consumo deve normalizar. Se continuar alto, pode indicar problemas no compressor ou necessidade de recarga de gás. Verificamos isso durante o serviço."
+    answer: "Após uma manutenção adequada, o consumo de energia do seu splitão deve normalizar e até mesmo diminuir, devido à otimização do sistema. Se o consumo continuar alto, pode ser um indicativo de que há algo errado, e uma nova avaliação técnica é recomendada."
   },
   {
     question: "Fazem limpeza completa do splitão?",
-    answer: "Sim, nossa manutenção inclui limpeza completa: filtros, serpentinas, dreno, gabinete interno e externo. Usamos produtos específicos que não danificam os componentes."
+    answer: "Sim, nossa manutenção inclui uma limpeza completa e profunda do splitão, abrangendo filtros, serpentinas, bandejas de dreno, ventiladores e gabinetes. Utilizamos produtos específicos que garantem a higienização e a eliminação de fungos e bactérias, melhorando a qualidade do ar."
   }
 ];
 
@@ -192,7 +192,7 @@ export default function ManutencaoSplitao() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Vantagens da Manutenção Regular de Splitão
             </h2>
           </div>
@@ -207,7 +207,7 @@ export default function ManutencaoSplitao() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Economia de Energia</h3>
                     <p className="text-gray-600">
-                      Splitão bem mantido consome até 30% menos energia, reduzindo significativamente a conta de luz.
+                      Um splitão bem mantido pode consumir até 30% menos energia, resultando em uma redução significativa na sua conta de luz e contribuindo para a sustentabilidade ambiental.
                     </p>
                   </div>
                 </div>
@@ -217,9 +217,9 @@ export default function ManutencaoSplitao() {
                     <CheckCircle className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Maior Vida Útil</h3>
+                    <h3 className="text-lg font-semibold mb-2">Maior Vida Útil do Equipamento</h3>
                     <p className="text-gray-600">
-                      Manutenção preventiva pode estender a vida útil do equipamento em até 50%.
+                      A manutenção preventiva regular prolonga a vida útil do seu splitão em até 50%, protegendo seu investimento e adiando a necessidade de substituição.
                     </p>
                   </div>
                 </div>
@@ -229,9 +229,9 @@ export default function ManutencaoSplitao() {
                     <CheckCircle className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Melhor Qualidade do Ar</h3>
+                    <h3 className="text-lg font-semibold mb-2">Melhora da Qualidade do Ar</h3>
                     <p className="text-gray-600">
-                      Filtros limpos e sistema higienizado garantem ar mais puro e saudável.
+                      Filtros limpos e um sistema higienizado garantem um ar mais puro, livre de poeira, alérgenos e microrganismos, promovendo um ambiente mais saudável para todos.
                     </p>
                   </div>
                 </div>
@@ -241,9 +241,9 @@ export default function ManutencaoSplitao() {
                     <CheckCircle className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Prevenção de Falhas</h3>
+                    <h3 className="text-lg font-semibold mb-2">Prevenção de Falhas e Quebras</h3>
                     <p className="text-gray-600">
-                      Identificação precoce de problemas evita paradas inesperadas e reparos caros.
+                      A identificação precoce de pequenos problemas evita que se tornem grandes falhas, prevenindo paradas inesperadas do equipamento e reparos emergenciais caros.
                     </p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ export default function ManutencaoSplitao() {
             </div>
             <div>
               <Image
-                src="/images/oque-e-Splitão.jpg"
+                src="/images/ManutençãoSpliãoBH.webp"
                 alt="Manutenção de Splitão - Componentes Internos"
                 width={600}
                 height={500}

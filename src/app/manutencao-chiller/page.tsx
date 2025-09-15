@@ -281,6 +281,60 @@ export default function ManutencaoChiller() {
         </div>
       </section>
 
+      {/* Checklist Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Checklist Completo de Manutenção de Chiller em BH
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Nosso checklist abrange todos os componentes críticos do seu chiller para garantir uma manutenção completa e eficaz.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Sistema de Refrigeração</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Verificação de pressões de sucção e descarga</li>
+                <li>• Análise de temperaturas de evaporação e condensação</li>
+                <li>• Inspeção de vazamentos de refrigerante</li>
+                <li>• Teste de funcionamento de válvulas de expansão</li>
+                <li>• Verificação do nível de óleo do compressor</li>
+                <li>• Análise da qualidade do óleo lubrificante</li>
+                <li>• Inspeção de filtros secadores</li>
+                <li>• Teste de válvulas de segurança</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Sistema Hidráulico</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Limpeza de trocadores de calor</li>
+                <li>• Verificação de vazões de água</li>
+                <li>• Inspeção de bombas e válvulas</li>
+                <li>• Verificação de pressões de água</li>
+                <li>• Limpeza de filtros de água</li>
+                <li>• Análise da qualidade da água</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Sistema Elétrico e de Controle</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Inspeção de contatores e disjuntores</li>
+                <li>• Verificação de tensões e correntes</li>
+                <li>• Teste de sensores e transdutores</li>
+                <li>• Calibração de controles</li>
+                <li>• Verificação de alarmes e seguranças</li>
+                <li>• Atualização de software do controlador</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Maintenance Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -417,6 +471,55 @@ export default function ManutencaoChiller() {
         </div>
       </section>
 
+      {/* Why Maintenance is Essential Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Por que a Manutenção de Chiller é Essencial?
+            </h2>
+          </div>
+
+          <div className="space-y-12">
+            <div>
+              <p className="text-lg text-gray-600 mb-8">
+                A manutenção regular de chillers é fundamental para garantir operação eficiente, confiável e econômica destes sistemas de refrigeração de grande porte. Chillers mal mantidos podem apresentar redução de até 50% na eficiência energética, aumentando significativamente os custos operacionais e o risco de falhas críticas que podem interromper processos industriais ou comprometer o conforto em grandes edifícios.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Impacto da Manutenção na Eficiência Energética</h3>
+                <p className="text-gray-600 mb-6">
+                  Chillers bem mantidos operam com eficiência energética até 40% superior aos negligenciados. A limpeza regular de condensadores e evaporadores, verificação de pressões e temperaturas, e manutenção adequada do compressor são essenciais para manter o COP (Coeficiente de Performance) em níveis ótimos, resultando em economia substancial na conta de energia elétrica.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Prevenção de Falhas Críticas</h3>
+                <p className="text-gray-600 mb-6">
+                  A manutenção preventiva identifica e corrige problemas antes que se tornem falhas graves. Isso inclui monitoramento de vibração, análise de óleo do compressor, verificação de vazamentos de refrigerante e inspeção de componentes elétricos. Esta abordagem proativa reduz drasticamente o risco de paradas não programadas que podem custar milhares de reais em produção perdida.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Extensão da Vida Útil do Equipamento</h3>
+                <p className="text-gray-600 mb-6">
+                  Com manutenção adequada, chillers industriais podem operar eficientemente por 20-25 anos ou mais. Sem manutenção regular, a vida útil pode ser reduzida pela metade. O investimento em manutenção preventiva é significativamente menor que o custo de substituição prematura do equipamento, proporcionando excelente retorno sobre o investimento.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Conformidade com Normas e Regulamentações</h3>
+                <p className="text-gray-600 mb-6">
+                  A manutenção regular garante conformidade com normas técnicas e regulamentações ambientais, especialmente relacionadas ao uso de refrigerantes. Isso inclui verificação de vazamentos, registro de consumo de refrigerante e manutenção de registros técnicos exigidos por órgãos reguladores, evitando multas e problemas legais.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -462,6 +565,38 @@ export default function ManutencaoChiller() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Mantenha seu Chiller Funcionando com Máxima Eficiência
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Não espere por falhas! Agende agora a manutenção do seu chiller e garante operação contínua, economia de energia e vida útil prolongada do seu equipamento.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+5531995352139"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+            >
+              <Phone className="h-5 w-5" />
+              <span>Ligar Agora</span>
+            </a>
+            <a
+              href="https://wa.me/5531995352139?text=Olá! Gostaria de agendar manutenção de chiller."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+            >
+              Agendar Manutenção
+            </a>
+          </div>
+          <p className="text-blue-100 mt-4">
+            Atendimento de Emergência 24h: (31) 99535-2139
+          </p>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -489,100 +624,67 @@ export default function ManutencaoChiller() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contrato" className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Garanta a Confiabilidade do seu Chiller com a ClimatBH
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Não espere uma falha crítica. Invista em manutenção especializada e evite prejuízos.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+5531995352139"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
-            >
-              <Phone className="h-5 w-5" />
-              <span>Ligar Agora: (31) 99535-2139</span>
-            </a>
-            <a
-              href="https://wa.me/5531995352139?text=Olá! Gostaria de um orçamento para manutenção de chiller."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
-            >
-              Solicitar Orçamento via WhatsApp
-            </a>
+      {/* Outros Serviços de Climatização */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Outros Serviços de Climatização
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link href="/instalacao-chiller" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">❄️</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instalação de Chiller</h3>
+              <p className="text-gray-600">Chillers industriais para refrigeração de grande porte</p>
+            </Link>
+
+            <Link href="/instalacao-vrf" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🏢</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instalação de VRF</h3>
+              <p className="text-gray-600">Sistemas VRF para climatização eficiente e controle individual</p>
+            </Link>
+
+            <Link href="/manutencao-vrf" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🔧</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Manutenção de VRF</h3>
+              <p className="text-gray-600">Manutenção especializada para sistemas VRF/VRV</p>
+            </Link>
+
+            <Link href="/instalacao-splitao" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🌀</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Instalação de Splitão</h3>
+              <p className="text-gray-600">Sistemas split de grande capacidade para indústrias</p>
+            </Link>
+
+            <Link href="/manutencao-splitao" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">🛠️</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Manutenção de Splitão</h3>
+              <p className="text-gray-600">Manutenção especializada para sistemas split industriais</p>
+            </Link>
+
+            <Link href="/contratos-pmoc" className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mb-4 flex items-center justify-center">
+                <span className="text-2xl">📋</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Contratos PMOC</h3>
+              <p className="text-gray-600">Planos de manutenção operação e controle para climatização</p>
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
-}
-
-// Seção de Serviços Relacionados
-function RelatedServices() {
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Serviços Relacionados
-          </h2>
-        </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/instalacao-chiller" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/iqGpec6GN4vl.jpg"
-                alt="Instalação de Chiller"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Instalação de Chiller</h3>
-              <p className="text-gray-600 mb-4">Instalação especializada de sistemas chiller industriais</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/manutencao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/manutençãodeVRFBH.jpeg"
-                alt="Manutenção de VRF"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Manutenção de VRF</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e corretiva para sistemas VRF</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-
-            <Link href="/contratos-pmoc" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-              <Image
-                src="/images/PMOCembh.webp"
-                alt="Contratos PMOC"
-                width={400}
-                height={250}
-                className="rounded-lg w-full h-48 object-cover mb-4"
-              />
-              <h3 className="text-xl font-semibold mb-3">Contratos PMOC</h3>
-              <p className="text-gray-600 mb-4">Manutenção preventiva e qualidade do ar</p>
-              <div className="flex items-center text-blue-600 font-medium">
-                <span>Saiba mais</span>
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-    );
 }
 

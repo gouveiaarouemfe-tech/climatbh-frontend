@@ -59,7 +59,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nossos Serviços Especializados em Climatização
+              Nossos Serviços Especializados em Climatização BH
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Equipe especializada em Climatização comercial e industrial em toda Região Metropolitana focada em sistemas HVAC e contratos PMOC
@@ -315,7 +315,7 @@ export default function Home() {
             Entre em Contato e Solicite um Orçamento
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Problemas com seus sistema? Nossa equipe está pronta para ajudar!
+            Problemas com seu sistema de climatização? Nossa equipe está disponível 24 horas por dia para atendimentos emergenciais.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -337,8 +337,91 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Numbers Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Números que Comprovam Nossa Excelência
+            </h2>
+            <p className="text-xl text-gray-600">
+              Resultados consistentes em todos os nossos projetos
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">500+</div>
+              <div className="text-lg font-semibold text-gray-900">Projetos Concluídos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">98%</div>
+              <div className="text-lg font-semibold text-gray-900">Satisfação dos Clientes</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">40%</div>
+              <div className="text-lg font-semibold text-gray-900">Economia Média de Energia</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">24h</div>
+              <div className="text-lg font-semibold text-gray-900">Suporte Técnico</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regions Section */}
       <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Principais Regiões Atendidas BH e Região
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Belo Horizonte</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>Centro</li>
+                <li>Savassi</li>
+                <li>Funcionários</li>
+                <li>Pampulha</li>
+                <li>Barreiro</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Contagem</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>Centro</li>
+                <li>Eldorado</li>
+                <li>Industrial</li>
+                <li>Ressaca</li>
+                <li>Petrolândia</li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Nova Lima</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>Centro</li>
+                <li>Vila da Serra</li>
+                <li>Alphaville</li>
+                <li>Vale do Sereno</li>
+                <li>Jardim Canadá</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-gray-600">
+              Atendemos outras regiões! Entre em contato para verificar disponibilidade na sua localidade.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -393,6 +476,93 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+      {/* Numbers Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Números que Comprovam Nossa Excelência
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Resultados consistentes em todos os nossos projetos
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-5xl font-bold text-blue-600">500+</p>
+              <p className="text-lg text-gray-600">Projetos Concluídos</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold text-blue-600">98%</p>
+              <p className="text-lg text-gray-600">Satisfação dos Clientes</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold text-blue-600">40%</p>
+              <p className="text-lg text-gray-600">Economia Média de Energia</p>
+            </div>
+            <div>
+              <p className="text-5xl font-bold text-blue-600">24h</p>
+              <p className="text-lg text-gray-600">Suporte Técnico</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regions Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Principais Regiões Atendidas BH e Região
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Belo Horizonte</h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>Centro</li>
+                <li>Savassi</li>
+                <li>Funcionários</li>
+                <li>Pampulha</li>
+                <li>Barreiro</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Contagem</h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>Centro</li>
+                <li>Eldorado</li>
+                <li>Industrial</li>
+                <li>Ressaca</li>
+                <li>Petrolândia</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Nova Lima</h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>Centro</li>
+                <li>Vila da Serra</li>
+                <li>Alphaville</li>
+                <li>Vale do Sereno</li>
+                <li>Jardim Canadá</li>
+              </ul>
+            </div>
+          </div>
+          <p className="text-center text-lg text-gray-600 mt-12">
+            Atendemos outras regiões! Entre em contato para verificar disponibilidade na sua localidade.
+          </p>
+        </div>
+      </section>
+
+      {/* End of new content */}
+
+
+
     </div>
   );
 }
+

@@ -101,9 +101,9 @@ export default function InstalacaoVRF() {
               <Image
                 src="/images/instalaçãodeVRF.jpeg"
                 alt="Instalação de Sistema VRF em BH - ClimatBH"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-2xl"
+                width={400}
+                height={200}
+                className="rounded-lg shadow-2xl w-full h-48 object-cover"
                 priority
               />
             </div>
@@ -179,11 +179,8 @@ export default function InstalacaoVRF() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Processo de Instalação VRF Profissional
+              Nosso Processo de Instalação VRF
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Nossa metodologia garante instalação segura, eficiente e com máxima qualidade
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -191,32 +188,40 @@ export default function InstalacaoVRF() {
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Projeto e Dimensionamento</h3>
-              <p className="text-gray-600">Análise técnica completa do ambiente e dimensionamento adequado do sistema</p>
+              <h3 className="text-lg font-semibold mb-3">Análise Técnica e Dimensionamento</h3>
+              <p className="text-gray-600">Realizamos visita técnica para análise do local, cálculo de carga térmica, dimensionamento do sistema e elaboração do projeto executivo detalhado.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Preparação do Local</h3>
-              <p className="text-gray-600">Preparação da infraestrutura elétrica e pontos de instalação</p>
+              <h3 className="text-lg font-semibold mb-3">Planejamento da Instalação</h3>
+              <p className="text-gray-600">Definição do cronograma de instalação, especificação dos equipamentos, planejamento da tubulação e pontos elétricos necessários.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">3</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Instalação dos Equipamentos</h3>
-              <p className="text-gray-600">Montagem das unidades condensadoras e evaporadoras com precisão técnica</p>
+              <h3 className="text-lg font-semibold mb-3">Instalação das Unidades</h3>
+              <p className="text-gray-600">Instalação da condensadora externa, unidades internas, tubulação frigorígena, drenagem e conexões elétricas por equipe especializada.</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">4</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Testes e Comissionamento</h3>
-              <p className="text-gray-600">Testes completos de funcionamento e ajustes finais do sistema</p>
+              <h3 className="text-lg font-semibold mb-3">Comissionamento e Testes</h3>
+              <p className="text-gray-600">Vácuo do sistema, carga de gás refrigerante, testes de funcionamento, calibração dos controles e treinamento da equipe operacional.</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">5</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Entrega e Garantia</h3>
+              <p className="text-gray-600">Entrega do sistema funcionando, documentação técnica completa, manual de operação e início da garantia de instalação.</p>
             </div>
           </div>
         </div>
@@ -227,33 +232,57 @@ export default function InstalacaoVRF() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Vantagens da Instalação VRF com a ClimatBH
+              Vantagens da Instalação de Sistema VRF
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Award className="h-8 w-8 text-blue-600" />
+                <span className="text-2xl font-bold text-blue-600">⚡</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Equipe Certificada</h3>
-              <p className="text-gray-600">Técnicos especializados em sistemas VRF com certificações das principais marcas</p>
+              <h3 className="text-lg font-semibold mb-2">Eficiência Energética Superior</h3>
+              <p className="text-gray-600">Economia de até 40% no consumo de energia comparado a sistemas convencionais, com tecnologia inverter e controle de fluxo variável de refrigerante.</p>
             </div>
 
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Clock className="h-8 w-8 text-blue-600" />
+                <span className="text-2xl font-bold text-blue-600">🎛️</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Instalação Rápida</h3>
-              <p className="text-gray-600">Processo otimizado que minimiza interrupções nas atividades do cliente</p>
+              <h3 className="text-lg font-semibold mb-2">Controle Individual Preciso</h3>
+              <p className="text-gray-600">Cada ambiente pode ter sua temperatura controlada independentemente, proporcionando conforto personalizado e otimização do consumo energético.</p>
             </div>
 
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Wrench className="h-8 w-8 text-blue-600" />
+                <span className="text-2xl font-bold text-blue-600">🔧</span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Garantia Estendida</h3>
-              <p className="text-gray-600">Garantia de instalação e suporte técnico especializado</p>
+              <h3 className="text-lg font-semibold mb-2">Instalação Flexível</h3>
+              <p className="text-gray-600">Sistema modular que permite expansões futuras e adaptação a diferentes layouts arquitetônicos sem grandes modificações estruturais.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">🔇</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Baixo Nível de Ruído</h3>
+              <p className="text-gray-600">Operação silenciosa tanto nas unidades internas quanto externas, ideal para ambientes que exigem baixo ruído operacional.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">🏢</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Ideal para Grandes Edifícios</h3>
+              <p className="text-gray-600">Capacidade de climatizar até 64 ambientes com uma única condensadora, perfeito para edifícios comerciais e industriais de grande porte.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">💰</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Excelente Custo-Benefício</h3>
+              <p className="text-gray-600">Investimento inicial compensado pela economia operacional, menor necessidade de manutenção e maior vida útil do equipamento.</p>
             </div>
           </div>
         </div>
@@ -335,6 +364,46 @@ export default function InstalacaoVRF() {
         </div>
       </section>
 
+      {/* Why Choose VRF Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Por que Escolhor Sistema VRF/VRV para sua Empresa em BH?
+          </h2>
+          <p className="text-lg text-gray-600 mb-6">
+            A instalação de sistemas VRF (Variable Refrigerant Flow) representa uma revolução na climatização comercial e industrial. Em Belo Horizonte, onde as variações climáticas exigem soluções eficientes, o VRF se destaca como a tecnologia mais avançada disponível no mercado.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Tecnologia Inverter Avançada
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Os sistemas VRF utilizam tecnologia inverter de última geração, que ajusta automaticamente a velocidade do compressor conforme a demanda térmica. Isso resulta em economia significativa de energia, especialmente em cargas parciais, que representam a maior parte do tempo operacional em edifícios comerciais.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Flexibilidade Operacional Incomparável
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Uma das principais vantagens do VRF é sua capacidade de fornecer aquecimento e refrigeração simultâneos em diferentes zonas do mesmo sistema. Isso é particularmente útil em edifícios com orientações solares distintas ou com cargas térmicas variadas, como hospitais, hotéis e centros comerciais.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Instalação Simplificada e Econômica
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Comparado aos sistemas tradicionais de água gelada, o VRF requer menos espaço para instalação, não necessita de casa de máquinas complexas e utiliza tubulação frigorígena de menor diâmetro. Isso reduz significativamente os custos de instalação e o tempo de obra.
+          </p>
+
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Controle Inteligente e Conectividade
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Os sistemas VRF modernos oferecem controles inteligentes com conectividade Wi-Fi, permitindo monitoramento e controle remoto através de aplicativos móveis. Isso facilita a manutenção preventiva e permite ajustes operacionais em tempo real para otimização energética.
+          </p>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section id="orcamento" className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -362,6 +431,55 @@ export default function InstalacaoVRF() {
         </div>
       </section>
 
+      {/* Why Choose VRF Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Por que Escolher Sistema VRF/VRV para sua Empresa em BH?
+            </h2>
+          </div>
+
+          <div className="space-y-12">
+            <div>
+              <p className="text-lg text-gray-600 mb-8">
+                A instalação de sistemas VRF (Variable Refrigerant Flow) representa uma revolução na climatização comercial e industrial. Em Belo Horizonte, onde as variações climáticas exigem soluções eficientes, o VRF se destaca como a tecnologia mais avançada disponível no mercado.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Tecnologia Inverter Avançada</h3>
+                <p className="text-gray-600 mb-6">
+                  Os sistemas VRF utilizam tecnologia inverter de última geração, que ajusta automaticamente a velocidade do compressor conforme a demanda térmica. Isso resulta em economia significativa de energia, especialmente em cargas parciais, que representam a maior parte do tempo operacional em edifícios comerciais.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Flexibilidade Operacional Incomparável</h3>
+                <p className="text-gray-600 mb-6">
+                  Uma das principais vantagens do VRF é sua capacidade de fornecer aquecimento e refrigeração simultâneos em diferentes zonas do mesmo sistema. Isso é particularmente útil em edifícios com orientações solares distintas ou com cargas térmicas variadas, como hospitais, hotéis e centros comerciais.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Instalação Simplificada e Econômica</h3>
+                <p className="text-gray-600 mb-6">
+                  Comparado aos sistemas tradicionais de água gelada, o VRF requer menos espaço para instalação, não necessita de casa de máquinas complexas e utiliza tubulação frigorígena de menor diâmetro. Isso reduz significativamente os custos de instalação e o tempo de obra.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Controle Inteligente e Conectividade</h3>
+                <p className="text-gray-600 mb-6">
+                  Os sistemas VRF modernos oferecem controles inteligentes com conectividade Wi-Fi, permitindo monitoramento e controle remoto através de aplicativos móveis. Isso facilita a manutenção preventiva e permite ajustes operacionais em tempo real para otimização energética.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -377,82 +495,55 @@ export default function InstalacaoVRF() {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Quanto custa para instalar um VRF em casa?
+                Qual é o tempo médio para instalação de um sistema VRF?
               </h3>
               <p className="text-gray-600">
-                O custo varia de R$ 25.000 a R$ 60.000 para residências, dependendo do número de ambientes e marca escolhida. Para 3-4 ambientes, fica em torno de R$ 35.000. Fazemos orçamento gratuito com visita técnica para dar o valor exato do seu projeto.
+                O tempo de instalação varia conforme o tamanho do projeto. Para residências de 3-4 ambientes, o prazo é de 3 a 5 dias úteis. Para projetos comerciais maiores, pode levar de 1 a 3 semanas. Nosso cronograma é sempre detalhado e cumprido rigorosamente, minimizando interferências nas atividades do local.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                VRF gasta muita energia? Vale a pena?
+                Quantos ambientes posso climatizar com um sistema VRF?
               </h3>
               <p className="text-gray-600">
-                VRF consome 30-40% menos energia que ar condicionado comum. Uma residência que gastava R$ 800/mês com vários splits passa a gastar cerca de R$ 500/mês com VRF. O investimento se paga em 3-4 anos só com a economia na conta de luz.
+                Um sistema VRF pode climatizar de 2 até 64 ambientes com uma única condensadora externa. Para residências, normalmente atendemos de 3 a 8 ambientes. Em projetos comerciais, já instalamos sistemas para mais de 50 salas. A capacidade depende da potência da condensadora e das necessidades térmicas de cada ambiente.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Precisa quebrar muito a casa para instalar?
+                Qual é a economia de energia real com sistema VRF?
               </h3>
               <p className="text-gray-600">
-                Fazemos furos estratégicos apenas para passagem da tubulação. Em casas prontas, usamos forros, sancas ou canaletas para esconder os tubos. A obra é mínima comparada ao benefício. Em construções novas, é ainda mais simples.
+                Sistemas VRF proporcionam economia de 30% a 50% no consumo de energia comparado a sistemas convencionais. Em projetos que acompanhamos, clientes relatam redução de R$ 800 para R$ 450 na conta mensal. A economia varia conforme padrão de uso, mas o retorno do investimento ocorre entre 3 a 5 anos.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Quanto tempo demora para instalar?
+                O sistema VRF funciona para aquecimento também?
               </h3>
               <p className="text-gray-600">
-                Para residências de 3-4 ambientes: 3-5 dias úteis. Para projetos maiores: 1-2 semanas. Trabalhamos em horário comercial para não incomodar. Deixamos tudo funcionando e testado antes de finalizar.
+                Sim! Sistemas VRF com tecnologia Heat Pump oferecem aquecimento e refrigeração. São ideais para o clima de BH, aquecendo eficientemente no inverno com consumo 70% menor que aquecedores elétricos. Alguns modelos permitem aquecimento e refrigeração simultâneos em ambientes diferentes do mesmo sistema.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                VRF esquenta no inverno também?
+                Qual é a garantia para instalação de sistema VRF?
               </h3>
               <p className="text-gray-600">
-                Sim! VRF com Heat Pump aquece muito bem no inverno de BH. É 3x mais econômico que aquecedor elétrico. Alguns modelos fazem calor e frio ao mesmo tempo em ambientes diferentes - perfeito para famílias com preferências diferentes.
+                Oferecemos 2 anos de garantia na instalação e até 5 anos de garantia nos equipamentos (conforme fabricante). Inclui primeira manutenção gratuita no 6º mês, suporte técnico 24h para emergências e atendimento prioritário durante todo período de garantia. Nossa equipe conhece profundamente os equipamentos instalados.
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                E se der problema, vocês atendem rápido?
+                É possível expandir o sistema VRF no futuro?
               </h3>
               <p className="text-gray-600">
-                Temos atendimento 24h para emergências. Garantia de 2 anos na instalação e 5 anos nos equipamentos. Primeira manutenção grátis no 6º mês. Nossa equipe conhece bem os equipamentos que instalamos.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Qual marca de VRF vocês recomendam?
-              </h3>
-              <p className="text-gray-600">
-                Trabalhamos com Daikin (top de linha), Midea (custo-benefício) e Elgin (nacional). Para residências, Midea oferece ótima qualidade por preço justo. Para projetos comerciais, Daikin é referência mundial. Analisamos seu perfil para recomendar a melhor opção.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                VRF faz muito barulho?
-              </h3>
-              <p className="text-gray-600">
-                VRF é muito silencioso. A unidade externa fica longe dos quartos e as internas são quase imperceptíveis. Muito mais silencioso que split comum. Ideal para quem tem sono leve ou trabalha home office.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Posso controlar cada ambiente separado?
-              </h3>
-              <p className="text-gray-600">
-                Sim! Cada ambiente tem controle individual de temperatura, velocidade do ventilador e direcionamento do ar. Alguns modelos têm controle por app no celular. Cada pessoa pode ajustar seu ambiente como preferir.
+                Sim! Uma das grandes vantagens do VRF é sua modularidade. Podemos adicionar novas unidades internas ou até mesmo condensadoras extras conforme sua necessidade cresce. Sempre dimensionamos pensando em expansões futuras, deixando capacidade reserva e pontos preparados para facilitar ampliações.
               </p>
             </div>
           </div>

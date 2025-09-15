@@ -278,49 +278,99 @@ export default function InstalacaoSplitao() {
         </div>
       </section>
 
-      {/* Installation Process */}
+      {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Processo de Instalação de Splitão
+              Vantagens da Instalação de Splitão em Belo Horizonte e Região
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Metodologia técnica especializada para garantir instalação segura e eficiente
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl font-bold text-blue-600">1</span>
+                <span className="text-2xl font-bold text-blue-600">🏭</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Análise do Local</h3>
-              <p className="text-gray-600">Estudo detalhado do ambiente, carga térmica e pontos de instalação</p>
+              <h3 className="text-lg font-semibold mb-2">Ideal para Galpões, Auditórios e Grandes Lojas</h3>
+              <p className="text-gray-600">Perfeito para galpões industriais, auditórios, ginásios e espaços comerciais amplos que necessitam de climatização eficiente e uniforme.</p>
             </div>
 
             <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">💰</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Custo-Benefício e Instalação Rápida</h3>
+              <p className="text-gray-600">Menor custo de instalação comparado a sistemas centrais, com eficiência energética superior aos aparelhos de janela tradicionais.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">⚡</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Instalação Rápida</h3>
+              <p className="text-gray-600">Instalação mais rápida que sistemas centralizados, com menor impacto na estrutura do edifício e início de operação imediato.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">🌡️</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Controle Preciso e Manutenção Simplificada</h3>
+              <p className="text-gray-600">Controle individual de temperatura com termostato digital, permitindo ajustes precisos conforme a necessidade do ambiente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Installation Process */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Nosso Processo de Instalação de Splitão
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">1</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Análise e Projeto</h3>
+              <p className="text-gray-600">Avaliação detalhada do ambiente, cálculo de carga térmica e elaboração do projeto de instalação.</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">2</span>
               </div>
               <h3 className="text-lg font-semibold mb-3">Preparação da Infraestrutura</h3>
-              <p className="text-gray-600">Preparação elétrica, estrutural e pontos de fixação</p>
+              <p className="text-gray-600">Instalação de tubulações, drenos, fiação elétrica e suportes para as unidades.</p>
             </div>
 
-            <div className="text-center">
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">3</span>
               </div>
-              <h3 className="text-lg font-semibold mb-3">Instalação dos Equipamentos</h3>
-              <p className="text-gray-600">Montagem das unidades interna e externa com precisão técnica</p>
+              <h3 className="text-lg font-semibold mb-3">Montagem dos Equipamentos</h3>
+              <p className="text-gray-600">Fixação das unidades interna e externa, conexão das tubulações e cabos elétricos.</p>
             </div>
 
-            <div className="text-center">
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
               <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl font-bold text-blue-600">4</span>
               </div>
               <h3 className="text-lg font-semibold mb-3">Testes e Comissionamento</h3>
-              <p className="text-gray-600">Testes completos de funcionamento e ajustes finais</p>
+              <p className="text-gray-600">Verificação de vazamentos, carga de gás, testes de funcionamento e ajustes finos para otimização.</p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl font-bold text-blue-600">5</span>
+              </div>
+              <h3 className="text-lg font-semibold mb-3">Entrega e Orientação</h3>
+              <p className="text-gray-600">Entrega do sistema em pleno funcionamento e orientação sobre o uso e manutenção.</p>
             </div>
           </div>
         </div>

@@ -24,6 +24,17 @@ export default function FooterMap() {
       script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWTgaN2KKlqZg&libraries=places&callback=initFooterMap`;
       script.async = true;
       script.defer = true;
+      script.onerror = () => {
+        console.error('Erro ao carregar Google Maps');
+        // Fallback: mostrar mapa estático ou mensagem
+        if (mapRef.current) {
+          mapRef.current.innerHTML = `
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+              <p class="text-gray-600">Mapa de Belo Horizonte - Área de Atendimento ClimatBH</p>
+            </div>
+          `;
+        }
+      };
       
       // Definir callback global
       (window as any).initFooterMap = initMap;
