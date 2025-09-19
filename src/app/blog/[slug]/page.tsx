@@ -1,30 +1,29 @@
-
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { Metadata } from 'next';
 
+// Interface atualizada para Strapi v5 - campos diretamente no objeto
 interface Post {
   id: number;
-  attributes: {
-    title: string;
-    slug: string;
-    content: string;
-    seo_description?: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    featured_image?: {
-      data: Array<{
-        id: number;
-        attributes: {
-          url: string;
-          alternativeText?: string;
-          width: number;
-          height: number;
-        };
-      }>;
-    };
+  documentId: string;
+  title: string;
+  slug: string;
+  content: string;
+  seo_title?: string;
+  seo_description?: string;
+  image_alt?: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  featured_image?: {
+    id: number;
+    documentId: string;
+    name: string;
+    alternativeText?: string;
+    url: string;
+    width: number;
+    height: number;
   };
 }
 
@@ -74,35 +73,35 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const featuredImage = post.attributes.featured_image?.data?.[0];
-  const imageUrl = featuredImage ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.attributes.url}` : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png';
+  const featuredImage = post.featured_image;
+  const imageUrl = featuredImage ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}` : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png';
 
   return {
-    title: post.attributes.title,
-    description: post.attributes.seo_description || post.attributes.content.substring(0, 160).replace(/[#*]/g, '') + '...', // Limita a descrição para SEO
-    keywords: [post.attributes.title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'], // Adicione mais palavras-chave relevantes
+    title: post.seo_title || post.title,
+    description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...',
+    keywords: [post.title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
     openGraph: {
-      title: post.attributes.title,
-      description: post.attributes.seo_description || post.attributes.content.substring(0, 160).replace(/[#*]/g, '') + '...', 
-      url: `https://climatbh-site-frontend.onrender.com/blog/${post.attributes.slug}`,
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+      url: `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
       siteName: 'ClimatBH',
       images: [
         {
           url: imageUrl,
-          width: featuredImage?.attributes?.width || 800,
-          height: featuredImage?.attributes?.height || 600,
-          alt: featuredImage?.attributes?.alternativeText || post.attributes.title,
+          width: featuredImage?.width || 800,
+          height: featuredImage?.height || 600,
+          alt: featuredImage?.alternativeText || post.image_alt || post.title,
         },
       ],
       locale: 'pt_BR',
       type: 'article',
-      publishedTime: post.attributes.publishedAt,
-      modifiedTime: post.attributes.updatedAt,
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.attributes.title,
-      description: post.attributes.seo_description || post.attributes.content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', 
       images: [imageUrl],
     },
   };
@@ -132,7 +131,7 @@ export async function generateStaticParams() {
     }
 
     return posts.data.map((post: Post) => ({
-      slug: post.attributes.slug,
+      slug: post.slug,
     }));
   } catch (error) {
     console.error('Erro ao gerar static params para posts:', error);
@@ -148,32 +147,76 @@ export default async function PostPage({ params }: { params: { slug: string } })
     notFound();
   }
 
-  const featuredImage = post.attributes.featured_image?.data?.[0];
+  const featuredImage = post.featured_image;
 
   return (
-    <article className="container mx-auto px-4 py-8 max-w-3xl">
-      <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.attributes.title}</h1>
-      <p className="text-gray-600 text-sm mb-6">
-        Publicado em: {new Date(post.attributes.publishedAt).toLocaleDateString('pt-BR')}
-      </p>
+    <div className="min-h-screen bg-gray-50">
+      <article className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          {featuredImage?.url && (
+            <div className="relative w-full h-80 md:h-96">
+              <Image
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}`}
+                alt={featuredImage.alternativeText || post.image_alt || post.title}
+                fill
+                style={{ objectFit: 'cover' }}
+                className="rounded-t-lg"
+              />
+            </div>
+          )}
+          
+          <div className="p-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+              {post.title}
+            </h1>
+            
+            <div className="flex items-center text-gray-600 text-sm mb-8 pb-4 border-b border-gray-200">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Publicado em: {new Date(post.publishedAt).toLocaleDateString('pt-BR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </div>
 
-      {featuredImage?.attributes?.url && (
-        <div className="relative w-full h-80 mb-8 rounded-lg overflow-hidden shadow-md">
-          <Image
-            src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.attributes.url}`}
-            alt={featuredImage.attributes.alternativeText || post.attributes.title}
-            fill
-            style={{ objectFit: 'cover' }}
-            className="rounded-lg"
-          />
+            <div className="prose prose-lg prose-blue max-w-none text-gray-800 leading-relaxed">
+              <ReactMarkdown
+                components={{
+                  h1: ({ children }) => <h1 className="text-2xl font-bold mt-8 mb-4 text-blue-800">{children}</h1>,
+                  h2: ({ children }) => <h2 className="text-xl font-semibold mt-6 mb-3 text-blue-700">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-lg font-medium mt-4 mb-2 text-blue-600">{children}</h3>,
+                  p: ({ children }) => <p className="mb-4 text-gray-700 leading-relaxed">{children}</p>,
+                  ul: ({ children }) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
+                  ol: ({ children }) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
+                  li: ({ children }) => <li className="text-gray-700">{children}</li>,
+                  blockquote: ({ children }) => (
+                    <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-4 bg-blue-50 italic text-gray-700">
+                      {children}
+                    </blockquote>
+                  ),
+                  strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
+                }}
+              >
+                {post.content}
+              </ReactMarkdown>
+            </div>
+          </div>
         </div>
-      )}
-
-      <div className="prose prose-blue max-w-none text-gray-800 leading-relaxed">
-        <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
-      </div>
-    </article>
+        
+        <div className="mt-8 text-center">
+          <a
+            href="/blog"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Voltar ao Blog
+          </a>
+        </div>
+      </article>
+    </div>
   );
 }
-
-

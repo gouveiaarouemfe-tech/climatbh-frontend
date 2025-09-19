@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
     siteName: 'ClimatBH',
     images: [
       {
-        url: 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png', // Substitua pela URL da sua imagem de capa do blog
+        url: 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
         width: 800,
         height: 600,
         alt: 'Blog ClimatBH',
@@ -27,31 +26,31 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
     description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
-    images: ['https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png'], // Substitua pela URL da sua imagem de capa do blog
+    images: ['https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png'],
   },
 };
 
+// Interface atualizada para Strapi v5 - campos diretamente no objeto
 interface Post {
   id: number;
-  attributes: {
-    title: string;
-    slug: string;
-    content: string;
-    seo_description?: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    featured_image?: {
-      data: Array<{
-        id: number;
-        attributes: {
-          url: string;
-          alternativeText?: string;
-          width: number;
-          height: number;
-        };
-      }>;
-    };
+  documentId: string;
+  title: string;
+  slug: string;
+  content: string;
+  seo_title?: string;
+  seo_description?: string;
+  image_alt?: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  featured_image?: {
+    id: number;
+    documentId: string;
+    name: string;
+    alternativeText?: string;
+    url: string;
+    width: number;
+    height: number;
   };
 }
 
@@ -103,21 +102,80 @@ export default async function BlogPage() {
 
   if (error) {
     return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <h1 className="text-4xl font-bold text-center mb-12">Nosso Blog</h1>
-        <p className="text-red-600 text-lg">Erro: {error}</p>
-        <p className="text-gray-500 text-sm">Por favor, tente novamente mais tarde.</p>
+      <div className="min-h-screen bg-gray-50">
+        <div className="container mx-auto px-4 py-8 text-center">
+          <h1 className="text-4xl font-bold text-center mb-12 text-blue-800">Blog ClimatBH</h1>
+          <p className="text-red-600 text-lg">Erro: {error}</p>
+          <p className="text-gray-500 text-sm">Por favor, tente novamente mais tarde.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-12">Nosso Blog</h1>
-      <p>Blog está funcionando! Posts recebidos:</p>
-      <pre>{JSON.stringify(posts, null, 2)}</pre>
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-center mb-12 text-blue-800">
+          Blog ClimatBH
+        </h1>
+        <p className="text-xl text-center mb-12 text-gray-600">
+          Fique por dentro das últimas notícias e dicas sobre climatização
+        </p>
+
+        {posts.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-xl text-gray-600 mb-4">
+              Nenhum post encontrado no momento.
+            </p>
+            <p className="text-gray-500">
+              Volte em breve para conferir nossos conteúdos!
+            </p>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post: Post) => (
+              <article
+                key={post.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
+                {post.featured_image && (
+                  <div className="relative h-48">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${post.featured_image.url}`}
+                      alt={post.featured_image.alternativeText || post.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {post.seo_description || 
+                     post.content.replace(/[#*]/g, '').substring(0, 150) + '...'}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                    >
+                      Ler mais
+                      <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                    <span className="text-sm text-gray-500">
+                      {new Date(post.publishedAt).toLocaleDateString('pt-BR')}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
-
-
