@@ -29,7 +29,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
           ),
           strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
           img: ({ node, ...props }) => {
-            const markdownImageUrl = typeof props.src === 'string' ? getImageUrl({ attributes: { url: props.src } } as any) : '';
+                        const markdownImageUrl = typeof props.src === 'string' ? getImageUrl({ attributes: { url: props.src } } as { attributes: { url: string } }) : '';
             return (
               <Image
                 src={markdownImageUrl}
