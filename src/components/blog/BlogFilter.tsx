@@ -12,8 +12,8 @@ export default function BlogFilter({ posts, onFilteredPosts }: BlogFilterProps) 
 
   useEffect(() => {
     const filtered = posts.filter(post =>
-      post.attributes.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.attributes.content.toLowerCase().includes(searchTerm.toLowerCase())
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.content.toLowerCase().includes(searchTerm.toLowerCase())
     );
     onFilteredPosts(filtered);
   }, [searchTerm, posts, onFilteredPosts]);
