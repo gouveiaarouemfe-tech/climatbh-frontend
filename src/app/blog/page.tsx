@@ -10,33 +10,7 @@ import { getPosts, getImageUrl, Post } from '@/lib/strapi'; // Importando Post e
 import BlogFilter from '@/components/blog/BlogFilter';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
-export const metadata: Metadata = {
-  title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
-  description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
-  keywords: ['blog climatização', 'notícias ar condicionado', 'dicas VRF', 'manutenção chiller', 'PMOC'],
-  openGraph: {
-    title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
-    description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
-    url: 'https://climatbh-site-frontend.onrender.com/blog',
-    siteName: 'ClimatBH',
-    images: [
-      {
-        url: 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
-        width: 800,
-        height: 600,
-        alt: 'Blog ClimatBH',
-      },
-    ],
-    locale: 'pt_BR',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
-    description: 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
-    images: ['https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png'],
-  },
-};
+
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
