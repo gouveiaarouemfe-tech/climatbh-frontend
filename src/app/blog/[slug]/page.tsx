@@ -4,17 +4,18 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic'; // Importando dynamic
+// import dynamic from 'next/dynamic'; // Removendo importação dynamic daqui
 
 import { getPostBySlug, getPosts, getImageUrl, Post } from '@/lib/strapi';
 import Breadcrumb from '@/components/blog/Breadcrumb';
 // import SocialShare from '@/components/blog/SocialShare'; // Removendo importação estática
+import ClientSocialShare from '@/components/blog/ClientSocialShare'; // Importando o novo componente wrapper
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import PostNavigation from '@/components/blog/PostNavigation';
 import ArticleStructuredData from '@/components/seo/ArticleStructuredData';
 
-// Importando SocialShare dinamicamente para evitar problemas de hidratação
-const DynamicSocialShare = dynamic(() => import('@/components/blog/SocialShare'), { ssr: false });
+// Removendo a importação dinâmica de SocialShare daqui
+// const DynamicSocialShare = dynamic(() => import('@/components/blog/SocialShare'), { ssr: false });
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = params;
@@ -175,7 +176,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
             </div>
           </div>
           
-          <DynamicSocialShare // Usando o componente dinâmico
+          <ClientSocialShare // Usando o novo componente wrapper
             title={title}
             url={postUrl}
             description={seo_description}
