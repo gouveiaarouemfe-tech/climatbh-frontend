@@ -3,15 +3,13 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Importando o componente Image do Next.js
-import dynamic from 'next/dynamic'; // Importando dynamic
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import { getPosts, getImageUrl, Post } from '@/lib/strapi';
-import FormattedDate from '@/components/common/FormattedDate'; // Importando Post e getImageUrl
-// import BlogFilter from '@/components/blog/BlogFilter'; // Removendo importação estática
+import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
-// Importando BlogFilter dinamicamente para evitar problemas de hidratação
 const DynamicBlogFilter = dynamic(() => import('@/components/blog/BlogFilter'), { ssr: false });
 
 export default function BlogPage() {
@@ -58,7 +56,7 @@ export default function BlogPage() {
             Fique por dentro das últimas notícias e dicas sobre climatização
           </p>
 
-          <DynamicBlogFilter // Usando o componente dinâmico
+          <DynamicBlogFilter
             posts={posts}
             onFilteredPosts={setFilteredPosts}
           />
@@ -75,7 +73,6 @@ export default function BlogPage() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post: Post) => {
-                // Acessando os atributos do post
                 const { title, slug, seo_description, content, publishedAt, image_alt, featured_image } = post;
 
                 if (!title || !slug || !content) {
@@ -83,7 +80,6 @@ export default function BlogPage() {
                   return null;
                 }
 
-                // Acessando a imagem destacada através de featured_image?.[0]
                 const featuredImage = featured_image?.[0];
                 const imageUrl = getImageUrl(featuredImage);
 
