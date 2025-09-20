@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { Metadata } from 'next';
 
-// Interface atualizada para Strapi v5 - campos diretamente no objeto
+// Interface atualizada baseada na estrutura real dos dados
 interface Post {
   id: number;
   documentId: string;
@@ -16,7 +16,7 @@ interface Post {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  featured_image?: {
+  featured_image?: Array<{
     id: number;
     documentId: string;
     name: string;
@@ -24,14 +24,14 @@ interface Post {
     url: string;
     width: number;
     height: number;
-  };
+  }>;
 }
 
 async function getPost(slug: string) {
   const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
   const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
 
-  const url = `${strapiApiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=featured_image`;
+  const url = `${strapiApiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
 
   if (!strapiApiToken || !strapiApiUrl) {
     console.error('Configuração do Strapi não encontrada (URL ou Token)');
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const featuredImage = post.featured_image;
+  const featuredImage = post.featured_image && post.featured_image.length > 0 ? post.featured_image[0] : null;
   const imageUrl = featuredImage ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}` : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png';
 
   return {
@@ -147,7 +147,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     notFound();
   }
 
-  const featuredImage = post.featured_image;
+  const featuredImage = post.featured_image && post.featured_image.length > 0 ? post.featured_image[0] : null;
 
   return (
     <div className="min-h-screen bg-gray-50">

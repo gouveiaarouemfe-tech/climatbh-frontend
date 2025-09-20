@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Interface atualizada para Strapi v5 - campos diretamente no objeto
+// Interface atualizada baseada na estrutura real dos dados
 interface Post {
   id: number;
   documentId: string;
@@ -43,7 +43,7 @@ interface Post {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  featured_image?: {
+  featured_image?: Array<{
     id: number;
     documentId: string;
     name: string;
@@ -51,7 +51,7 @@ interface Post {
     url: string;
     width: number;
     height: number;
-  };
+  }>;
 }
 
 async function getPosts() {
@@ -67,10 +67,12 @@ async function getPosts() {
     return { posts: [], error: 'Configuração do Strapi não encontrada.' };
   }
 
-  const url = `${strapiApiUrl}/api/posts?populate=featured_image`;
+  const url = `${strapiApiUrl}/api/posts?populate=*`;
 
   try {
     console.log('SERVER-SIDE: Fazendo requisição para:', url);
+    console.log('SERVER-SIDE: Token existe:', !!strapiApiToken);
+    
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${strapiApiToken}`,
@@ -79,7 +81,7 @@ async function getPosts() {
       next: { revalidate: 60 }, // Revalidate every 60 seconds
     });
 
-    console.log('SERVER-SIDE: Resposta da requisição - Status:', res.status, res.statusText);
+    console.log('SERVER-SIDE: Status da resposta:', res.status);
 
     if (!res.ok) {
       const errorText = await res.text();
@@ -88,7 +90,22 @@ async function getPosts() {
     }
 
     const data = await res.json();
-    console.log('SERVER-SIDE: Posts recebidos:', data.data?.length || 0);
+    console.log('SERVER-SIDE: Postagens recebidas:', data.data?.length || 0);
+    console.log('SERVER-SIDE: Postagens no componente:', data.data?.length || 0);
+
+    // Log detalhado para debug
+    if (data.data && data.data.length > 0) {
+      data.data.forEach((post: any, index: number) => {
+        console.log(`SERVER-SIDE: Post ${index + 1}:`, {
+          id: post.id,
+          title: post.title,
+          slug: post.slug,
+          hasContent: !!post.content,
+          hasFeaturedImage: !!post.featured_image,
+          featuredImageLength: post.featured_image?.length || 0
+        });
+      });
+    }
 
     return { posts: data.data || [], error: null };
   } catch (err: any) {
@@ -133,46 +150,56 @@ export default async function BlogPage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post: Post) => (
-              <article
-                key={post.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-              >
-                {post.featured_image && (
-                  <div className="relative h-48">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${post.featured_image.url}`}
-                      alt={post.featured_image.alternativeText || post.title}
-                      fill
-                      className="object-cover"
-                    />
+            {posts.map((post: Post) => {
+              // Validação básica do post
+              if (!post.title || !post.slug || !post.content) {
+                console.log('SERVER-SIDE: Post inválido encontrado:', post);
+                return null;
+              }
+
+              const featuredImage = post.featured_image && post.featured_image.length > 0 ? post.featured_image[0] : null;
+
+              return (
+                <article
+                  key={post.id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                >
+                  {featuredImage && (
+                    <div className="relative h-48">
+                      <Image
+                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}`}
+                        alt={featuredImage.alternativeText || post.image_alt || post.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {post.seo_description || 
+                       post.content.replace(/[#*]/g, '').substring(0, 150) + '...'}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                      >
+                        Ler mais
+                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                      <span className="text-sm text-gray-500">
+                        {new Date(post.publishedAt).toLocaleDateString('pt-BR')}
+                      </span>
+                    </div>
                   </div>
-                )}
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {post.seo_description || 
-                     post.content.replace(/[#*]/g, '').substring(0, 150) + '...'}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
-                    >
-                      Ler mais
-                      <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                    <span className="text-sm text-gray-500">
-                      {new Date(post.publishedAt).toLocaleDateString('pt-BR')}
-                    </span>
-                  </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         )}
       </div>
