@@ -9,11 +9,11 @@ interface BlogStructuredDataProps {
 export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
   const blogPostingSchema = posts.map(post => ({
     '@type': 'BlogPosting',
-    'headline': post.attributes.title,
-    'image': post.attributes.featured_image?.data ? getImageUrl(post.attributes.featured_image.data) : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
-    'url': `https://climatbh-site-frontend.onrender.com/blog/${post.attributes.slug}`,
-    'datePublished': post.attributes.publishedAt,
-    'dateModified': post.attributes.updatedAt,
+    'headline': post.title,
+    'image': post.featured_image?.[0] ? getImageUrl(post.featured_image[0]) : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
+    'url': `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
+    'datePublished': post.publishedAt,
+    'dateModified': post.updatedAt,
     'author': {
       '@type': 'Person',
       'name': 'ClimatBH',
@@ -26,10 +26,10 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
         'url': 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
       },
     },
-    'description': post.attributes.seo_description || post.attributes.content.substring(0, 160).replace(/[#*]/g, '') + '...',
+    'description': post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...',
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://climatbh-site-frontend.onrender.com/blog/${post.attributes.slug}`,
+      '@id': `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
     },
   }));
 
