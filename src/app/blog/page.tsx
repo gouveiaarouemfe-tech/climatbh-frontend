@@ -4,13 +4,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image'; // Importando o componente Image do Next.js
-import { Metadata } from 'next';
+import dynamic from 'next/dynamic'; // Importando dynamic
 
 import { getPosts, getImageUrl, Post } from '@/lib/strapi'; // Importando Post e getImageUrl
-import BlogFilter from '@/components/blog/BlogFilter';
+// import BlogFilter from '@/components/blog/BlogFilter'; // Removendo importação estática
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
-
+// Importando BlogFilter dinamicamente para evitar problemas de hidratação
+const DynamicBlogFilter = dynamic(() => import('@/components/blog/BlogFilter'), { ssr: false });
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -56,7 +57,7 @@ export default function BlogPage() {
             Fique por dentro das últimas notícias e dicas sobre climatização
           </p>
 
-          <BlogFilter 
+          <DynamicBlogFilter // Usando o componente dinâmico
             posts={posts}
             onFilteredPosts={setFilteredPosts}
           />
