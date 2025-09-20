@@ -8,7 +8,7 @@ interface ArticleStructuredDataProps {
 }
 
 export default function ArticleStructuredData({ post, imageUrl }: ArticleStructuredDataProps) {
-  const { title, content, publishedAt, updatedAt, seo_description, slug } = post.attributes;
+  const { title, content, publishedAt, updatedAt, seo_description, slug } = post;
 
   const articleSchema = {
     '@context': 'https://schema.org',
