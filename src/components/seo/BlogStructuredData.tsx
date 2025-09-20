@@ -1,6 +1,6 @@
 
 import Script from 'next/script';
-import { Post } from '@/lib/strapi';
+import { Post, getImageUrl } from '@/lib/strapi';
 
 interface BlogStructuredDataProps {
   posts: Post[];
@@ -60,17 +60,4 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
   );
 }
 
-// Helper function to get image URL (assuming it's available in the context or imported)
-// This needs to be imported or defined if not available globally
-function getImageUrl(image: any): string {
-  if (!image || !image.attributes || !image.attributes.url) {
-    return 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
-  }
-  const url = image.attributes.url;
-  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//')) {
-    return url;
-  }
-  // Assuming API_URL is available globally or passed as prop if needed
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${url}`;
-}
 
