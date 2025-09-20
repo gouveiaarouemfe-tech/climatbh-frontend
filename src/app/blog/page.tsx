@@ -95,7 +95,7 @@ async function getPosts() {
 
     // Log detalhado para debug
     if (data.data && data.data.length > 0) {
-      data.data.forEach((post: any, index: number) => {
+      data.data.forEach((post: Post, index: number) => {
         console.log(`SERVER-SIDE: Post ${index + 1}:`, {
           id: post.id,
           title: post.title,
