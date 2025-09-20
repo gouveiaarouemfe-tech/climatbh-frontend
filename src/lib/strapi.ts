@@ -142,17 +142,24 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
   let url = image.attributes.url;
 
   // Se um formato específico foi solicitado e existe, usa a URL desse formato
-  if (format && image.attributes.formats && image.attributes.formats[format]  ) {
+  if (format && image.attributes.formats && image.attributes.formats[format]) {
     url = image.attributes.formats[format]!.url;
   }
 
   // Se a URL já for completa (ex: Cloudinary), retorna diretamente
-  if (url.startsWith('http://'  ) || url.startsWith('https://'  ) || url.startsWith('//')) {
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//')) {
     return url;
   }
 
   // Se a URL for relativa (ex: /uploads/...), adiciona a URL base da API
-  return `${API_URL}${url}`;
+  // Garante que API_URL não seja undefined antes de usar
+  if (API_URL) {
+    return `${API_URL}${url}`;
+  } else {
+    console.warn('API_URL não está definida. Retornando URL relativa para imagem.');
+    return url; // Retorna a URL relativa se API_URL não estiver definida
+  }
 };
 
 export default strapiApi;
+
