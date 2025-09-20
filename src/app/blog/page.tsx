@@ -6,7 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image'; // Importando o componente Image do Next.js
 import dynamic from 'next/dynamic'; // Importando dynamic
 
-import { getPosts, getImageUrl, Post } from '@/lib/strapi'; // Importando Post e getImageUrl
+import { getPosts, getImageUrl, Post } from '@/lib/strapi';
+import FormattedDate from '@/components/common/FormattedDate'; // Importando Post e getImageUrl
 // import BlogFilter from '@/components/blog/BlogFilter'; // Removendo importação estática
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
@@ -119,7 +120,7 @@ export default function BlogPage() {
                           </svg>
                         </Link>
                         <span className="text-sm text-gray-500">
-                          {new Date(post.attributes.publishedAt).toLocaleDateString("pt-BR")}
+                          <FormattedDate dateString={post.attributes.publishedAt} />
                         </span>
                       </div>
                     </div>
