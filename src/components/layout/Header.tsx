@@ -48,6 +48,9 @@ export default function Header() {
                   <Link href="/instalacao-splitao" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                     Instalação de Splitão
                   </Link>
+                  <Link href="/manutencao-splitao" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Manutenção de Splitão
+                  </Link>
                   <Link href="/contratos-pmoc" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                     Contratos PMOC
                   </Link>
@@ -136,6 +139,13 @@ export default function Header() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Instalação de Splitão
+                  </Link>
+                  <Link
+                    href="/manutencao-splitao"
+                    className="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Manutenção de Splitão
                   </Link>
                   <Link
                     href="/contratos-pmoc"

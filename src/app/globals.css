@@ -39,10 +39,30 @@ body {
     color: #dbeafe !important; /* Melhor contraste em fundos azuis */
   }
   
-  /* Garantir que títulos sejam sempre visíveis */
-  h1, h2, h3, h4, h5, h6 {
+  /* Garantir que títulos em fundos claros sejam escuros */
+  .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white h6,
+  .bg-gray-50 h1, .bg-gray-50 h2, .bg-gray-50 h3, .bg-gray-50 h4, .bg-gray-50 h5, .bg-gray-50 h6,
+  .bg-gray-100 h1, .bg-gray-100 h2, .bg-gray-100 h3, .bg-gray-100 h4, .bg-gray-100 h5, .bg-gray-100 h6 {
     color: #111827 !important;
     font-weight: 600 !important;
+  }
+  
+  /* Garantir que títulos em fundos escuros sejam brancos */
+  .bg-blue-600 h1, .bg-blue-600 h2, .bg-blue-600 h3, .bg-blue-600 h4, .bg-blue-600 h5, .bg-blue-600 h6,
+  .bg-blue-700 h1, .bg-blue-700 h2, .bg-blue-700 h3, .bg-blue-700 h4, .bg-blue-700 h5, .bg-blue-700 h6,
+  .bg-blue-800 h1, .bg-blue-800 h2, .bg-blue-800 h3, .bg-blue-800 h4, .bg-blue-800 h5, .bg-blue-800 h6,
+  .bg-blue-900 h1, .bg-blue-900 h2, .bg-blue-900 h3, .bg-blue-900 h4, .bg-blue-900 h5, .bg-blue-900 h6,
+  .bg-red-600 h1, .bg-red-600 h2, .bg-red-600 h3, .bg-red-600 h4, .bg-red-600 h5, .bg-red-600 h6,
+  .bg-red-700 h1, .bg-red-700 h2, .bg-red-700 h3, .bg-red-700 h4, .bg-red-700 h5, .bg-red-700 h6,
+  .bg-red-800 h1, .bg-red-800 h2, .bg-red-800 h3, .bg-red-800 h4, .bg-red-800 h5, .bg-red-800 h6,
+  .bg-red-900 h1, .bg-red-900 h2, .bg-red-900 h3, .bg-red-900 h4, .bg-red-900 h5, .bg-red-900 h6,
+  .bg-gray-700 h1, .bg-gray-700 h2, .bg-gray-700 h3, .bg-gray-700 h4, .bg-gray-700 h5, .bg-gray-700 h6,
+  .bg-gray-800 h1, .bg-gray-800 h2, .bg-gray-800 h3, .bg-gray-800 h4, .bg-gray-800 h5, .bg-gray-800 h6,
+  .bg-gray-900 h1, .bg-gray-900 h2, .bg-gray-900 h3, .bg-gray-900 h4, .bg-gray-900 h5, .bg-gray-900 h6,
+  .bg-black h1, .bg-black h2, .bg-black h3, .bg-black h4, .bg-black h5, .bg-black h6 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 700 !important;
   }
   
   /* Melhorar contraste de parágrafos */
