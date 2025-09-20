@@ -43,7 +43,7 @@ export default function Home() {
             <div className="relative">
               <Image
                 src="/images/VRFDAIKIN.png"
-                alt="ClimatBH - Climatização Comercial e Industrial em BH"
+                alt="Sistema VRF Daikin para climatização comercial e industrial em Belo Horizonte - ClimatBH"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
@@ -71,7 +71,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/instalacao-de-VRF.jpeg"
-                  alt="Instalação de VRF em BH"
+                  alt="Instalação profissional de sistema VRF para climatização de grandes ambientes em Belo Horizonte"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
@@ -94,7 +94,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/KlYqqoaOdgqI.jpg"
-                  alt="Instalação de Chiller em BH"
+                  alt="Instalação de chiller industrial para refrigeração de grande porte em Belo Horizonte - ClimatBH"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
@@ -117,7 +117,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/splitao-em-BH.jpg"
-                  alt="Instalação de Splitão em BH"
+                  alt="Instalação de splitão para climatização de grandes ambientes comerciais em Belo Horizonte"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
@@ -140,7 +140,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/manutencao-de-VRF-BH.jpeg"
-                  alt="Manutenção de VRF em BH"
+                  alt="Manutenção preventiva e corretiva de sistema VRF em Belo Horizonte - Técnicos especializados ClimatBH"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
@@ -163,7 +163,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/2BDeBTIuBd5v.jpg"
-                  alt="Manutenção de Chiller em BH"
+                  alt="Manutenção especializada de chiller industrial em Belo Horizonte - Assistência técnica 24h ClimatBH"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
@@ -186,7 +186,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/manutencao-splitao-BH.webp"
-                  alt="Manutenção de Splitão em BH"
+                  alt="Manutenção de splitão para grandes ambientes comerciais em Belo Horizonte - Serviço especializado ClimatBH"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"

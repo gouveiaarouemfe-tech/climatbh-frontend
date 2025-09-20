@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://climatbh.com.br'
+  const baseUrl = 'https://www.climatbh.com.br'
   
   return [
     {
@@ -60,6 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/contratos-pmoc`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/manutencao-splitao`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

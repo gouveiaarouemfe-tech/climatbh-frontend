@@ -32,8 +32,8 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://climatbh.com.br/sitemap.xml',
-    host: 'https://climatbh.com.br',
+    sitemap: 'https://www.climatbh.com.br/sitemap.xml',
+    host: 'https://www.climatbh.com.br',
   }
 }
 
