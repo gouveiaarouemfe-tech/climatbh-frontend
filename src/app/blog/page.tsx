@@ -76,15 +76,15 @@ export default function BlogPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post: Post) => {
                 // Acessando os atributos do post
-                const { title, slug, seo_description, content, publishedAt, image_alt, featured_image } = post.attributes;
+                const { title, slug, seo_description, content, publishedAt, image_alt, featured_image } = post;
 
                 if (!title || !slug || !content) {
                   console.warn("Post inválido encontrado:", post);
                   return null;
                 }
 
-                // Acessando a imagem destacada através de featured_image.data
-                const featuredImage = featured_image?.data;
+                // Acessando a imagem destacada através de featured_image?.[0]
+                const featuredImage = featured_image?.[0];
                 const imageUrl = getImageUrl(featuredImage);
 
                 return (
@@ -120,7 +120,7 @@ export default function BlogPage() {
                           </svg>
                         </Link>
                         <span className="text-sm text-gray-500">
-                          <FormattedDate dateString={post.attributes.publishedAt} />
+                          <FormattedDate dateString={post.publishedAt} />
                         </span>
                       </div>
                     </div>
