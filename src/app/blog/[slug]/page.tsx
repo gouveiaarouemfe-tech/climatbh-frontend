@@ -1,8 +1,6 @@
-
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 import { Metadata } from 'next';
 
 import { getPostBySlug, getPosts, getImageUrl, Post } from '@/lib/strapi';
@@ -25,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const { title, seo_title, seo_description, content, image_alt, featured_image, publishedAt, updatedAt } = post.attributes;
+  const { title, seo_title, content, image_alt, featured_image, publishedAt, updatedAt, seo_description = '' } = post.attributes;
   const featuredImage = featured_image?.data;
   const imageUrl = getImageUrl(featuredImage);
 
@@ -80,7 +78,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     notFound();
   }
 
-  const { title, content, publishedAt, image_alt, featured_image, seo_description } = post.attributes;
+  const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post.attributes;
 
   // Buscar todos os posts para posts relacionados e navegação
   const allPosts = await getPosts();
