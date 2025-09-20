@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Post, getImageUrl } from '@/lib/strapi';
@@ -24,16 +23,19 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Posts Relacionados</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {related.map(post => {
-          const featuredImage = post.attributes.featured_image?.data;
+          // featured_image agora é um array, então pegamos o primeiro item
+          const featuredImage = post.featured_image?.[0];
+          // getImageUrl espera um objeto StrapiImage, que é o que featuredImage é
           const imageUrl = getImageUrl(featuredImage);
 
           return (
             <article key={post.id} className="bg-gray-50 rounded-lg shadow-sm overflow-hidden">
-              <Link href={`/blog/${post.attributes.slug}`}>
+              <Link href={`/blog/${post.slug}`}>
                 <div className="relative h-40 w-full">
                   <Image
                     src={imageUrl}
-                    alt={featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title}
+                    // Acessa alternativeText diretamente de featuredImage.attributes
+                    alt={featuredImage?.attributes?.alternativeText || post.image_alt || post.title}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -41,10 +43,10 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
                 </div>
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-gray-800 line-clamp-2 mb-2">
-                    {post.attributes.title}
+                    {post.title}
                   </h3>
                   <p className="text-sm text-gray-600 line-clamp-3">
-                    {post.attributes.seo_description || post.attributes.content.replace(/[#*]/g, '').substring(0, 100) + '...'}
+                    {post.seo_description || post.content.replace(/[#*]/g, '').substring(0, 100) + '...'}
                   </p>
                 </div>
               </Link>
@@ -55,4 +57,3 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
     </div>
   );
 }
-
