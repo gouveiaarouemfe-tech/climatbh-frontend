@@ -4,18 +4,13 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { Metadata } from 'next';
-// import dynamic from 'next/dynamic'; // Removendo importação dynamic daqui
 
 import { getPostBySlug, getPosts, getImageUrl, Post } from '@/lib/strapi';
 import Breadcrumb from '@/components/blog/Breadcrumb';
-// import SocialShare from '@/components/blog/SocialShare'; // Removendo importação estática
-import ClientSocialShare from '@/components/blog/ClientSocialShare'; // Importando o novo componente wrapper
+import ClientSocialShare from '@/components/blog/ClientSocialShare';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import PostNavigation from '@/components/blog/PostNavigation';
 import ArticleStructuredData from '@/components/seo/ArticleStructuredData';
-
-// Removendo a importação dinâmica de SocialShare daqui
-// const DynamicSocialShare = dynamic(() => import('@/components/blog/SocialShare'), { ssr: false });
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } = params;
@@ -34,11 +29,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   return {
     title: seo_title || title,
-    description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+    description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...',
     keywords: [title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
     openGraph: {
       title: seo_title || title,
-      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...',
       url: `https://climatbh-site-frontend.onrender.com/blog/${slug}`,
       siteName: 'ClimatBH',
       images: [
@@ -57,7 +52,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     twitter: {
       card: 'summary_large_image',
       title: seo_title || title,
-      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...',
       images: [imageUrl],
     },
   };
@@ -97,19 +92,19 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
   return (
     <>
-      <ArticleStructuredData 
-        post={post} 
+      <ArticleStructuredData
+        post={post}
         imageUrl={postImageUrl}
       />
       <div className="min-h-screen bg-gray-50">
         <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <Breadcrumb 
+        <Breadcrumb
           items={[
             { label: 'Blog', href: '/blog' },
             { label: title }
-          ]} 
+          ]}
         />
-        
+
         <article>
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           {featuredImage && (
@@ -124,12 +119,12 @@ export default async function PostPage({ params }: { params: { slug: string } })
               />
             </div>
           )}
-          
+
           <div className="p-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
               {title}
             </h1>
-            
+
             <div className="flex items-center text-gray-600 text-sm mb-8 pb-4 border-b border-gray-200">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -175,7 +170,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
               </ReactMarkdown>
             </div>
           </div>
-          
+
           <ClientSocialShare // Usando o novo componente wrapper
             title={title}
             url={postUrl}
@@ -183,18 +178,18 @@ export default async function PostPage({ params }: { params: { slug: string } })
           />
         </div>
         </article>
-        
-        <PostNavigation 
+
+        <PostNavigation
           previousPost={previousPost}
           nextPost={nextPost}
         />
-        
-        <RelatedPosts 
+
+        <RelatedPosts
           posts={allPosts}
           currentPostId={post.id}
           maxPosts={3}
         />
-        
+
           <div className="mt-8 text-center">
             <Link
               href="/blog"
