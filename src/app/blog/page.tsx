@@ -108,7 +108,7 @@ async function getPosts() {
     }
 
     return { posts: data.data || [], error: null };
-  } catch (err: Error) {
+  } catch (err: unknown) {
     console.error("SERVER-SIDE: Erro ao buscar posts:", err);
     return { posts: [], error: `Ocorreu um erro ao carregar os posts: ${err.message}` };
   }
