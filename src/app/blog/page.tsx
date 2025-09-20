@@ -119,7 +119,7 @@ export default function BlogPage() {
                           </svg>
                         </Link>
                         <span className="text-sm text-gray-500">
-                          {new Date(publishedAt).toLocaleDateString("pt-BR")}
+                          {new Date(post.attributes.publishedAt).toLocaleDateString("pt-BR")}
                         </span>
                       </div>
                     </div>
