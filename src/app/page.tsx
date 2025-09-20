@@ -268,7 +268,7 @@ export default function Home() {
       <section className="py-12 bg-red-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold mb-4">
-            🚨 Atendimento 24h para Emergências de Climatização
+            Atendimento de Emergência em Climatização 24h em BH
           </h2>
           <p className="text-lg mb-6">
             Problemas com seu sistema de climatização? Nossa equipe está disponível 24 horas para atendimento de emergência!
@@ -328,14 +328,14 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-            <div className="bg-gray-100 p-4 rounded-lg">Centro</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Savassi</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Lourdes</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Buritis</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Pampulha</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Contagem</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Nova Lima</div>
-            <div className="bg-gray-100 p-4 rounded-lg">Betim</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Centro</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Savassi</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Lourdes</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Buritis</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Pampulha</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Contagem</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Nova Lima</div>
+            <div className="bg-gray-100 p-4 rounded-lg text-gray-900 font-semibold">Betim</div>
           </div>
         </div>
       </section>

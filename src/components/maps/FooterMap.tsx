@@ -1,143 +1,51 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
-
 'use client';
 
-import { useEffect, useRef } from 'react';
-
-
+import { MapPin } from 'lucide-react';
 
 export default function FooterMap() {
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Função para carregar o Google Maps
-    const loadGoogleMaps = () => {
-      if (typeof window !== 'undefined' && window.google) {
-        initMap();
-        return;
-      }
-
-      // Verificar se a chave da API está disponível
-      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-      
-      if (!apiKey) {
-        console.warn('Google Maps API key não encontrada');
-        // Fallback: mostrar mapa estático ou mensagem
-        if (mapRef.current) {
-          mapRef.current.innerHTML = `
-            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-              <p class="text-gray-600">Mapa de Belo Horizonte - Área de Atendimento ClimatBH</p>
-            </div>
-          `;
-        }
-        return;
-      }
-
-      // Carregar script do Google Maps se não estiver carregado
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initFooterMap`;
-      script.async = true;
-      script.defer = true;
-      script.onerror = () => {
-        console.error('Erro ao carregar Google Maps');
-        // Fallback: mostrar mapa estático ou mensagem
-        if (mapRef.current) {
-          mapRef.current.innerHTML = `
-            <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-              <p class="text-gray-600">Mapa de Belo Horizonte - Área de Atendimento ClimatBH</p>
-            </div>
-          `;
-        }
-      };
-      
-      // Definir callback global
-      (window as any).initFooterMap = initMap;
-      
-      document.head.appendChild(script);
-    };
-
-    const initMap = () => {
-      if (!mapRef.current) return;
-
-      // Coordenadas do centro de Belo Horizonte
-      const beloHorizonte = { lat: -19.9167, lng: -43.9345 };
-
-      const map = new window.google.maps.Map(mapRef.current, {
-        zoom: 10,
-        center: beloHorizonte,
-        styles: [
-          {
-            featureType: 'all',
-            elementType: 'labels',
-            stylers: [{ visibility: 'off' }]
-          },
-          {
-            featureType: 'administrative',
-            elementType: 'geometry',
-            stylers: [{ color: '#e5e7eb' }]
-          },
-          {
-            featureType: 'landscape',
-            elementType: 'geometry',
-            stylers: [{ color: '#f3f4f6' }]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{ color: '#ffffff' }]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry',
-            stylers: [{ color: '#3b82f6' }]
-          }
-        ],
-        disableDefaultUI: true,
-        gestureHandling: 'none',
-        zoomControl: false,
-        scrollwheel: false,
-        disableDoubleClickZoom: true,
-        draggable: false,
-      });
-
-      // Adicionar marcador simples no centro de BH
-      new window.google.maps.Marker({
-        position: beloHorizonte,
-        map: map,
-        title: 'ClimatBH - Belo Horizonte',
-        icon: {
-          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="10" fill="#2563eb" stroke="white" stroke-width="2"/>
-              <circle cx="12" cy="12" r="4" fill="white"/>
-            </svg>
-          `),
-              scaledSize: new window.google.maps.Size(24, 24),
-          anchor: new window.google.maps.Point(12, 12),
-        },
-      });
-
-      // Adicionar círculo para mostrar área de atendimento
-      new window.google.maps.Circle({
-        strokeColor: '#2563eb',
-        strokeOpacity: 0.6,
-        strokeWeight: 1,
-        fillColor: '#2563eb',
-        fillOpacity: 0.1,
-        map: map,
-        center: beloHorizonte,
-        radius: 30000, // 30km de raio
-      });
-    };
-
-    loadGoogleMaps();
-  }, []);
-
   return (
-    <div className="w-full h-32 rounded-lg overflow-hidden">
-      <div ref={mapRef} className="w-full h-full" />
+    <div className="w-full h-32 rounded-lg overflow-hidden bg-gradient-to-br from-blue-500 to-blue-700 relative">
+      {/* Mapa estilizado com CSS */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600">
+        {/* Representação visual de Belo Horizonte */}
+        <div className="absolute inset-0 opacity-20">
+          {/* Montanhas ao fundo */}
+          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-blue-800 to-transparent"></div>
+          
+          {/* Áreas urbanas */}
+          <div className="absolute top-8 left-4 w-3 h-3 bg-white rounded-full opacity-60"></div>
+          <div className="absolute top-12 right-6 w-2 h-2 bg-white rounded-full opacity-40"></div>
+          <div className="absolute bottom-8 left-8 w-2 h-2 bg-white rounded-full opacity-50"></div>
+          <div className="absolute bottom-10 right-4 w-3 h-3 bg-white rounded-full opacity-60"></div>
+          
+          {/* Linhas representando estradas */}
+          <div className="absolute top-6 left-0 w-full h-px bg-white opacity-30 transform rotate-12"></div>
+          <div className="absolute top-16 left-0 w-full h-px bg-white opacity-20 transform -rotate-6"></div>
+          <div className="absolute bottom-12 left-0 w-full h-px bg-white opacity-25 transform rotate-3"></div>
+        </div>
+        
+        {/* Marcador central */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="relative">
+            <MapPin className="h-8 w-8 text-white drop-shadow-lg" />
+            <div className="absolute -top-1 -left-1 h-10 w-10 bg-white rounded-full opacity-20 animate-pulse"></div>
+          </div>
+        </div>
+        
+        {/* Círculo de área de atendimento */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="w-24 h-24 border-2 border-white border-opacity-30 rounded-full animate-pulse"></div>
+        </div>
+        
+        {/* Texto sobreposto */}
+        <div className="absolute bottom-2 left-2 right-2">
+          <div className="bg-black bg-opacity-50 rounded px-2 py-1">
+            <p className="text-white text-xs font-medium text-center">
+              Belo Horizonte e Região Metropolitana
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

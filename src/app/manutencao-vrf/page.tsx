@@ -95,7 +95,7 @@ export default function ManutencaoVRF() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Manutenção de VRF em BH: Assistência Técnica Especializada
+                Manutenção de VRF em BH: Assistência Técnica Especializada: ClimatBH
               </h1>
               <p className="text-xl mb-8 text-blue-100">
                 Manutenção Preventiva e corretiva em sistemas VRF/VRV para garantir máxima eficiência conforto e durabilidade. Equipe técnica certificada e atendimento 24h.

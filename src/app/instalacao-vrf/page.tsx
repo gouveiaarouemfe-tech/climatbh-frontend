@@ -76,7 +76,7 @@ export default function InstalacaoVRF() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Instalação de VRF em BH: Sistemas de Climatização Comercial
+                Instalação de VRF em BH: Sistema de Climatização para Grandes Ambientes
               </h1>
               <p className="text-xl mb-8 text-blue-100">
                 Instalação Profissional de sistemas VRF em BH para climatização de edifícios e ambientes comerciais. Equipe especializada com mais de 15 anos de experiência.
