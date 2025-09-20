@@ -1,6 +1,14 @@
+
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
+
+import { getPosts, getImageUrl, Post } from '@/lib/strapi'; // Importando Post e getImageUrl
+import BlogFilter from '@/components/blog/BlogFilter';
+import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
 export const metadata: Metadata = {
   title: 'Blog ClimatBH - Notícias e Dicas sobre Climatização',
@@ -30,179 +38,124 @@ export const metadata: Metadata = {
   },
 };
 
-// Interface atualizada baseada na estrutura real dos dados
-interface Post {
-  id: number;
-  documentId: string;
-  title: string;
-  slug: string;
-  content: string;
-  seo_title?: string;
-  seo_description?: string;
-  image_alt?: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  featured_image?: Array<{
-    id: number;
-    documentId: string;
-    name: string;
-    alternativeText?: string;
-    url: string;
-    width: number;
-    height: number;
-  }>;
-}
+export default function BlogPage() {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
-async function getPosts() {
-  console.log('SERVER-SIDE: Iniciando getPosts...');
-  const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
-  const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const fetchedPosts = await getPosts();
+        setPosts(fetchedPosts);
+        setFilteredPosts(fetchedPosts);
+      } catch (error) {
+        console.error('Erro ao carregar posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  console.log('SERVER-SIDE: NEXT_PUBLIC_STRAPI_API_URL:', strapiApiUrl ? 'Configurado' : 'NÃO Configurado');
-  console.log('SERVER-SIDE: NEXT_PUBLIC_API_TOKEN:', strapiApiToken ? 'Configurado' : 'NÃO Configurado');
+    fetchPosts();
+  }, []);
 
-  if (!strapiApiUrl || !strapiApiToken) {
-    console.error('SERVER-SIDE: Configuração do Strapi não encontrada (URL ou Token)');
-    return { posts: [], error: 'Configuração do Strapi não encontrada.' };
-  }
-
-  const url = `${strapiApiUrl}/api/posts?populate=*`;
-
-  try {
-    console.log('SERVER-SIDE: Fazendo requisição para:', url);
-    console.log('SERVER-SIDE: Token existe:', !!strapiApiToken);
-    
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${strapiApiToken}`,
-        'Content-Type': 'application/json',
-      },
-      next: { revalidate: 60 }, // Revalidate every 60 seconds
-    });
-
-    console.log('SERVER-SIDE: Status da resposta:', res.status);
-
-    if (!res.ok) {
-      const errorText = await res.text();
-      console.error(`SERVER-SIDE: Erro ao buscar posts: ${res.status} ${res.statusText} - ${errorText}`);
-      return { posts: [], error: `Erro ao buscar posts: ${res.status} ${res.statusText}` };
-    }
-
-    const data = await res.json();
-    console.log('SERVER-SIDE: Postagens recebidas:', data.data?.length || 0);
-    console.log('SERVER-SIDE: Postagens no componente:', data.data?.length || 0);
-
-    // Log detalhado para debug
-    if (data.data && data.data.length > 0) {
-      data.data.forEach((post: Post, index: number) => {
-        console.log(`SERVER-SIDE: Post ${index + 1}:`, {
-          id: post.id,
-          title: post.title,
-          slug: post.slug,
-          hasContent: !!post.content,
-          hasFeaturedImage: !!post.featured_image,
-          featuredImageLength: post.featured_image?.length || 0
-        });
-      });
-    }
-
-    return { posts: data.data || [], error: null };
-  } catch (err: unknown) {
-    console.error("SERVER-SIDE: Erro ao buscar posts:", err);
-    return { posts: [], error: `Ocorreu um erro ao carregar os posts: ${err instanceof Error ? err.message : String(err)}` };
-  }
-}
-
-export default async function BlogPage() {
-  const { posts, error } = await getPosts();
-
-  if (error) {
+  if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto px-4 py-8 text-center">
-          <h1 className="text-4xl font-bold text-center mb-12 text-blue-800">Blog ClimatBH</h1>
-          <p className="text-red-600 text-lg">Erro: {error}</p>
-          <p className="text-gray-500 text-sm">Por favor, tente novamente mais tarde.</p>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Carregando posts...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-12 text-blue-800">
-          Blog ClimatBH: Notícias e Dicas sobre Climatização e Refrigeração
-        </h1>
-        <p className="text-xl text-center mb-12 text-gray-600">
-          Fique por dentro das últimas notícias e dicas sobre climatização
-        </p>
+    <>
+      <BlogStructuredData posts={posts} />
+      <div className="min-h-screen bg-gray-50">
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-4xl font-bold text-center mb-12 text-blue-800">
+            Blog ClimatBH: Notícias e Dicas sobre Climatização e Refrigeração
+          </h1>
+          <p className="text-xl text-center mb-12 text-gray-600">
+            Fique por dentro das últimas notícias e dicas sobre climatização
+          </p>
 
-        {posts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-xl text-gray-600 mb-4">
-              Nenhum post encontrado no momento.
-            </p>
-            <p className="text-gray-500">
-              Volte em breve para conferir nossos conteúdos!
-            </p>
-          </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post: Post) => {
-              // Validação básica do post
-              if (!post.title || !post.slug || !post.content) {
-                console.log("SERVER-SIDE: Post inválido encontrado:", post);
-                return null;
-              }
+          <BlogFilter 
+            posts={posts}
+            onFilteredPosts={setFilteredPosts}
+          />
 
-              const featuredImage = post.featured_image && post.featured_image.length > 0 ? post.featured_image[0] : null;
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-xl text-gray-600 mb-4">
+                Nenhum post encontrado no momento.
+              </p>
+              <p className="text-gray-500">
+                Volte em breve para conferir nossos conteúdos!
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post: Post) => {
+                // Acessando os atributos do post
+                const { title, slug, seo_description, content, publishedAt, image_alt, featured_image } = post.attributes;
 
-              return (
-                <article
-                  key={post.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                >
-                  {featuredImage && (
-                    <div className="relative h-48">
+                if (!title || !slug || !content) {
+                  console.warn("Post inválido encontrado:", post);
+                  return null;
+                }
+
+                // Acessando a imagem destacada através de featured_image.data
+                const featuredImage = featured_image?.data;
+                const imageUrl = getImageUrl(featuredImage);
+
+                return (
+                  <article
+                    key={post.id}
+                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                  >
+                    <div className="relative h-48 w-full">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}`}
-                        alt={featuredImage.alternativeText || post.image_alt || post.title}
+                        src={imageUrl}
+                        alt={featuredImage?.attributes?.alternativeText || image_alt || title}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                  )}
-                  <div className="p-6">
-                    <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2">
-                      {post.title}
-                    </h2>
-                    <p className="text-gray-600 mb-4 line-clamp-3">
-                      {post.seo_description || 
-                       post.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
-                      >
-                        Ler mais
-                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                      <span className="text-sm text-gray-500">
-                        {new Date(post.publishedAt).toLocaleDateString("pt-BR")}
-                      </span>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2 flex-grow">
+                        {title}
+                      </h2>
+                      <p className="text-gray-600 mb-4 line-clamp-3">
+                        {seo_description || 
+                         content.replace(/[#*]/g, "").substring(0, 150) + "..."}
+                      </p>
+                      <div className="flex justify-between items-center mt-auto">
+                        <Link
+                          href={`/blog/${slug}`}
+                          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                        >
+                          Ler mais
+                          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                        <span className="text-sm text-gray-500">
+                          {new Date(publishedAt).toLocaleDateString("pt-BR")}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        )}
+                  </article>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
+

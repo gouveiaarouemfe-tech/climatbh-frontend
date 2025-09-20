@@ -1,71 +1,19 @@
+
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { Metadata } from 'next';
-
-// Interface atualizada baseada na estrutura real dos dados
-interface Post {
-  id: number;
-  documentId: string;
-  title: string;
-  slug: string;
-  content: string;
-  seo_title?: string;
-  seo_description?: string;
-  image_alt?: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  featured_image?: Array<{
-    id: number;
-    documentId: string;
-    name: string;
-    alternativeText?: string;
-    url: string;
-    width: number;
-    height: number;
-  }>;
-}
-
-async function getPost(slug: string) {
-  const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
-  const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
-
-  const url = `${strapiApiUrl}/api/posts?filters[slug][$eq]=${slug}&populate=*`;
-
-  if (!strapiApiToken || !strapiApiUrl) {
-    console.error('Configuração do Strapi não encontrada (URL ou Token)');
-    return { data: [] };
-  }
-
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${strapiApiToken}`,
-        'Content-Type': 'application/json',
-      },
-      next: { revalidate: 60 },
-    });
-
-    if (!res.ok) {
-      console.error(`Erro ao buscar post: ${res.status} ${res.statusText}`);
-      const errorText = await res.text();
-      console.error('Detalhes do erro:', errorText);
-      return { data: [] };
-    }
-
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error('Erro ao buscar post:', error);
-    return { data: [] };
-  }
-}
+import { getPostBySlug, getPosts, getImageUrl, Post } from '@/lib/strapi';
+import Breadcrumb from '@/components/blog/Breadcrumb';
+import SocialShare from '@/components/blog/SocialShare';
+import RelatedPosts from '@/components/blog/RelatedPosts';
+import PostNavigation from '@/components/blog/PostNavigation';
+import ArticleStructuredData from '@/components/seo/ArticleStructuredData';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { data: posts } = await getPost(params.slug);
-  const post = posts?.[0];
+  const { slug } = params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -74,65 +22,46 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const featuredImage = post.featured_image && post.featured_image.length > 0 ? post.featured_image[0] : null;
-  const imageUrl = featuredImage ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}` : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png';
+  const { title, seo_title, seo_description, content, image_alt, featured_image, publishedAt, updatedAt } = post.attributes;
+  const featuredImage = featured_image?.data;
+  const imageUrl = getImageUrl(featuredImage);
 
   return {
-    title: post.seo_title || post.title,
-    description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...',
-    keywords: [post.title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
+    title: seo_title || title,
+    description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+    keywords: [title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
     openGraph: {
-      title: post.seo_title || post.title,
-      description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', 
-      url: `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
+      title: seo_title || title,
+      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+      url: `https://climatbh-site-frontend.onrender.com/blog/${slug}`,
       siteName: 'ClimatBH',
       images: [
         {
           url: imageUrl,
-          width: featuredImage?.width || 800,
-          height: featuredImage?.height || 600,
-          alt: featuredImage?.alternativeText || post.image_alt || post.title,
+          width: featuredImage?.attributes?.width || 800,
+          height: featuredImage?.attributes?.height || 600,
+          alt: featuredImage?.attributes?.alternativeText || image_alt || title,
         },
       ],
       locale: 'pt_BR',
       type: 'article',
-      publishedTime: post.publishedAt,
-      modifiedTime: post.updatedAt,
+      publishedTime: publishedAt,
+      modifiedTime: updatedAt,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.seo_title || post.title,
-      description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', 
+      title: seo_title || title,
+      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...', 
       images: [imageUrl],
     },
   };
 }
 
 export async function generateStaticParams() {
-  const strapiApiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL;
-  const strapiApiToken = process.env.NEXT_PUBLIC_API_TOKEN;
-
-  if (!strapiApiToken || !strapiApiUrl) {
-    console.error('Configuração do Strapi não encontrada para generateStaticParams');
-    return [];
-  }
-
   try {
-    const res = await fetch(`${strapiApiUrl}/api/posts`, {
-      headers: {
-        Authorization: `Bearer ${strapiApiToken}`,
-      },
-      next: { revalidate: 60 },
-    });
-    const posts = await res.json();
-
-    if (!posts || !Array.isArray(posts.data)) {
-      console.warn('Nenhum dado de post retornado para generateStaticParams');
-      return [];
-    }
-
-    return posts.data.map((post: Post) => ({
-      slug: post.slug,
+    const posts = await getPosts();
+    return posts.map((post: Post) => ({
+      slug: post.attributes.slug,
     }));
   } catch (error) {
     console.error('Erro ao gerar static params para posts:', error);
@@ -141,41 +70,65 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
-  const { data: posts } = await getPost(params.slug);
-  const post = posts?.[0];
+  const { slug } = params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const featuredImage = post.featured_image && post.featured_image.length > 0 ? post.featured_image[0] : null;
+  const { title, content, publishedAt, image_alt, featured_image } = post.attributes;
+
+  // Buscar todos os posts para posts relacionados e navegação
+  const allPosts = await getPosts();
+  const currentIndex = allPosts.findIndex(p => p.id === post.id);
+  const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+
+  const featuredImage = featured_image?.data;
+  const postImageUrl = getImageUrl(featuredImage);
+  const postUrl = `https://climatbh.com.br/blog/${slug}`;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <article className="container mx-auto px-4 py-8 max-w-4xl">
+    <>
+      <ArticleStructuredData 
+        post={post} 
+        imageUrl={postImageUrl}
+      />
+      <div className="min-h-screen bg-gray-50">
+        <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <Breadcrumb 
+          items={[
+            { label: 'Blog', href: '/blog' },
+            { label: title }
+          ]} 
+        />
+        
+        <article>
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          {featuredImage?.url && (
+          {featuredImage && (
             <div className="relative w-full h-80 md:h-96">
               <Image
-                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${featuredImage.url}`}
-                alt={featuredImage.alternativeText || post.image_alt || post.title}
+                src={postImageUrl}
+                alt={featuredImage.attributes?.alternativeText || image_alt || title}
                 fill
-                style={{ objectFit: 'cover' }}
-                className="rounded-t-lg"
+                className="object-cover rounded-t-lg"
+                sizes="(max-width: 768px) 100vw, 800px"
+                priority
               />
             </div>
           )}
           
           <div className="p-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              {post.title}
+              {title}
             </h1>
             
             <div className="flex items-center text-gray-600 text-sm mb-8 pb-4 border-b border-gray-200">
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Publicado em: {new Date(post.publishedAt).toLocaleDateString('pt-BR', {
+              Publicado em: {new Date(publishedAt).toLocaleDateString('pt-BR', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -198,26 +151,58 @@ export default async function PostPage({ params }: { params: { slug: string } })
                     </blockquote>
                   ),
                   strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
+                  img: ({ node, ...props }) => {
+                    const markdownImageUrl = typeof props.src === 'string' ? getImageUrl({ attributes: { url: props.src } } as any) : '';
+                    return (
+                      <Image
+                        src={markdownImageUrl}
+                        alt={props.alt || ''}
+                        width={typeof props.width === 'number' ? props.width : (typeof props.width === 'string' ? parseInt(props.width) : 800)}
+                        height={typeof props.height === 'number' ? props.height : (typeof props.height === 'string' ? parseInt(props.height) : 600)}
+                        className="my-4 rounded-lg shadow-md"
+                      />
+                    );
+                  },
                 }}
               >
-                {post.content}
+                {content}
               </ReactMarkdown>
             </div>
           </div>
+          
+          <SocialShare 
+            title={title}
+            url={postUrl}
+            description={seo_description}
+          />
         </div>
+        </article>
         
-        <div className="mt-8 text-center">
-          <Link
-            href="/blog"
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
-          >
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Voltar ao Blog
-          </Link>
+        <PostNavigation 
+          previousPost={previousPost}
+          nextPost={nextPost}
+        />
+        
+        <RelatedPosts 
+          posts={allPosts}
+          currentPostId={post.id}
+          maxPosts={3}
+        />
+        
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Voltar ao Blog
+            </Link>
+          </div>
         </div>
-      </article>
-    </div>
+      </div>
+    </>
   );
 }
+
