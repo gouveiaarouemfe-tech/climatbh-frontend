@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/image'; // Importando o componente Image do Next.js
 import { Metadata } from 'next';
 
 import { getPosts, getImageUrl, Post } from '@/lib/strapi'; // Importando Post e getImageUrl
