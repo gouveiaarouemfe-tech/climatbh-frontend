@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
@@ -206,7 +207,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
         </div>
         
         <div className="mt-8 text-center">
-          <a
+          <Link
             href="/blog"
             className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
           >
@@ -214,7 +215,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Voltar ao Blog
-          </a>
+          </Link>
         </div>
       </article>
     </div>

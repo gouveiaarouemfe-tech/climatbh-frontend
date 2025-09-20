@@ -1,6 +1,6 @@
 interface StructuredDataProps {
   type: 'Organization' | 'LocalBusiness' | 'Article' | 'Service' | 'BreadcrumbList';
-  data: any;
+  data: object;
 }
 
 export default function StructuredData({ type, data }: StructuredDataProps) {

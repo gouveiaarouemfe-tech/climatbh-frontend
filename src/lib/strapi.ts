@@ -31,7 +31,7 @@ export interface StrapiImage {
   url: string;
   previewUrl?: string;
   provider: string;
-  provider_metadata?: any;
+  provider_metadata?: object;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

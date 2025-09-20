@@ -108,8 +108,8 @@ async function getPosts() {
     }
 
     return { posts: data.data || [], error: null };
-  } catch (err: any) {
-    console.error('SERVER-SIDE: Erro ao buscar posts:', err);
+  } catch (err: Error) {
+    console.error("SERVER-SIDE: Erro ao buscar posts:", err);
     return { posts: [], error: `Ocorreu um erro ao carregar os posts: ${err.message}` };
   }
 }
@@ -153,7 +153,7 @@ export default async function BlogPage() {
             {posts.map((post: Post) => {
               // Validação básica do post
               if (!post.title || !post.slug || !post.content) {
-                console.log('SERVER-SIDE: Post inválido encontrado:', post);
+                console.log("SERVER-SIDE: Post inválido encontrado:", post);
                 return null;
               }
 
@@ -180,7 +180,7 @@ export default async function BlogPage() {
                     </h2>
                     <p className="text-gray-600 mb-4 line-clamp-3">
                       {post.seo_description || 
-                       post.content.replace(/[#*]/g, '').substring(0, 150) + '...'}
+                       post.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
                     </p>
                     <div className="flex justify-between items-center">
                       <Link
@@ -193,7 +193,7 @@ export default async function BlogPage() {
                         </svg>
                       </Link>
                       <span className="text-sm text-gray-500">
-                        {new Date(post.publishedAt).toLocaleDateString('pt-BR')}
+                        {new Date(post.publishedAt).toLocaleDateString("pt-BR")}
                       </span>
                     </div>
                   </div>
