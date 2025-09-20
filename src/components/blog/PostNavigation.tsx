@@ -12,7 +12,7 @@ export default function PostNavigation({ previousPost, nextPost }: PostNavigatio
     <div className="flex justify-between items-center mt-12 py-6 border-t border-b border-gray-200">
       {previousPost ? (
         <Link
-          href={`/blog/${previousPost.attributes.slug}`}
+          href={`/blog/${previousPost.slug}`}
           className="flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -26,7 +26,7 @@ export default function PostNavigation({ previousPost, nextPost }: PostNavigatio
 
       {nextPost ? (
         <Link
-          href={`/blog/${nextPost.attributes.slug}`}
+          href={`/blog/${nextPost.slug}`}
           className="flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
         >
           Próximo Post
