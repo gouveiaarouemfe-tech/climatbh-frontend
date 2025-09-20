@@ -80,7 +80,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     notFound();
   }
 
-  const { title, content, publishedAt, image_alt, featured_image } = post.attributes;
+  const { title, content, publishedAt, image_alt, featured_image, seo_description } = post.attributes;
 
   // Buscar todos os posts para posts relacionados e navegação
   const allPosts = await getPosts();
