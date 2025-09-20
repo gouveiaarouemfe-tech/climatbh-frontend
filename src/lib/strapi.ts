@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 // Busca a URL da API e o Token do ambiente
@@ -98,6 +97,9 @@ export interface StrapiResponse<T> {
   };
 }
 
+// String de população explícita para os campos necessários
+const populateQuery = 'populate[0]=featured_image&populate[1]=categories&populate[2]=tags';
+
 // Função para buscar todos os posts
 export const getPosts = async (): Promise<Post[]> => {
   try {
@@ -105,7 +107,8 @@ export const getPosts = async (): Promise<Post[]> => {
       console.warn('Variáveis de ambiente do Strapi não configuradas.');
       return [];
     }
-    const response = await strapiApi.get<StrapiResponse<Post>>('/api/posts?populate=deep');
+    // Alterado de populate=deep para populate explícito
+    const response = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?${populateQuery}`);
     return response.data.data || [];
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
@@ -120,7 +123,8 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
       console.warn('Variáveis de ambiente do Strapi não configuradas.');
       return null;
     }
-    const response = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=deep`);
+    // Alterado de populate=deep para populate explícito
+    const response = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&${populateQuery}`);
     return response.data.data[0] || null;
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
@@ -141,12 +145,12 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
   let url = image.attributes.url;
 
   // Se um formato específico foi solicitado e existe, usa a URL desse formato
-  if (format && image.attributes.formats && image.attributes.formats[format]) {
+  if (format && image.attributes.formats && image.attributes.formats[format]  ) {
     url = image.attributes.formats[format]!.url;
   }
 
   // Se a URL já for completa (ex: Cloudinary), retorna diretamente
-  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//')) {
+  if (url.startsWith('http://'  ) || url.startsWith('https://'  ) || url.startsWith('//')) {
     return url;
   }
 
@@ -155,4 +159,3 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
 };
 
 export default strapiApi;
-
