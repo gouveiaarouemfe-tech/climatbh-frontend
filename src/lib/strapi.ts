@@ -65,24 +65,21 @@ export interface Tag {
 }
 
 // Interface principal para um Post, refletindo a estrutura do Strapi v4/v5
-export interface PostAttributes {
+export interface Post {
+  id: number;
+  documentId?: string;
   title: string;
   content: string;
   slug: string;
   seo_title?: string;
   seo_description?: string;
   image_alt?: string;
-  featured_image?: { data: StrapiImage }; // Imagem destacada é um único objeto de dados
-  categories?: { data: Category[] };
-  tags?: { data: Tag[] };
+  featured_image?: StrapiImage[];
+  categories?: Category[];
+  tags?: Tag[];
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-}
-
-export interface Post {
-  id: number;
-  attributes: PostAttributes;
 }
 
 export interface StrapiResponse<T> {
