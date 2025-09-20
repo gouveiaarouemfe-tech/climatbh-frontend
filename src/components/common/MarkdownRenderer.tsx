@@ -1,10 +1,9 @@
-
 'use client';
 
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
-import { getImageUrl } from '@/lib/strapi';
+// import { getImageUrl } from '@/lib/strapi'; // Esta linha pode ser removida se getImageUrl não for usada em outro lugar neste arquivo
 
 interface MarkdownRendererProps {
   content: string;
@@ -29,7 +28,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
           ),
           strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
           img: ({ node, ...props }) => {
-                        const markdownImageUrl = typeof props.src === 'string' ? getImageUrl({ attributes: { url: props.src } } as { attributes: { url: string } }) : '';
+                            // A linha corrigida é esta:
+                            const markdownImageUrl = typeof props.src === 'string' ? props.src : '';
             return (
               <Image
                 src={markdownImageUrl}
@@ -49,4 +49,3 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
 };
 
 export default MarkdownRenderer;
-
