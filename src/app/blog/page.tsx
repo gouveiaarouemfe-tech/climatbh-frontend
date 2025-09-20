@@ -133,7 +133,7 @@ export default async function BlogPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-12 text-blue-800">
-          Blog ClimatBH
+          Blog ClimatBH: Notícias e Dicas sobre Climatização e Refrigeração
         </h1>
         <p className="text-xl text-center mb-12 text-gray-600">
           Fique por dentro das últimas notícias e dicas sobre climatização

@@ -99,7 +99,7 @@ export default function InstalacaoVRF() {
             </div>
             <div className="relative">
               <Image
-                src="/images/instalaçãodeVRF.jpeg"
+                src="/images/instalacao-de-VRF.jpeg"
                 alt="Instalação de Sistema VRF em BH - ClimatBH"
                 width={600}
                 height={300}
@@ -525,7 +525,7 @@ export default function InstalacaoVRF() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/manutencao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/images/manutençãodeVRFBH.jpeg"
+                src="/images/manutencao-de-VRF-BH.jpeg"
                 alt="Manutenção de VRF"
                 width={400}
                 height={250}

@@ -118,7 +118,7 @@ export default function ManutencaoVRF() {
             </div>
             <div className="relative">
               <Image
-                src="/images/manutençãodeVRFBH.jpeg"
+                src="/images/manutencao-de-VRF-BH.jpeg"
                 alt="Manutenção de Sistema VRF em BH - ClimatBH"
                 width={600}
                 height={300}

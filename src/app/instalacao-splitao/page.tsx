@@ -118,7 +118,7 @@ export default function InstalacaoSplitao() {
             </div>
             <div className="relative">
               <Image
-                src="/images/SplitãoemBH.jpg"
+                src="/images/splitao-em-BH.jpg"
                 alt="Instalação de Splitão em BH - ClimatBH"
                 width={600}
                 height={400}
@@ -181,7 +181,7 @@ export default function InstalacaoSplitao() {
             </div>
             <div>
               <Image
-                src="/images/oque-e-Splitão.jpg"
+                src="/images/oque-e-splitao.jpg"
                 alt="Sistema Splitão - Componentes e funcionamento"
                 width={600}
                 height={500}

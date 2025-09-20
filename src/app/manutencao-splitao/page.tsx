@@ -126,7 +126,7 @@ export default function ManutencaoSplitao() {
             </div>
             <div>
               <Image
-                src="/images/ManutençãoSpliãoBH.webp"
+                src="/images/manutencao-splitao-BH.webp"
                 alt="Manutenção de Splitão em BH"
                 width={600}
                 height={500}
@@ -251,7 +251,7 @@ export default function ManutencaoSplitao() {
             </div>
             <div>
               <Image
-                src="/images/ManutençãoSpliãoBH.webp"
+                src="/images/manutencao-splitao-BH.webp"
                 alt="Manutenção de Splitão - Componentes Internos"
                 width={600}
                 height={500}
@@ -462,7 +462,7 @@ export default function ManutencaoSplitao() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/instalacao-splitao" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/images/SplitãoemBH.jpg"
+                src="/images/splitao-em-BH.jpg"
                 alt="Instalação de Splitão"
                 width={400}
                 height={250}
@@ -478,7 +478,7 @@ export default function ManutencaoSplitao() {
 
             <Link href="/manutencao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/images/manutençãodeVRFBH.jpeg"
+                src="/images/manutencao-de-VRF-BH.jpeg"
                 alt="Manutenção de VRF"
                 width={400}
                 height={250}

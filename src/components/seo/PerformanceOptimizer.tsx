@@ -8,8 +8,8 @@ export default function PerformanceOptimizer() {
     const preloadCriticalResources = () => {
       const criticalImages = [
         '/images/VRFDAIKIN.png',
-        '/images/instalaçãodeVRF.jpeg',
-        '/images/manutençãodeVRFBH.jpeg'
+        '/images/instalacao-de-VRF.jpeg',
+        '/images/manutencao-de-VRF-BH.jpeg'
       ];
 
       criticalImages.forEach(src => {

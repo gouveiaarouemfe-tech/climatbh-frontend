@@ -530,7 +530,7 @@ export default function ContratosPMOC() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/manutencao-vrf" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/images/manutençãodeVRFBH.jpeg"
+                src="/images/manutencao-de-VRF-BH.jpeg"
                 alt="Manutenção de VRF"
                 width={400}
                 height={250}
@@ -562,7 +562,7 @@ export default function ContratosPMOC() {
 
             <Link href="/manutencao-splitao" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <Image
-                src="/images/ManutençãoSpliãoBH.webp"
+                src="/images/manutencao-splitao-BH.webp"
                 alt="Manutenção de Splitão"
                 width={400}
                 height={250}

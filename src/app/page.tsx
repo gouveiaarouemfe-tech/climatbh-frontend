@@ -70,7 +70,7 @@ export default function Home() {
             <Link href="/instalacao-vrf" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/instalaçãodeVRF.jpeg"
+                  src="/images/instalacao-de-VRF.jpeg"
                   alt="Instalação de VRF em BH"
                   width={400}
                   height={250}
@@ -116,7 +116,7 @@ export default function Home() {
             <Link href="/instalacao-splitao" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/SplitãoemBH.jpg"
+                  src="/images/splitao-em-BH.jpg"
                   alt="Instalação de Splitão em BH"
                   width={400}
                   height={250}
@@ -139,7 +139,7 @@ export default function Home() {
             <Link href="/manutencao-vrf" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/manutençãodeVRFBH.jpeg"
+                  src="/images/manutencao-de-VRF-BH.jpeg"
                   alt="Manutenção de VRF em BH"
                   width={400}
                   height={250}
@@ -185,7 +185,7 @@ export default function Home() {
             <Link href="/manutencao-splitao" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/ManutençãoSpliãoBH.webp"
+                  src="/images/manutencao-splitao-BH.webp"
                   alt="Manutenção de Splitão em BH"
                   width={400}
                   height={250}
