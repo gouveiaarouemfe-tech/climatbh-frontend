@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const { title, seo_title, content, image_alt, featured_image, publishedAt, updatedAt, seo_description = '' } = post.attributes;
-  const featuredImage = featured_image?.data;
+  const { title, seo_title, content, image_alt, featured_image, publishedAt, updatedAt, seo_description = '' } = post;
+  const featuredImage = featured_image?.[0]; // Acessa o primeiro item do array
   const imageUrl = getImageUrl(featuredImage);
 
   return {
@@ -62,7 +62,7 @@ export async function generateStaticParams() {
   try {
     const posts = await getPosts();
     return posts.map((post: Post) => ({
-      slug: post.attributes.slug,
+      slug: post.slug,
     }));
   } catch (error) {
     console.error('Erro ao gerar static params para posts:', error);
@@ -78,7 +78,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     notFound();
   }
 
-  const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post.attributes;
+  const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post;
 
   // Buscar todos os posts para posts relacionados e navegação
   const allPosts = await getPosts();
@@ -86,7 +86,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
   const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
-  const featuredImage = featured_image?.data;
+  const featuredImage = featured_image?.[0]; // Acessa o primeiro item do array
   const postImageUrl = getImageUrl(featuredImage);
   const postUrl = `https://climatbh.com.br/blog/${slug}`;
 
@@ -129,7 +129,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Publicado em: <FormattedDate dateString={post.attributes.publishedAt} options={{ year: 'numeric', month: 'long', day: 'numeric' }} />
+              Publicado em: <FormattedDate dateString={publishedAt} options={{ year: 'numeric', month: 'long', day: 'numeric' }} />
             </div>
 
             <MarkdownRenderer content={content} />
