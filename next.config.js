@@ -18,6 +18,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'my-blog-backend-9xz1.onrender.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
