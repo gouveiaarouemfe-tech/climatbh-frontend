@@ -9,6 +9,7 @@ const DynamicSocialShare = dynamic(() => import('./SocialShare'), { ssr: false }
 interface ClientSocialShareProps {
   title: string;
   url: string;
+  slug: string;
   description?: string;
 }
 
