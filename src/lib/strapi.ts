@@ -154,9 +154,11 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
   // Se a URL for relativa (ex: /uploads/...), adiciona a URL base da API
   // Garante que API_URL não seja undefined antes de usar
   if (API_URL) {
-    return `${API_URL}${url}`;
+    const finalUrl = `${API_URL}${url}`;
+    console.log(`[DEBUG getImageUrl] API_URL: ${API_URL}, Relative URL: ${url}, Final URL: ${finalUrl}`);
+    return finalUrl;
   } else {
-    console.warn('API_URL não está definida. Retornando URL relativa para imagem.');
+    console.warn("[DEBUG getImageUrl] API_URL não está definida. Retornando URL relativa para imagem.");
     return url; // Retorna a URL relativa se API_URL não estiver definida
   }
 };
