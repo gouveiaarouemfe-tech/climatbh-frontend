@@ -107,7 +107,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
             <MarkdownRenderer content={content} />
 
             <div className="mt-8 pt-8 border-t border-gray-200 flex justify-between items-center">
-              <ClientSocialShare title={title} slug={slug} />
+              <ClientSocialShare title={title} slug={slug} url={`https://climatbh.com.br/blog/${slug}`} />
             </div>
           </article>
 
