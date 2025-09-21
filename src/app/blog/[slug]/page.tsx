@@ -12,7 +12,13 @@ import PostNavigation from '@/components/blog/PostNavigation';
 import ArticleStructuredData from '@/components/seo/ArticleStructuredData';
 import MarkdownRenderer from '@/components/common/MarkdownRenderer';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+// Definindo a interface PageProps explicitamente para evitar conflitos de tipo
+interface PostPageProps {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
@@ -29,6 +35,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: post.seo_title || post.title,
     description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', // Limita a descrição para SEO
+    keywords: [post.title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'], // Adicione palavras-chave relevantes
     openGraph: {
       title: post.seo_title || post.title,
       description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', // Limita a descrição para SEO
@@ -64,7 +71,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({ params }: PostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
@@ -79,6 +86,14 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const featuredImage = featured_image?.[0];
   const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
 
+  // URL completa para compartilhamento social
+  const postUrl = `https://climatbh.com.br/blog/${slug}`;
+
+  // Encontrar posts anterior e próximo para navegação
+  const currentIndex = allPosts.findIndex(p => p.id === post.id);
+  const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+
   return (
     <>
       <ArticleStructuredData post={post} />
@@ -89,7 +104,10 @@ export default async function PostPage({ params }: { params: { slug: string } })
           <article className="bg-white rounded-lg shadow-md p-6 lg:p-8 mb-12">
             <h1 className="text-4xl font-bold text-blue-800 mb-4">{title}</h1>
             <div className="text-gray-600 text-sm mb-6">
-              Publicado em: <FormattedDate dateString={publishedAt} />
+              <svg className="inline-block w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Publicado em: <FormattedDate dateString={publishedAt} options={{ year: 'numeric', month: 'long', day: 'numeric' }} />
             </div>
 
             {imageUrl && (
@@ -107,18 +125,35 @@ export default async function PostPage({ params }: { params: { slug: string } })
             <MarkdownRenderer content={content} />
 
             <div className="mt-8 pt-8 border-t border-gray-200 flex justify-between items-center">
-              <ClientSocialShare title={title} slug={slug} url={`https://climatbh.com.br/blog/${slug}`} />
+              <ClientSocialShare title={title} slug={slug} url={postUrl} description={seo_description} />
             </div>
           </article>
 
           <PostNavigation
-            previousPost={allPosts.find(p => p.id < post.id) || null}
-            nextPost={allPosts.find(p => p.id > post.id) || null}
+            previousPost={previousPost}
+            nextPost={nextPost}
           />
 
-          <RelatedPosts posts={allPosts} currentPostId={post.id} />
+          <RelatedPosts
+            posts={allPosts}
+            currentPostId={post.id}
+            maxPosts={3}
+          />
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Voltar ao Blog
+            </Link>
+          </div>
         </div>
       </div>
     </>
   );
 }
+
