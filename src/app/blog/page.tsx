@@ -73,14 +73,12 @@ export default function BlogPage() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post: Post) => {
-                const { title, slug, seo_description, content, publishedAt, image_alt, featured_image } = post;
-
-                if (!title || !slug || !content) {
+                if (!post || !post.title || !post.slug || !post.content) {
                   console.warn("Post inválido encontrado:", post);
                   return null;
                 }
 
-                const featuredImage = featured_image?.[0];
+                const featuredImage = post.featured_image?.[0];
                 const imageUrl = getImageUrl(featuredImage);
 
                 return (
@@ -91,7 +89,7 @@ export default function BlogPage() {
                     <div className="relative h-48 w-full">
                       <Image
                         src={imageUrl}
-                        alt={featuredImage?.attributes?.alternativeText || image_alt || title}
+                        alt={featuredImage?.attributes?.alternativeText || post.image_alt || post.title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -99,15 +97,15 @@ export default function BlogPage() {
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2 flex-grow">
-                        {title}
+                        {post.title}
                       </h2>
                       <p className="text-gray-600 mb-4 line-clamp-3">
-                        {seo_description || 
-                         content.replace(/[#*]/g, "").substring(0, 150) + "..."}
+                        {post.seo_description || 
+                         post.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
                       </p>
                       <div className="flex justify-between items-center mt-auto">
                         <Link
-                          href={`/blog/${slug}`}
+                          href={`/blog/${post.slug}`}
                           className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
                         >
                           Ler mais

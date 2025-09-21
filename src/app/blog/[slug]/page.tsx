@@ -19,55 +19,49 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) {
     return {
       title: 'Post não encontrado',
-      description: 'O post que você está procurando não foi encontrado.',
+      description: 'O post solicitado não foi encontrado.',
     };
   }
 
-  const { title, seo_title, content, image_alt, featured_image, publishedAt, updatedAt, seo_description = '' } = post;
-  const featuredImage = featured_image?.[0]; // Acessa o primeiro item do array
+  const featuredImage = post.featured_image?.[0];
   const imageUrl = getImageUrl(featuredImage);
 
   return {
-    title: seo_title || title,
-    description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...',
-    keywords: [title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
+    title: post.seo_title || post.title,
+    description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', // Limita a descrição para SEO
     openGraph: {
-      title: seo_title || title,
-      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...',
-      url: `https://climatbh-site-frontend.onrender.com/blog/${slug}`,
-      siteName: 'ClimatBH',
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...', // Limita a descrição para SEO
       images: [
         {
           url: imageUrl,
-          width: featuredImage?.attributes?.width || 800,
-          height: featuredImage?.attributes?.height || 600,
-          alt: featuredImage?.attributes?.alternativeText || image_alt || title,
+          alt: featuredImage?.attributes?.alternativeText || post.image_alt || post.title,
         },
       ],
-      locale: 'pt_BR',
       type: 'article',
-      publishedTime: publishedAt,
-      modifiedTime: updatedAt,
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
+      url: `https://climatbh.com.br/blog/${post.slug}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: seo_title || title,
-      description: seo_description || content.substring(0, 160).replace(/[#*]/g, '') + '...',
-      images: [imageUrl],
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.content.substring(0, 160 ).replace(/[#*]/g, '') + '...', // Limita a descrição para SEO
+      images: [
+        {
+          url: imageUrl,
+          alt: featuredImage?.attributes?.alternativeText || post.image_alt || post.title,
+        },
+      ],
     },
   };
 }
 
 export async function generateStaticParams() {
-  try {
-    const posts = await getPosts();
-    return posts.map((post: Post) => ({
-      slug: post.slug,
-    }));
-  } catch (error) {
-    console.error('Erro ao gerar static params para posts:', error);
-    return [];
-  }
+  const posts = await getPosts();
+  return posts.map((post: Post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
@@ -78,96 +72,53 @@ export default async function PostPage({ params }: { params: { slug: string } })
     notFound();
   }
 
+  const allPosts = await getPosts();
+
   const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post;
 
-  // Buscar todos os posts para posts relacionados e navegação
-  const allPosts = await getPosts();
-  const currentIndex = allPosts.findIndex(p => p.id === post.id);
-  const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
-
-  const featuredImage = featured_image?.[0]; // Acessa o primeiro item do array
-  const postImageUrl = getImageUrl(featuredImage);
-  const postUrl = `https://climatbh.com.br/blog/${slug}`;
+  const featuredImage = featured_image?.[0];
+  const imageUrl = getImageUrl(featuredImage);
 
   return (
     <>
-      <ArticleStructuredData
-        post={post}
-        imageUrl={postImageUrl}
-      />
+      <ArticleStructuredData post={post} />
       <div className="min-h-screen bg-gray-50">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <Breadcrumb
-          items={[
-            { label: 'Blog', href: '/blog' },
-            { label: title }
-          ]}
-        />
+        <div className="container mx-auto px-4 py-8">
+          <Breadcrumb title={title} />
 
-        <article>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          {featuredImage && (
-            <div className="relative w-full h-80 md:h-96">
-              <Image
-                src={postImageUrl}
-                alt={featuredImage.attributes?.alternativeText || image_alt || title}
-                fill
-                className="object-cover rounded-t-lg"
-                sizes="(max-width: 768px) 100vw, 800px"
-                priority
-              />
+          <article className="bg-white rounded-lg shadow-md p-6 lg:p-8 mb-12">
+            <h1 className="text-4xl font-bold text-blue-800 mb-4">{title}</h1>
+            <div className="text-gray-600 text-sm mb-6">
+              Publicado em: <FormattedDate dateString={publishedAt} />
             </div>
-          )}
 
-          <div className="p-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              {title}
-            </h1>
-
-            <div className="flex items-center text-gray-600 text-sm mb-8 pb-4 border-b border-gray-200">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              Publicado em: <FormattedDate dateString={publishedAt} options={{ year: 'numeric', month: 'long', day: 'numeric' }} />
-            </div>
+            {imageUrl && (
+              <div className="relative w-full h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src={imageUrl}
+                  alt={featuredImage?.attributes?.alternativeText || image_alt || title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
 
             <MarkdownRenderer content={content} />
-          </div>
 
-          <ClientSocialShare // Usando o novo componente wrapper
-            title={title}
-            url={postUrl}
-            description={seo_description}
+            <div className="mt-8 pt-8 border-t border-gray-200 flex justify-between items-center">
+              <ClientSocialShare title={title} slug={slug} />
+            </div>
+          </article>
+
+          <PostNavigation
+            previousPost={allPosts.find(p => p.id < post.id) || null}
+            nextPost={allPosts.find(p => p.id > post.id) || null}
           />
-        </div>
-        </article>
 
-        <PostNavigation
-          previousPost={previousPost}
-          nextPost={nextPost}
-        />
-
-        <RelatedPosts
-          posts={allPosts}
-          currentPostId={post.id}
-          maxPosts={3}
-        />
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/blog"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Voltar ao Blog
-            </Link>
-          </div>
+          <RelatedPosts posts={allPosts} currentPostId={post.id} />
         </div>
       </div>
     </>
   );
 }
-
