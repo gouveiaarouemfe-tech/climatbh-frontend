@@ -26,7 +26,7 @@ export async function generateMetadata(
     };
   }
 
-    const featuredImage = post.featured_image?.data?.[0];
+    const featuredImage = post.featured_image?.[0];
   const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
 
   return {
@@ -80,7 +80,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
   const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post;
 
-    const featuredImage = featured_image?.data?.[0];
+    const featuredImage = featured_image?.[0];
   const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
 
   // URL completa para compartilhamento social

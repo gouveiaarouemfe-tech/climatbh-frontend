@@ -76,7 +76,7 @@ export default function BlogPage() {
                   console.warn("Post inválido encontrado:", post);
                   return null;
                 }
-                const featuredImage = post.featured_image?.data?.[0];
+                const featuredImage = post.featured_image?.[0];
                 const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
 
                 return (
