@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 import { getPostBySlug, getPosts, getImageUrl, Post } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
@@ -12,13 +12,10 @@ import PostNavigation from '@/components/blog/PostNavigation';
 import ArticleStructuredData from '@/components/seo/ArticleStructuredData';
 import MarkdownRenderer from '@/components/common/MarkdownRenderer';
 
-// Definindo a interface PageProps explicitamente para evitar conflitos de tipo
-interface PostPageProps {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { slug: string } }, // Tipagem direta aqui
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
@@ -71,7 +68,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: { params: { slug: string } }) { // Tipagem direta aqui
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
