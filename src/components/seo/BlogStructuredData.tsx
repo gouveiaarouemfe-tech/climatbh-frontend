@@ -60,4 +60,3 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
   );
 }
 
-
