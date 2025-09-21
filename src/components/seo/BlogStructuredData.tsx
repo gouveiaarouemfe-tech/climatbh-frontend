@@ -10,7 +10,7 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
   const blogPostingSchema = posts.map(post => ({
     '@type': 'BlogPosting',
     'headline': post.title,
-    'image': post.featured_image?.[0] ? getImageUrl(post.featured_image[0]) : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
+    'image': post.featured_image?.data?.[0] ? getImageUrl(post.featured_image.data[0]) : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
     'url': `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
     'datePublished': post.publishedAt,
     'dateModified': post.updatedAt,
