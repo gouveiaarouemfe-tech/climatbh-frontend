@@ -157,9 +157,9 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
     return `${API_URL}${url}`;
   } else {
     // Se API_URL não estiver definida, não podemos construir uma URL absoluta para a imagem relativa.
-    // Retorna o placeholder para evitar URLs inválidas.
-    console.warn("API_URL não está definida. Não foi possível construir a URL absoluta para a imagem. Retornando placeholder.");
-    return 'https://via.placeholder.com/800x600.png?text=API_URL+Nao+Configurada';
+    // Retorna um placeholder mais específico para depuração.
+    console.warn("API_URL não está definida. Não foi possível construir a URL absoluta para a imagem. Retornando placeholder: API_URL_UNDEFINED");
+    return 'https://via.placeholder.com/800x600.png?text=API_URL_UNDEFINED';
   }
 };
 
