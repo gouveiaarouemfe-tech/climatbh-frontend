@@ -74,7 +74,7 @@ export interface Post {
   seo_title?: string;
   seo_description?: string;
   image_alt?: string;
-  featured_image?: StrapiImage[];
+  featured_image?: { data?: StrapiImage[] };
   categories?: Category[];
   tags?: Tag[];
   createdAt: string;
