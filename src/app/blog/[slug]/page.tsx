@@ -28,6 +28,8 @@ export async function generateMetadata(
 
     const featuredImage = post.featured_image?.[0];
   const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
+  console.log('PostPage (PostPage) - imageUrl:', imageUrl);
+  console.log('PostPage (generateMetadata) - imageUrl:', imageUrl);
 
   return {
     title: post.seo_title || post.title,
@@ -82,6 +84,8 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
     const featuredImage = featured_image?.[0];
   const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
+  console.log('PostPage (PostPage) - imageUrl:', imageUrl);
+  console.log('PostPage (generateMetadata) - imageUrl:', imageUrl);
 
   // URL completa para compartilhamento social
   const postUrl = `https://climatbh.com.br/blog/${slug}`;

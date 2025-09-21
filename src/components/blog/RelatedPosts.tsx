@@ -27,6 +27,7 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
           const featuredImage = post.featured_image?.[0];
           // getImageUrl espera um objeto StrapiImage, que é o que featuredImage é
           const imageUrl = getImageUrl(featuredImage);
+          console.log("RelatedPosts - imageUrl:", imageUrl);
 
           return (
             <article key={post.id} className="bg-gray-50 rounded-lg shadow-sm overflow-hidden">
