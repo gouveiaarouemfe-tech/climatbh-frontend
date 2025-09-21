@@ -24,7 +24,7 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {related.map(post => {
           // featured_image agora é um array, então pegamos o primeiro item
-          const featuredImage = post.featured_image?.[0];
+          const featuredImage = post.featured_image?.data?.[0];
           // getImageUrl espera um objeto StrapiImage, que é o que featuredImage é
           const imageUrl = getImageUrl(featuredImage);
 
