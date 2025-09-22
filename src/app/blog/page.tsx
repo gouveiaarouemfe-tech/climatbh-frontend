@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -5,11 +7,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import { getPosts, getImageUrl, Post } from '@/lib/strapi';
+import { getPosts, Post, getImageUrl } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
-const DynamicBlogFilter = dynamic(() => import('@/components/blog/BlogFilter'), { ssr: false });
+const DynamicBlogFilter = dynamic(( ) => import('@/components/blog/BlogFilter'), { ssr: false });
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -72,13 +74,16 @@ export default function BlogPage() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post: Post) => {
-                if (!post || !post.title || !post.slug || !post.content) {
-                  console.warn("Post inválido encontrado:", post);
+                if (!post || !post.attributes || !post.attributes.title || !post.attributes.slug || !post.attributes.content) {
                   return null;
                 }
-                const featuredImage = post.featured_image?.[0];
-                const imageUrl = getImageUrl(featuredImage) || 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
-                console.log('BlogPage - imageUrl:', imageUrl);
+
+                const featuredImage = post.attributes.featured_image?.data?.[0];
+                console.log("NEXT_PUBLIC_STRAPI_API_URL:", process.env.NEXT_PUBLIC_STRAPI_API_URL);
+                console.log("post:", JSON.stringify(post, null, 2));
+                console.log("featured_image?.[0]:", featuredImage);
+                console.log("featured_image?.[0]?.url:", featuredImage?.attributes?.url);
+                const finalImageUrl = getImageUrl(featuredImage);
 
                 return (
                   <article
@@ -86,25 +91,23 @@ export default function BlogPage() {
                     className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
                   >
                     <div className="relative h-48 w-full">
-                      <Image
-                        src={imageUrl}
-                        alt={featuredImage?.attributes?.alternativeText || post.image_alt || post.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
+                <img
+                  src={finalImageUrl}
+                  alt={featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title}
+                  className="object-cover w-full h-full"
+                />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2 flex-grow">
-                        {post.title}
+                        {post.attributes.title}
                       </h2>
                       <p className="text-gray-600 mb-4 line-clamp-3">
-                        {post.seo_description || 
-                         post.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
+                        {post.attributes.seo_description || 
+                         post.attributes.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
                       </p>
                       <div className="flex justify-between items-center mt-auto">
                         <Link
-                          href={`/blog/${post.slug}`}
+                          href={`/blog/${post.attributes.slug}`}
                           className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
                         >
                           Ler mais
@@ -113,7 +116,7 @@ export default function BlogPage() {
                           </svg>
                         </Link>
                         <span className="text-sm text-gray-500">
-                          <FormattedDate dateString={post.publishedAt} />
+                          <FormattedDate dateString={post.attributes.publishedAt} />
                         </span>
                       </div>
                     </div>
@@ -127,4 +130,3 @@ export default function BlogPage() {
     </>
   );
 }
-
