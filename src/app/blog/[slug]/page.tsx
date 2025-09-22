@@ -1,3 +1,5 @@
+'use client';
+
 export const dynamic = "force-dynamic";
 
 import Link from 'next/link';
@@ -157,4 +159,5 @@ export default async function PostPage({ params }: { params: { slug: string } })
     </>
   );
 }
+
 
