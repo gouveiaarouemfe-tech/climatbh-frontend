@@ -1,4 +1,3 @@
-
 import Script from 'next/script';
 import { Post, getImageUrl } from '@/lib/strapi';
 
@@ -9,11 +8,11 @@ interface BlogStructuredDataProps {
 export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
   const blogPostingSchema = posts.map(post => ({
     '@type': 'BlogPosting',
-    'headline': post.title,
-    'image': post.featured_image?.[0] ? getImageUrl(post.featured_image[0]) : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
-    'url': `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
-    'datePublished': post.publishedAt,
-    'dateModified': post.updatedAt,
+    'headline': post.attributes.title,
+    'image': post.attributes.featured_image?.data?.[0] ? getImageUrl(post.attributes.featured_image.data[0]) : 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
+    'url': `https://climatbh-site-frontend.onrender.com/blog/${post.attributes.slug}`,
+    'datePublished': post.attributes.publishedAt,
+    'dateModified': post.attributes.updatedAt,
     'author': {
       '@type': 'Person',
       'name': 'ClimatBH',
@@ -26,12 +25,12 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
         'url': 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
       },
     },
-    'description': post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...',
+    'description': post.attributes.seo_description || post.attributes.content.substring(0, 160 ).replace(/[#*]/g, '') + '...',
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://climatbh-site-frontend.onrender.com/blog/${post.slug}`,
+      '@id': `https://climatbh-site-frontend.onrender.com/blog/${post.attributes.slug}`,
     },
-  }));
+  } ));
 
   const blogSchema = {
     '@context': 'https://schema.org',
@@ -55,8 +54,7 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
     <Script
       id="blog-structured-data"
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema ) }}
     />
   );
 }
-
