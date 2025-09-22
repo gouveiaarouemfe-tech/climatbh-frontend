@@ -58,7 +58,12 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const posts = await getPosts();
-  return posts.map((post: Post) => ({
+  console.log("generateStaticParams - Posts recebidos:", JSON.stringify(posts, null, 2));
+
+  // Filtra posts que não possuem slug válido para evitar erros de build
+  const validPosts = posts.filter(post => post.attributes && post.attributes.slug);
+
+  return validPosts.map((post: Post) => ({
     slug: post.attributes.slug,
   }));
 }
@@ -77,4 +82,5 @@ export default async function PostPage({ params }: { params: { slug: string } })
     <PostClientPage post={post} allPosts={allPosts} slug={slug} />
   );
 }
+
 
