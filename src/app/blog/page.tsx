@@ -1,17 +1,17 @@
-export const dynamic = "force-dynamic";
-
 'use client';
+
+export const dynamic = "force-dynamic";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic'; // Mantido para DynamicBlogFilter
 
 import { getPosts, Post, getImageUrl } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
-const DynamicBlogFilter = dynamic(( ) => import('@/components/blog/BlogFilter'), { ssr: false });
+const DynamicBlogFilter = dynamic(() => import('@/components/blog/BlogFilter'), { ssr: false });
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
