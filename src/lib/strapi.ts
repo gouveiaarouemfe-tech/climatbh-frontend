@@ -67,8 +67,7 @@ export interface Tag {
 }
 
 // Interface principal para um Post, refletindo a estrutura do Strapi v4/v5
-export interface Post {
-  id: number;
+export interface PostAttributes {
   documentId?: string;
   title: string;
   content: string;
@@ -76,12 +75,17 @@ export interface Post {
   seo_title?: string;
   seo_description?: string;
   image_alt?: string;
-  featured_image?: StrapiImage[];
-  categories?: Category[];
-  tags?: Tag[];
+  featured_image?: { data: StrapiImage[] }; // Strapi v4/v5 wraps relations in a 'data' array
+  categories?: { data: Category[] };
+  tags?: { data: Tag[] };
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+}
+
+export interface Post {
+  id: number;
+  attributes: PostAttributes;
 }
 
 export interface StrapiResponse<T> {
@@ -96,9 +100,6 @@ export interface StrapiResponse<T> {
   };
 }
 
-// String de população explícita para os campos necessários
-const populateQuery = 'populate[0]=featured_image&populate[1]=categories&populate[2]=tags';
-
 // Função para buscar todos os posts
 export const getPosts = async (): Promise<Post[]> => {
   try {
@@ -108,11 +109,11 @@ export const getPosts = async (): Promise<Post[]> => {
       console.warn('Variáveis de ambiente do Strapi não configuradas.');
       return [];
     }
-    // Alterado de populate=deep para populate explícito
+    // Usando populate=* para simplificar a depuração
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?populate=*`);
     console.log("GET_POSTS - Status:", res.status);
     console.log("GET_POSTS - Data:", JSON.stringify(res.data, null, 2));
-    console.log("GET_POSTS - Featured Image from first post:", res.data.data[0]?.attributes?.featured_image?.[0]);
+    console.log("GET_POSTS - Featured Image from first post:", res.data.data[0]?.attributes?.featured_image?.data?.[0]?.attributes?.url);
     return res.data.data || [];
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
@@ -129,11 +130,11 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
       console.warn('Variáveis de ambiente do Strapi não configuradas.');
       return null;
     }
-    // Alterado de populate=deep para populate explícito
+    // Usando populate=* para simplificar a depuração
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=*`);
     console.log(`GET_POST_BY_SLUG (${slug}) - Status:`, res.status);
     console.log(`GET_POST_BY_SLUG (${slug}) - Data:`, JSON.stringify(res.data, null, 2));
-    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.[0]);
+    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.data?.[0]?.attributes?.url);
     return res.data.data[0] || null;
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
@@ -158,7 +159,7 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
     url = image.attributes.formats[format]!.url;
   }
 
-  // Se a URL já for completa (ex: Cloudinary), retorna diretamente
+  // Se a URL já for completa (http, https, ou // ), retorna diretamente
   if (url.startsWith('http://' ) || url.startsWith('https://' ) || url.startsWith('//')) {
     return url;
   }
@@ -166,11 +167,14 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
   // Se a URL for relativa (ex: /uploads/...), adiciona a URL base da API
   // Garante que API_URL esteja definida para construir a URL completa
   if (API_URL) {
-    return `${API_URL}${url}`;
+    // Garante que não haja barras duplas no meio da URL
+    const baseUrl = API_URL.endsWith('/') ? API_URL.slice(0, -1) : API_URL;
+    const imageUrl = url.startsWith('/') ? url : `/${url}`;
+    return `${baseUrl}${imageUrl}`;
   } else {
     // Se API_URL não estiver definida, não podemos construir uma URL absoluta para a imagem relativa.
     // Retorna um placeholder mais específico para depuração.
-    console.warn("API_URL não está definida. Não foi possível construir a URL absoluta para a imagem. Retornando placeholder: API_URL_UNDEFINIDA");
+    console.warn("API_URL não está definida. Não foi possível construir a URL absoluta para a imagem. Retornando placeholder: API_URL_INDEFINIDA");
     return 'https://via.placeholder.com/800x600.png?text=API_URL_INDEFINIDA';
   }
 };
