@@ -16,44 +16,40 @@ const strapiApi = axios.create({
 });
 
 // Interfaces para tipagem dos dados do Strapi
-export interface StrapiImageAttributes {
+export interface StrapiImageFormats {
+  small?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
+  medium?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
+  thumbnail?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
+  large?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
+}
+
+export interface StrapiImage {
+  id: number;
+  documentId?: string;
   name: string;
   alternativeText?: string;
   caption?: string;
   width: number;
   height: number;
-  formats?: {
-    small?: { url: string; width: number; height: number };
-    medium?: { url: string; width: number; height: number };
-    thumbnail?: { url: string; width: number; height: number };
-  };
+  formats?: StrapiImageFormats;
   url: string;
   provider: string;
   provider_metadata?: object;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-}
-
-export interface StrapiImage {
-  id: number;
-  attributes: StrapiImageAttributes;
-}
-
-export interface CategoryAttributes {
-  name: string;
-  slug: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
+  ext: string;
+  hash: string;
+  mime: string;
+  size: number;
+  previewUrl: string | null;
+  path: string | null;
 }
 
 export interface Category {
   id: number;
-  attributes: CategoryAttributes;
-}
-
-export interface TagAttributes {
+  documentId?: string;
+  Category: string;
   name: string;
   slug: string;
   createdAt: string;
@@ -63,21 +59,25 @@ export interface TagAttributes {
 
 export interface Tag {
   id: number;
-  attributes: TagAttributes;
+  documentId?: string;
+  name: string;
+  slug: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
 // Interface principal para um Post, refletindo a estrutura do Strapi v4/v5
 export interface PostAttributes {
-  documentId?: string;
   title: string;
   content: string;
   slug: string;
   seo_title?: string;
   seo_description?: string;
   image_alt?: string;
-  featured_image?: { data: StrapiImage[] }; // Strapi v4/v5 wraps relations in a 'data' array
-  categories?: { data: Category[] };
-  tags?: { data: Tag[] };
+  featured_image?: StrapiImage[];
+  categories?: Category[];
+  tags?: Tag[];
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -85,6 +85,7 @@ export interface PostAttributes {
 
 export interface Post {
   id: number;
+  documentId?: string;
   attributes: PostAttributes;
 }
 
@@ -113,7 +114,18 @@ export const getPosts = async (): Promise<Post[]> => {
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?populate=*`);
     console.log("GET_POSTS - Status:", res.status);
     console.log("GET_POSTS - Data:", JSON.stringify(res.data, null, 2));
-    console.log("GET_POSTS - Featured Image from first post:", res.data.data[0]?.attributes?.featured_image?.data?.[0]?.attributes?.url);
+    console.log("GET_POSTS - Raw Response Data:", JSON.stringify(res.data, null, 2));
+    console.log("GET_POSTS - Number of posts received:", res.data.data?.length);
+    if (res.data.data && res.data.data.length > 0) {
+      const firstPost = res.data.data[0];
+      if (firstPost) {
+        console.log("GET_POSTS - First post object:", JSON.stringify(firstPost, null, 2));
+        console.log("GET_POSTS - First post attributes:", JSON.stringify(firstPost.attributes, null, 2));
+        console.log("GET_POSTS - First post featured image URL:", firstPost.attributes?.featured_image?.[0]?.url);
+      } else {
+        console.log("GET_POSTS - No first post found in data.");
+      }
+    }
     return res.data.data || [];
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
@@ -134,7 +146,7 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=*`);
     console.log(`GET_POST_BY_SLUG (${slug}) - Status:`, res.status);
     console.log(`GET_POST_BY_SLUG (${slug}) - Data:`, JSON.stringify(res.data, null, 2));
-    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.data?.[0]?.attributes?.url);
+    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.[0]?.url);
     return res.data.data[0] || null;
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
@@ -146,20 +158,33 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
  * Retorna a URL completa de uma imagem do Strapi.
  * Lida com URLs que já são absolutas (Cloudinary) e URLs relativas (upload local).
  */
-export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | 'medium' | 'thumbnail'): string => {
+export const getImageUrl = (image: any | undefined, format?: 'small' | 'medium' | 'thumbnail' | 'large'): string => {
   // Se não houver imagem ou atributos, retorna um placeholder
-  if (!image || !image.attributes || !image.attributes.url) {
+  if (!image) {
     return 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
   }
 
-  let url = image.attributes.url;
+  let url = image.url; // Tenta acessar a URL diretamente
+
+  // Se a URL não estiver diretamente no objeto, tenta acessar via 'attributes'
+  if (!url && image.attributes && image.attributes.url ) {
+    url = image.attributes.url;
+  }
 
   // Se um formato específico foi solicitado e existe, usa a URL desse formato
-  if (format && image.attributes.formats && image.attributes.formats[format] ) {
+  if (format && image.formats && image.formats[format] ) {
+    url = image.formats[format]!.url;
+  } else if (format && image.attributes?.formats && image.attributes.formats[format]) {
     url = image.attributes.formats[format]!.url;
   }
 
-  // Se a URL já for completa (http, https, ou // ), retorna diretamente
+  // Se ainda não temos uma URL válida, retorna placeholder
+  if (!url) {
+    console.warn("getImageUrl: URL da imagem não encontrada. Objeto de imagem: ", JSON.stringify(image));
+    return 'https://via.placeholder.com/800x600.png?text=URL_IMAGEM_NAO_ENCONTRADA';
+  }
+
+  // Se a URL já for completa (http, https, ou //  ), retorna diretamente
   if (url.startsWith('http://' ) || url.startsWith('https://' ) || url.startsWith('//')) {
     return url;
   }
