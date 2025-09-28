@@ -66,16 +66,17 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post: Post) => {
-                if (!post || !post.attributes || !post.attributes.title || !post.attributes.slug || !post.attributes.content) {
+              {filteredPosts.filter(post => post.attributes && post.attributes.slug).map((post: Post) => {
+                if (!post || !post.attributes || !post.attributes.title || !post.attributes.content) {
                   return null;
                 }
 
-                const featuredImage = post.attributes.featured_image?.data?.[0];
-                console.log("NEXT_PUBLIC_STRAPI_API_URL:", process.env.NEXT_PUBLIC_STRAPI_API_URL);
-                console.log("post:", JSON.stringify(post, null, 2));
-                console.log("featured_image?.[0]:", featuredImage);
-                console.log("featured_image?.[0]?.url:", featuredImage?.attributes?.url);
+                const featuredImage = post.attributes.featured_image?.[0];
+                console.log("DEBUG: Post object:", JSON.stringify(post, null, 2));
+                console.log("DEBUG: Featured Image object (raw from post.attributes.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
+                console.log("DEBUG: Featured Image URL (from featuredImage?.url):", featuredImage?.url);
+                console.log("DEBUG: Featured Image URL (from featuredImage?.attributes?.url):", featuredImage?.attributes?.url);
+
                 const finalImageUrl = getImageUrl(featuredImage);
 
                 return (
@@ -86,7 +87,7 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                     <div className="relative h-48 w-full">
                 <img
                   src={finalImageUrl}
-                  alt={featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title}
+                  alt={featuredImage?.alternativeText || post.attributes.image_alt || post.attributes.title}
                   className="object-cover w-full h-full"
                 />
                     </div>
@@ -123,3 +124,4 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
     </>
   );
 }
+
