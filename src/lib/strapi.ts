@@ -23,9 +23,7 @@ export interface StrapiImageFormats {
   large?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
 }
 
-export interface StrapiImage {
-  id: number;
-  documentId?: string;
+export interface StrapiImageAttributes {
   name: string;
   alternativeText?: string;
   caption?: string;
@@ -44,6 +42,13 @@ export interface StrapiImage {
   size: number;
   previewUrl: string | null;
   path: string | null;
+}
+
+// A interface StrapiImage deve sempre ter 'attributes' se for um objeto retornado pelo Strapi com populate
+export interface StrapiImage {
+  id: number;
+  documentId?: string;
+  attributes: StrapiImageAttributes;
 }
 
 export interface Category {
@@ -107,7 +112,7 @@ export const getPosts = async (): Promise<Post[]> => {
     console.log("GET_POSTS - API_URL:", API_URL);
     console.log("GET_POSTS - API_TOKEN (first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
     if (!API_URL || !API_TOKEN) {
-      console.warn('Variáveis de ambiente do Strapi não configuradas.');
+      console.warn("Variáveis de ambiente do Strapi não configuradas.");
       return [];
     }
     // Usando populate=* para simplificar a depuração
@@ -121,7 +126,7 @@ export const getPosts = async (): Promise<Post[]> => {
       if (firstPost) {
         console.log("GET_POSTS - First post object:", JSON.stringify(firstPost, null, 2));
         console.log("GET_POSTS - First post attributes:", JSON.stringify(firstPost.attributes, null, 2));
-        console.log("GET_POSTS - First post featured image URL:", firstPost.attributes?.featured_image?.[0]?.url);
+        console.log("GET_POSTS - First post featured image URL:", firstPost.attributes?.featured_image?.[0]?.attributes?.url);
       } else {
         console.log("GET_POSTS - No first post found in data.");
       }
@@ -139,14 +144,14 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     console.log("GET_POST_BY_SLUG - API_URL:", API_URL);
     console.log("GET_POST_BY_SLUG - API_TOKEN (first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
     if (!API_URL || !API_TOKEN) {
-      console.warn('Variáveis de ambiente do Strapi não configuradas.');
+      console.warn("Variáveis de ambiente do Strapi não configuradas.");
       return null;
     }
     // Usando populate=* para simplificar a depuração
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=*`);
     console.log(`GET_POST_BY_SLUG (${slug}) - Status:`, res.status);
     console.log(`GET_POST_BY_SLUG (${slug}) - Data:`, JSON.stringify(res.data, null, 2));
-    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.[0]?.url);
+    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.[0]?.attributes?.url);
     return res.data.data[0] || null;
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
@@ -158,23 +163,16 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
  * Retorna a URL completa de uma imagem do Strapi.
  * Lida com URLs que já são absolutas (Cloudinary) e URLs relativas (upload local).
  */
-export const getImageUrl = (image: any | undefined, format?: 'small' | 'medium' | 'thumbnail' | 'large'): string => {
+export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | 'medium' | 'thumbnail' | 'large'): string => {
   // Se não houver imagem ou atributos, retorna um placeholder
-  if (!image) {
+  if (!image || !image.attributes) {
     return 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
   }
 
-  let url = image.url; // Tenta acessar a URL diretamente
-
-  // Se a URL não estiver diretamente no objeto, tenta acessar via 'attributes'
-  if (!url && image.attributes && image.attributes.url ) {
-    url = image.attributes.url;
-  }
+  let url = image.attributes.url; // Tenta acessar a URL diretamente dos atributos
 
   // Se um formato específico foi solicitado e existe, usa a URL desse formato
-  if (format && image.formats && image.formats[format] ) {
-    url = image.formats[format]!.url;
-  } else if (format && image.attributes?.formats && image.attributes.formats[format]) {
+  if (format && image.attributes.formats && image.attributes.formats[format]) {
     url = image.attributes.formats[format]!.url;
   }
 
@@ -185,7 +183,7 @@ export const getImageUrl = (image: any | undefined, format?: 'small' | 'medium' 
   }
 
   // Se a URL já for completa (http, https, ou //  ), retorna diretamente
-  if (url.startsWith('http://' ) || url.startsWith('https://' ) || url.startsWith('//')) {
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//')) {
     return url;
   }
 
