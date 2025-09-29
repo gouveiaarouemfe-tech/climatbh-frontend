@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata, ResolvingMetadata } from 'next';
 
-import { getPostBySlug, getPosts, getImageUrl, Post } from '@/lib/strapi';
+import { getPostBySlug, getPosts, getImageUrl, Post, StrapiImage } from '@/lib/strapi';
 import PostClientPage from './PostClientPage';
 
 export const dynamic = "force-dynamic";
@@ -21,7 +21,8 @@ export async function generateMetadata(
     };
   }
 
-  const featuredImage = post.attributes.featured_image?.data?.[0];
+  // Correção: featured_image já é um array de StrapiImage, não precisa de .data
+  const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
   const finalImageUrlForMetadata = getImageUrl(featuredImage);
 
   return {
@@ -82,5 +83,6 @@ export default async function PostPage({ params }: { params: { slug: string } })
     <PostClientPage post={post} allPosts={allPosts} slug={slug} />
   );
 }
+
 
 
