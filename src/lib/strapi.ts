@@ -44,7 +44,6 @@ export interface StrapiImageAttributes {
   path: string | null;
 }
 
-// A interface StrapiImage deve sempre ter 'attributes' se for um objeto retornado pelo Strapi com populate
 export interface StrapiImage {
   id: number;
   documentId?: string;
@@ -95,7 +94,7 @@ export interface Post {
 }
 
 export interface StrapiResponse<T> {
-  data: T[];
+  dados: T[]; // Corrigido de 'data' para 'dados' para corresponder à API
   meta: {
     pagination: {
       page: number;
@@ -112,7 +111,7 @@ export const getPosts = async (): Promise<Post[]> => {
     console.log("GET_POSTS - API_URL:", API_URL);
     console.log("GET_POSTS - API_TOKEN (first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
     if (!API_URL || !API_TOKEN) {
-      console.warn("Variáveis de ambiente do Strapi não configuradas.");
+      console.warn('Variáveis de ambiente do Strapi não configuradas.');
       return [];
     }
     // Usando populate=* para simplificar a depuração
@@ -120,9 +119,9 @@ export const getPosts = async (): Promise<Post[]> => {
     console.log("GET_POSTS - Status:", res.status);
     console.log("GET_POSTS - Data:", JSON.stringify(res.data, null, 2));
     console.log("GET_POSTS - Raw Response Data:", JSON.stringify(res.data, null, 2));
-    console.log("GET_POSTS - Number of posts received:", res.data.data?.length);
-    if (res.data.data && res.data.data.length > 0) {
-      const firstPost = res.data.data[0];
+    console.log("GET_POSTS - Number of posts received:", res.data.dados?.length); // Corrigido de 'data' para 'dados'
+    if (res.data.dados && res.data.dados.length > 0) { // Corrigido de 'data' para 'dados'
+      const firstPost = res.data.dados[0]; // Corrigido de 'data' para 'dados'
       if (firstPost) {
         console.log("GET_POSTS - First post object:", JSON.stringify(firstPost, null, 2));
         console.log("GET_POSTS - First post attributes:", JSON.stringify(firstPost.attributes, null, 2));
@@ -131,7 +130,7 @@ export const getPosts = async (): Promise<Post[]> => {
         console.log("GET_POSTS - No first post found in data.");
       }
     }
-    return res.data.data || [];
+    return res.data.dados || []; // Corrigido de 'data' para 'dados'
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
     return [];
@@ -144,15 +143,15 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     console.log("GET_POST_BY_SLUG - API_URL:", API_URL);
     console.log("GET_POST_BY_SLUG - API_TOKEN (first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
     if (!API_URL || !API_TOKEN) {
-      console.warn("Variáveis de ambiente do Strapi não configuradas.");
+      console.warn('Variáveis de ambiente do Strapi não configuradas.');
       return null;
     }
     // Usando populate=* para simplificar a depuração
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=*`);
     console.log(`GET_POST_BY_SLUG (${slug}) - Status:`, res.status);
     console.log(`GET_POST_BY_SLUG (${slug}) - Data:`, JSON.stringify(res.data, null, 2));
-    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data[0]?.attributes?.featured_image?.[0]?.attributes?.url);
-    return res.data.data[0] || null;
+    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.dados[0]?.attributes?.featured_image?.[0]?.attributes?.url); // Corrigido de 'data' para 'dados'
+    return res.data.dados[0] || null; // Corrigido de 'data' para 'dados'
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
     return null;
