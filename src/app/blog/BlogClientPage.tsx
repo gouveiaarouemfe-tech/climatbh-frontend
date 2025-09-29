@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import { getPosts, Post, getImageUrl } from '@/lib/strapi';
+import { getPosts, Post, getImageUrl, StrapiImage } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
@@ -71,10 +71,9 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                   return null;
                 }
 
-                const featuredImage = post.attributes.featured_image?.[0];
+                const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
                 console.log("DEBUG: Post object:", JSON.stringify(post, null, 2));
                 console.log("DEBUG: Featured Image object (raw from post.attributes.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
-                console.log("DEBUG: Featured Image URL (from featuredImage?.url):", featuredImage?.url);
                 console.log("DEBUG: Featured Image URL (from featuredImage?.attributes?.url):", featuredImage?.attributes?.url);
 
                 const finalImageUrl = getImageUrl(featuredImage);
@@ -87,7 +86,7 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                     <div className="relative h-48 w-full">
                 <img
                   src={finalImageUrl}
-                  alt={featuredImage?.alternativeText || post.attributes.image_alt || post.attributes.title}
+                  alt={featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title}
                   className="object-cover w-full h-full"
                 />
                     </div>
@@ -124,4 +123,3 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
     </>
   );
 }
-
