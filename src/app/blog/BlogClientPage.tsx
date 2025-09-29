@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import { getPosts, Post, getImageUrl, StrapiImage } from '@/lib/strapi';
+import { getPosts, Post, getImageUrl, StrapiImage, StrapiImageAttributes } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 
@@ -74,7 +74,12 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                 const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
                 console.log("DEBUG: Post object:", JSON.stringify(post, null, 2));
                 console.log("DEBUG: Featured Image object (raw from post.attributes.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
-                console.log("DEBUG: Featured Image URL (from featuredImage?.attributes?.url):", featuredImage?.attributes?.url);
+                // A linha abaixo foi removida pois o `featuredImage` já é do tipo `StrapiImage | undefined`
+                // e a função `getImageUrl` já lida com a possibilidade de `featuredImage` ser `undefined`
+                // ou não ter `attributes` internamente. O erro de tipo anterior era causado por tentar
+                // acessar `featuredImage?.attributes?.url` diretamente em um `console.log` quando
+                // `featuredImage` poderia ser `undefined` e, portanto, não ter `attributes`.
+                // console.log("DEBUG: URL da imagem em destaque (de featuredImage?.attributes?.url):", featuredImage?.attributes?.url);
 
                 const finalImageUrl = getImageUrl(featuredImage);
 
