@@ -16,13 +16,22 @@ interface BlogClientPageProps {
 }
 
 export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
+  console.log("BlogClientPage - initialPosts recebidos:", initialPosts);
+  console.log("BlogClientPage - Número de initialPosts:", initialPosts.length);
+  console.log("BlogClientPage - Primeiro initialPost (se existir):", initialPosts[0] ? JSON.stringify(initialPosts[0], null, 2) : "Nenhum post encontrado");
+
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(initialPosts);
   const [loading, setLoading] = useState(false); // Já carregado com initialPosts
 
+  console.log("BlogClientPage - posts state:", posts);
+  console.log("BlogClientPage - filteredPosts state:", filteredPosts);
+  console.log("BlogClientPage - filteredPosts.length:", filteredPosts.length);
+
   // Se a página for revalidada ou navegar, os initialPosts podem mudar.
   // Atualiza o estado se initialPosts mudar.
   useEffect(() => {
+    console.log("BlogClientPage - useEffect executado com initialPosts:", initialPosts);
     setPosts(initialPosts);
     setFilteredPosts(initialPosts);
   }, [initialPosts]);
@@ -55,6 +64,15 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
             onFilteredPosts={setFilteredPosts}
           />
 
+          {/* Debug: Mostrar informações sobre os posts */}
+          <div className="mb-4 p-4 bg-yellow-100 border border-yellow-400 rounded">
+            <p><strong>Debug Info:</strong></p>
+            <p>Total posts: {posts.length}</p>
+            <p>Filtered posts: {filteredPosts.length}</p>
+            <p>Posts com attributes: {posts.filter(post => post.attributes).length}</p>
+            <p>Posts com slug: {posts.filter(post => post.attributes && post.attributes.slug).length}</p>
+          </div>
+
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-xl text-gray-600 mb-4">
@@ -67,19 +85,16 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.filter(post => post.attributes && post.attributes.slug).map((post: Post) => {
+                console.log("BlogClientPage - Renderizando post:", post.id, post.attributes?.title);
+                
                 if (!post || !post.attributes || !post.attributes.title || !post.attributes.content) {
+                  console.log("BlogClientPage - Post ignorado por falta de dados:", post.id);
                   return null;
                 }
 
                 const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
                 console.log("DEBUG: Post object:", JSON.stringify(post, null, 2));
                 console.log("DEBUG: Featured Image object (raw from post.attributes.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
-                // A linha abaixo foi removida pois o `featuredImage` já é do tipo `StrapiImage | undefined`
-                // e a função `getImageUrl` já lida com a possibilidade de `featuredImage` ser `undefined`
-                // ou não ter `attributes` internamente. O erro de tipo anterior era causado por tentar
-                // acessar `featuredImage?.attributes?.url` diretamente em um `console.log` quando
-                // `featuredImage` poderia ser `undefined` e, portanto, não ter `attributes`.
-                // console.log("DEBUG: URL da imagem em destaque (de featuredImage?.attributes?.url):", featuredImage?.attributes?.url);
 
                 const finalImageUrl = getImageUrl(featuredImage);
 
