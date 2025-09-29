@@ -1,9 +1,10 @@
+
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { getImageUrl, Post } from '@/lib/strapi';
+import { getImageUrl, Post, StrapiImage } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import Breadcrumb from '@/components/blog/Breadcrumb';
 import ClientSocialShare from '@/components/blog/ClientSocialShare';
@@ -21,11 +22,12 @@ interface PostClientPageProps {
 export default function PostClientPage({ post, allPosts, slug }: PostClientPageProps) {
   const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post.attributes;
 
-  const featuredImage = featured_image?.data?.[0];
+  // Correção: featured_image já é um array de StrapiImage, não precisa de .data
+  const featuredImage: StrapiImage | undefined = featured_image?.[0];
   console.log("NEXT_PUBLIC_STRAPI_API_URL:", process.env.NEXT_PUBLIC_STRAPI_API_URL);
   console.log("post:", JSON.stringify(post, null, 2));
   console.log("featured_image?.[0]:", featuredImage);
-  console.log("featured_image?.[0]?.url:", featuredImage?.attributes?.url);
+  console.log("featured_image?.[0]?.attributes?.url:", featuredImage?.attributes?.url);
   const finalImageUrl = getImageUrl(featuredImage);
 
   const postUrl = `https://climatbh.com.br/blog/${slug}`;
@@ -94,3 +96,4 @@ export default function PostClientPage({ post, allPosts, slug }: PostClientPageP
     </>
   );
 }
+
