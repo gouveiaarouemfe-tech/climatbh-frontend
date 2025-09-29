@@ -83,6 +83,3 @@ export default async function PostPage({ params }: { params: { slug: string } })
     <PostClientPage post={post} allPosts={allPosts} slug={slug} />
   );
 }
-
-
-
