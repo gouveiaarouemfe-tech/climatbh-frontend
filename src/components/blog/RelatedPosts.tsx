@@ -55,4 +55,3 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
     </div>
   );
 }
-
