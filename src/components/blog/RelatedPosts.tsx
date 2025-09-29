@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Post, getImageUrl } from '@/lib/strapi';
+import { Post, getImageUrl, StrapiImage } from '@/lib/strapi';
 
 interface RelatedPostsProps {
   posts: Post[];
@@ -23,8 +23,8 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Posts Relacionados</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {related.map(post => {
-          // featured_image agora é um objeto com uma propriedade data, então pegamos o primeiro item
-          const featuredImage = post.attributes.featured_image?.data?.[0];
+          // Correção: featured_image já é um array de StrapiImage, não precisa de .data
+          const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
           // getImageUrl espera um objeto StrapiImage, que é o que featuredImage é
           const finalImageUrl = getImageUrl(featuredImage);
           // console.log("RelatedPosts - finalImageUrl:", finalImageUrl);
@@ -55,3 +55,4 @@ export default function RelatedPosts({ posts, currentPostId, maxPosts = 3 }: Rel
     </div>
   );
 }
+
