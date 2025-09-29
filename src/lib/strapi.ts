@@ -94,13 +94,15 @@ export interface Post {
 }
 
 export interface StrapiResponse<T> {
-  dados: T[]; // Corrigido de 'data' para 'dados' para corresponder à API
-  meta: {
-    pagination: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
+  data: { // A API retorna a propriedade principal como 'data', que contém 'dados'
+    dados: T[];
+    meta: {
+      pagination: {
+        page: number;
+        pageSize: number;
+        pageCount: number;
+        total: number;
+      };
     };
   };
 }
@@ -119,9 +121,9 @@ export const getPosts = async (): Promise<Post[]> => {
     console.log("GET_POSTS - Status:", res.status);
     console.log("GET_POSTS - Data:", JSON.stringify(res.data, null, 2));
     console.log("GET_POSTS - Raw Response Data:", JSON.stringify(res.data, null, 2));
-    console.log("GET_POSTS - Number of posts received:", res.data.dados?.length); // Corrigido de 'data' para 'dados'
-    if (res.data.dados && res.data.dados.length > 0) { // Corrigido de 'data' para 'dados'
-      const firstPost = res.data.dados[0]; // Corrigido de 'data' para 'dados'
+    console.log("GET_POSTS - Number of posts received:", res.data.data?.dados?.length); // Corrigido para acessar res.data.data.dados
+    if (res.data.data?.dados && res.data.data.dados.length > 0) { // Corrigido para acessar res.data.data.dados
+      const firstPost = res.data.data.dados[0]; // Corrigido para acessar res.data.data.dados
       if (firstPost) {
         console.log("GET_POSTS - First post object:", JSON.stringify(firstPost, null, 2));
         console.log("GET_POSTS - First post attributes:", JSON.stringify(firstPost.attributes, null, 2));
@@ -130,7 +132,7 @@ export const getPosts = async (): Promise<Post[]> => {
         console.log("GET_POSTS - No first post found in data.");
       }
     }
-    return res.data.dados || []; // Corrigido de 'data' para 'dados'
+    return res.data.data?.dados || []; // Corrigido para acessar res.data.data.dados
   } catch (error) {
     console.error('Erro ao buscar posts:', error);
     return [];
@@ -150,8 +152,8 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=*`);
     console.log(`GET_POST_BY_SLUG (${slug}) - Status:`, res.status);
     console.log(`GET_POST_BY_SLUG (${slug}) - Data:`, JSON.stringify(res.data, null, 2));
-    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.dados[0]?.attributes?.featured_image?.[0]?.attributes?.url); // Corrigido de 'data' para 'dados'
-    return res.data.dados[0] || null; // Corrigido de 'data' para 'dados'
+    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.data?.dados?.[0]?.attributes?.featured_image?.[0]?.attributes?.url); // Corrigido para acessar res.data.data.dados
+    return res.data.data?.dados?.[0] || null; // Corrigido para acessar res.data.data.dados
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
     return null;
@@ -202,3 +204,4 @@ export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | '
 };
 
 export default strapiApi;
+
