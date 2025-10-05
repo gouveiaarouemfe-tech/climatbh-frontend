@@ -69,8 +69,8 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
             <p><strong>Debug Info:</strong></p>
             <p>Total posts: {posts.length}</p>
             <p>Filtered posts: {filteredPosts.length}</p>
-            <p>Posts com attributes: {posts.filter(post => post.attributes).length}</p>
-            <p>Posts com slug: {posts.filter(post => post.attributes && post.attributes.slug).length}</p>
+            <p>Posts com attributes: {posts.length}</p>
+            <p>Posts com slug: {posts.filter(post => post.slug).length}</p>
           </div>
 
           {filteredPosts.length === 0 ? (
@@ -84,17 +84,17 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.filter(post => post.attributes && post.attributes.slug).map((post: Post) => {
-                console.log("BlogClientPage - Renderizando post:", post.id, post.attributes?.title);
+              {filteredPosts.filter(post => post.slug).map((post: Post) => {
+                console.log("BlogClientPage - Renderizando post:", post.id, post.title);
                 
-                if (!post || !post.attributes || !post.attributes.title || !post.attributes.content) {
+                if (!post || !post.title || !post.content) {
                   console.log("BlogClientPage - Post ignorado por falta de dados:", post.id);
                   return null;
                 }
 
-                const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
+                const featuredImage: StrapiImage | undefined = post.featured_image?.[0];
                 console.log("DEBUG: Post object:", JSON.stringify(post, null, 2));
-                console.log("DEBUG: Featured Image object (raw from post.attributes.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
+                console.log("DEBUG: Featured Image object (raw from post.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
 
                 const finalImageUrl = getImageUrl(featuredImage);
 
@@ -106,21 +106,21 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                     <div className="relative h-48 w-full">
                 <img
                   src={finalImageUrl}
-                  alt={featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title}
+                  alt={featuredImage?.attributes?.alternativeText || post.image_alt || post.title}
                   className="object-cover w-full h-full"
                 />
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <h2 className="text-xl font-semibold mb-3 text-gray-800 line-clamp-2 flex-grow">
-                        {post.attributes.title}
+                        {post.title}
                       </h2>
                       <p className="text-gray-600 mb-4 line-clamp-3">
-                        {post.attributes.seo_description || 
-                         post.attributes.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
+                        {post.seo_description || 
+                         post.content.replace(/[#*]/g, "").substring(0, 150) + "..."}
                       </p>
                       <div className="flex justify-between items-center mt-auto">
                         <Link
-                          href={`/blog/${post.attributes.slug}`}
+                          href={`/blog/${post.slug}`}
                           className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
                         >
                           Ler mais
@@ -129,7 +129,7 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                           </svg>
                         </Link>
                         <span className="text-sm text-gray-500">
-                          <FormattedDate dateString={post.attributes.publishedAt} />
+                          <FormattedDate dateString={post.publishedAt} />
                         </span>
                       </div>
                     </div>

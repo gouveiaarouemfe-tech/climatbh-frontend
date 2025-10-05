@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Busca a URL da API e o Token do ambiente
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 const API_TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
 console.log("strapi.ts - API_URL (global):", API_URL);
 console.log("strapi.ts - API_TOKEN (global, first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
@@ -10,7 +10,6 @@ console.log("strapi.ts - API_TOKEN (global, first 5 chars):", API_TOKEN ? API_TO
 const strapiApi = axios.create({
   baseURL: API_URL,
   headers: {
-    'Authorization': `Bearer ${API_TOKEN}`,
     'Content-Type': 'application/json',
   },
 });
@@ -71,8 +70,10 @@ export interface Tag {
   publishedAt: string;
 }
 
-// Interface principal para um Post, refletindo a estrutura do Strapi v4/v5
-export interface PostAttributes {
+// Interface principal para um Post, refletindo a estrutura real da API
+export interface Post {
+  id: number;
+  documentId?: string;
   title: string;
   content: string;
   slug: string;
@@ -85,12 +86,6 @@ export interface PostAttributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-}
-
-export interface Post {
-  id: number;
-  documentId?: string;
-  attributes: PostAttributes;
 }
 
 export interface StrapiResponse<T> {
@@ -110,8 +105,8 @@ export const getPosts = async (): Promise<Post[]> => {
   try {
     console.log("GET_POSTS - API_URL:", API_URL);
     console.log("GET_POSTS - API_TOKEN (first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
-    if (!API_URL || !API_TOKEN) {
-      console.warn('Variáveis de ambiente do Strapi não configuradas.');
+    if (!API_URL) {
+      console.warn('URL da API do Strapi não configurada.');
       return [];
     }
     // Usando populate=* para simplificar a depuração
@@ -142,8 +137,8 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
     console.log("GET_POST_BY_SLUG - API_URL:", API_URL);
     console.log("GET_POST_BY_SLUG - API_TOKEN (first 5 chars):", API_TOKEN ? API_TOKEN.substring(0, 5) : "TOKEN_NOT_SET");
-    if (!API_URL || !API_TOKEN) {
-      console.warn('Variáveis de ambiente do Strapi não configuradas.');
+    if (!API_URL) {
+      console.warn('URL da API do Strapi não configurada.');
       return null;
     }
     // Usando populate=* para simplificar a depuração
