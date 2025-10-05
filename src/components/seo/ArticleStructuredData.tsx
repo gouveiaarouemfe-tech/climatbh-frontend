@@ -13,7 +13,7 @@ export default function ArticleStructuredData({ post, imageUrl }: ArticleStructu
     '@context': 'https://schema.org',
     '@type': 'Article',
     'headline': title,
-    'image': imageUrl || 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
+    'image': imageUrl || 'https://www.climatbh.com.br/images/logo-climatbh.png',
     'datePublished': publishedAt,
     'dateModified': updatedAt,
     'author': {
@@ -25,13 +25,13 @@ export default function ArticleStructuredData({ post, imageUrl }: ArticleStructu
       'name': 'ClimatBH',
       'logo': {
         '@type': 'ImageObject',
-        'url': 'https://climatbh-site-frontend.onrender.com/images/logo-climatbh.png',
+        'url': 'https://www.climatbh.com.br/images/logo-climatbh.png',
       },
     },
     'description': seo_description || content.substring(0, 160 ).replace(/[#*]/g, '') + '...',
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://climatbh-site-frontend.onrender.com/blog/${slug}`,
+      '@id': `https://www.climatbh.com.br/blog/${slug}`,
     },
   };
 

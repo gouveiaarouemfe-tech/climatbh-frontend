@@ -58,15 +58,9 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  const posts = await getPosts();
-  console.log("generateStaticParams - Posts recebidos:", JSON.stringify(posts, null, 2));
-
-  // Filtra posts que não possuem slug válido para evitar erros de build
-  const validPosts = posts.filter(post => post.slug);
-
-  return validPosts.map((post: Post) => ({
-    slug: post.slug,
-  }));
+  // Durante o build, não fazemos chamadas de API para evitar erros de conexão
+  // As páginas serão geradas dinamicamente quando acessadas
+  return [];
 }
 
 export default async function PostPage({ params }: { params: { slug: string } }) {

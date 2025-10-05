@@ -1,10 +1,9 @@
 import { MetadataRoute } from 'next'
-import { getPosts } from '@/lib/strapi'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.climatbh.com.br'
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.climatbh.com.br'
   
-  // Páginas estáticas
+  // Páginas estáticas - não fazemos chamadas de API durante o build
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -86,21 +85,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // Buscar posts do blog dinamicamente
-  let blogPosts: MetadataRoute.Sitemap = []
-  try {
-    const posts = await getPosts()
-    blogPosts = posts
-      .filter(post => post.slug && post.publishedAt)
-      .map(post => ({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: new Date(post.updatedAt || post.publishedAt),
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
-      }))
-  } catch (error) {
-    console.error('Erro ao buscar posts para sitemap:', error)
-  }
-
-  return [...staticPages, ...blogPosts]
+  return staticPages
 }
