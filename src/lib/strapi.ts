@@ -15,11 +15,25 @@ const strapiApi = axios.create({
 });
 
 // Interfaces para tipagem dos dados do Strapi
+export interface StrapiImageFormat {
+  url: string;
+  width: number;
+  height: number;
+  ext: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | null;
+  size: number;
+  sizeInBytes: number;
+}
+
 export interface StrapiImageFormats {
-  small?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
-  medium?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
-  thumbnail?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
-  large?: { url: string; width: number; height: number; ext: string; hash: string; mime: string; name: string; path: string | null; size: number; sizeInBytes: number };
+  small?: StrapiImageFormat;
+  medium?: StrapiImageFormat;
+  thumbnail?: StrapiImageFormat;
+  large?: StrapiImageFormat;
+  [key: string]: StrapiImageFormat | undefined; // Permite indexação por string
 }
 
 export interface StrapiImageAttributes {
