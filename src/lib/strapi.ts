@@ -53,7 +53,7 @@ export interface StrapiImage {
   caption?: string;
   width?: number;
   height?: number;
-  formats?: Record<string, StrapiImageFormat>;
+  formats?: StrapiImageFormats;
   hash?: string;
   ext?: string;
   mime?: string;
