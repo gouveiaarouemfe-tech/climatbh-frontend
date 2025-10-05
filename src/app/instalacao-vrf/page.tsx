@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Phone, CheckCircle, Clock, Award, Users, Wrench, ArrowRight } from 'lucide-react';
 import { generateMetadata } from '@/components/seo/SEOHead';
 import StructuredData from '@/components/seo/StructuredData';
+import FAQStructuredData from '@/components/seo/FAQStructuredData';
 
 export const metadata = generateMetadata({
   title: 'Instalação de VRF em BH: Sistemas de Climatização Comercial | ClimatBH',
@@ -65,10 +66,38 @@ const serviceStructuredData = {
   },
 };
 
+const faqData = [
+  {
+    question: "Quanto custa a instalação de um sistema VRF em BH?",
+    answer: "O custo varia conforme o tamanho do projeto e número de ambientes. Para escritórios pequenos (até 100m²): R$ 25.000-40.000. Médios (100-300m²): R$ 40.000-80.000. Grandes (300m²+): R$ 80.000-200.000. Inclui projeto, equipamentos e instalação completa."
+  },
+  {
+    question: "Qual a diferença entre VRF e ar condicionado tradicional?",
+    answer: "VRF permite controle individual de temperatura em cada ambiente com uma única unidade externa, maior eficiência energética e flexibilidade. Ar condicionado tradicional requer uma unidade para cada ambiente, consumindo mais energia e ocupando mais espaço."
+  },
+  {
+    question: "Quanto tempo demora a instalação de um sistema VRF?",
+    answer: "Instalações pequenas (até 5 ambientes): 3-5 dias. Médias (5-15 ambientes): 1-2 semanas. Grandes (15+ ambientes): 2-4 semanas. O prazo inclui instalação das unidades, tubulação, cabeamento e testes de funcionamento."
+  },
+  {
+    question: "VRF funciona para aquecimento também?",
+    answer: "Sim, sistemas VRF podem ser bomba de calor (heat pump), oferecendo aquecimento e refrigeração. Ideais para regiões com variações de temperatura, proporcionando conforto térmico o ano todo com alta eficiência energética."
+  },
+  {
+    question: "Precisa de projeto para instalar VRF?",
+    answer: "Sim, é obrigatório projeto técnico assinado por engenheiro para sistemas VRF. Inclui cálculo de carga térmica, dimensionamento, layout das unidades, tubulação e sistema elétrico. Fornecemos projeto completo e ART."
+  },
+  {
+    question: "Qual a garantia da instalação VRF?",
+    answer: "Oferecemos 2 anos de garantia na instalação e 5 anos nos equipamentos (conforme fabricante). Inclui manutenção preventiva no primeiro ano, suporte técnico 24h e reposição de peças defeituosas."
+  }
+];
+
 export default function InstalacaoVRF() {
   return (
     <div className="min-h-screen">
       <StructuredData type="Service" data={serviceStructuredData} />
+      <FAQStructuredData faqs={faqData} pageTitle="Instalação de VRF em BH" />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
@@ -99,12 +128,12 @@ export default function InstalacaoVRF() {
             </div>
             <div className="relative">
               <Image
-                src="/images/instalacao-de-VRF.jpeg"
+                src="/images/instalacao-de-VRF.webp"
                 alt="Instalação de Sistema VRF em BH - ClimatBH"
                 width={600}
-                height={300}
-                className="rounded-lg shadow-2xl object-cover"
-                style={{ height: '300px' }}
+                height={500}
+                className="rounded-lg shadow-lg"
+                priority
               />
             </div>
           </div>
@@ -163,12 +192,11 @@ export default function InstalacaoVRF() {
             </div>
             <div>
               <Image
-                src="/images/oqueeVRF.jpeg"
+                src="/images/oqueeVRF.webp"
                 alt="Sistema VRF - Como funciona"
                 width={600}
-                height={350}
-                className="rounded-lg shadow-lg object-cover"
-                style={{ height: '350px' }}
+                height={400}
+                className="rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -509,6 +537,33 @@ export default function InstalacaoVRF() {
                 Sim! Uma das grandes vantagens do VRF é sua modularidade. Podemos adicionar novas unidades internas ou até mesmo condensadoras extras conforme sua necessidade cresce. Sempre dimensionamos pensando em expansões futuras, deixando capacidade reserva e pontos preparados para facilitar ampliações.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Perguntas Frequentes sobre Instalação de VRF
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Tire suas dúvidas sobre instalação de sistemas VRF em Belo Horizonte
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            {faqData.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

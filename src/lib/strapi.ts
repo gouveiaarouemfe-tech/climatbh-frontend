@@ -112,6 +112,7 @@ export interface Post {
   seo_title?: string;
   seo_description?: string;
   image_alt?: string;
+  category?: string;
   featured_image?: StrapiImage[];
   categories?: Category[];
   tags?: Tag[];
