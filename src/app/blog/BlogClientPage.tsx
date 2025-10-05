@@ -64,14 +64,7 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
             onFilteredPosts={setFilteredPosts}
           />
 
-          {/* Debug: Mostrar informações sobre os posts */}
-          <div className="mb-4 p-4 bg-yellow-100 border border-yellow-400 rounded">
-            <p><strong>Debug Info:</strong></p>
-            <p>Total posts: {posts.length}</p>
-            <p>Filtered posts: {filteredPosts.length}</p>
-            <p>Posts com attributes: {posts.length}</p>
-            <p>Posts com slug: {posts.filter(post => post.slug).length}</p>
-          </div>
+
 
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
@@ -85,16 +78,11 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.filter(post => post.slug).map((post: Post) => {
-                console.log("BlogClientPage - Renderizando post:", post.id, post.title);
-                
                 if (!post || !post.title || !post.content) {
-                  console.log("BlogClientPage - Post ignorado por falta de dados:", post.id);
                   return null;
                 }
 
                 const featuredImage: StrapiImage | undefined = post.featured_image?.[0];
-                console.log("DEBUG: Post object:", JSON.stringify(post, null, 2));
-                console.log("DEBUG: Featured Image object (raw from post.featured_image?.[0]):", JSON.stringify(featuredImage, null, 2));
 
                 const finalImageUrl = getImageUrl(featuredImage);
 

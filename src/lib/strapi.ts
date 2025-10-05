@@ -157,20 +157,22 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
  * Retorna a URL completa de uma imagem do Strapi.
  * Lida com URLs que já são absolutas (Cloudinary) e URLs relativas (upload local).
  */
-export const getImageUrl = (image: StrapiImage | undefined, format?: 'small' | 'medium' | 'thumbnail' | 'large'): string => {
-  // Se não houver imagem ou atributos, retorna um placeholder
-  if (!image || !image.attributes) {
+export const getImageUrl = (image?: StrapiImage, format?: string): string => {
+  // Se não houver imagem, retorna um placeholder
+  if (!image) {
     return 'https://via.placeholder.com/800x600.png?text=Imagem+Nao+Disponivel';
   }
 
-  let url = image.attributes.url; // Tenta acessar a URL diretamente dos atributos
+  // A imagem pode ter a estrutura direta ou com attributes
+  let url = image.url || image.attributes?.url;
 
   // Se um formato específico foi solicitado e existe, usa a URL desse formato
-  if (format && image.attributes.formats && image.attributes.formats[format]) {
-    url = image.attributes.formats[format]!.url;
-  }
-
-  // Se ainda não temos uma URL válida, retorna placeholder
+  if (format) {
+    const formats = image.formats || image.attributes?.formats;
+    if (formats && formats[format]) {
+      url = formats[format]!.url;
+    }
+  }  // Se ainda não temos uma URL válida, retorna placeholder
   if (!url) {
     console.warn("getImageUrl: URL da imagem não encontrada. Objeto de imagem: ", JSON.stringify(image));
     return 'https://via.placeholder.com/800x600.png?text=URL_IMAGEM_NAO_ENCONTRADA';
