@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import { getPosts, Post, getImageUrl, StrapiImage, StrapiImageAttributes } from '@/lib/strapi';
+import { Post, getImageUrl, StrapiImage, StrapiImageAttributes } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
 import CategoryFilter from '@/components/blog/CategoryFilter';
