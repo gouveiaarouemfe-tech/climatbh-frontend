@@ -19,7 +19,7 @@ interface PostClientPageProps {
 }
 
 export default function PostClientPage({ post, allPosts, slug }: PostClientPageProps) {
-  const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post.attributes;
+  const { title, content, publishedAt, image_alt, featured_image, seo_description = '' } = post;
 
   // Correção: featured_image já é um array de StrapiImage, não precisa de .data
   const featuredImage: StrapiImage | undefined = featured_image?.[0];
