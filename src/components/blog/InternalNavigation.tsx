@@ -91,7 +91,7 @@ export default function InternalNavigation({
     {
       title: 'Nossos Serviços',
       description: 'Conheça todos os serviços de climatização',
-      href: '/servicos',
+      href: '/#servicos',
       icon: Wrench,
       color: 'bg-blue-50 text-blue-700 border-blue-200'
     },

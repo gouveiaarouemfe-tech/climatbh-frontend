@@ -33,75 +33,9 @@ export default function PopularPosts({
   const [popularPosts, setPopularPosts] = useState<PopularPost[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Dados simulados - em produção, viria da API
-  const mockPopularPosts: PopularPost[] = [
-    {
-      id: '1',
-      title: 'Como Economizar Energia com Ar Condicionado: 10 Dicas Práticas',
-      slug: 'como-economizar-energia-ar-condicionado',
-      excerpt: 'Descubra estratégias eficazes para reduzir o consumo de energia do seu ar condicionado sem perder o conforto.',
-      image: '/images/blog/economia-energia-ar-condicionado.webp',
-      publishedAt: '2024-10-01',
-      views: 2847,
-      category: 'Dicas',
-      readTime: 8
-    },
-    {
-      id: '2',
-      title: 'PMOC: Tudo que Você Precisa Saber sobre a Legislação',
-      slug: 'pmoc-legislacao-completa',
-      excerpt: 'Guia completo sobre PMOC, legislação ANVISA e como manter seu estabelecimento em conformidade.',
-      image: '/images/blog/pmoc-legislacao.webp',
-      publishedAt: '2024-09-28',
-      views: 2156,
-      category: 'PMOC',
-      readTime: 12
-    },
-    {
-      id: '3',
-      title: 'VRF vs Chiller: Qual Sistema Escolher para seu Projeto?',
-      slug: 'vrf-vs-chiller-comparacao',
-      excerpt: 'Comparação detalhada entre sistemas VRF e Chiller para ajudar na escolha do melhor sistema.',
-      image: '/images/blog/vrf-vs-chiller.webp',
-      publishedAt: '2024-09-25',
-      views: 1923,
-      category: 'Sistemas',
-      readTime: 10
-    },
-    {
-      id: '4',
-      title: 'Manutenção Preventiva: Quando e Como Fazer',
-      slug: 'manutencao-preventiva-ar-condicionado',
-      excerpt: 'Cronograma completo de manutenção preventiva para diferentes tipos de sistemas de climatização.',
-      image: '/images/blog/manutencao-preventiva.webp',
-      publishedAt: '2024-09-22',
-      views: 1687,
-      category: 'Manutenção',
-      readTime: 7
-    },
-    {
-      id: '5',
-      title: 'Qualidade do Ar Interior: Por que é Importante?',
-      slug: 'qualidade-ar-interior-importancia',
-      excerpt: 'Entenda como a qualidade do ar interior afeta a saúde e produtividade no ambiente de trabalho.',
-      image: '/images/blog/qualidade-ar-interior.webp',
-      publishedAt: '2024-09-20',
-      views: 1534,
-      category: 'Saúde',
-      readTime: 6
-    },
-    {
-      id: '6',
-      title: 'Instalação de Ar Condicionado: Erros Comuns a Evitar',
-      slug: 'erros-instalacao-ar-condicionado',
-      excerpt: 'Os principais erros na instalação de ar condicionado e como evitá-los para garantir eficiência.',
-      image: '/images/blog/erros-instalacao.webp',
-      publishedAt: '2024-09-18',
-      views: 1342,
-      category: 'Instalação',
-      readTime: 9
-    }
-  ];
+  // Em produção, os posts populares virão da API do Strapi
+  // Por enquanto, retornamos array vazio até que posts reais sejam criados
+  const mockPopularPosts: PopularPost[] = [];
 
   useEffect(() => {
     // Simular carregamento da API
@@ -163,8 +97,14 @@ export default function PopularPosts({
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {popularPosts.map((post, index) => (
+        {popularPosts.length === 0 ? (
+          <div className="text-center py-8">
+            <Flame className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+            <p className="text-gray-500">Posts populares aparecerão aqui conforme o engajamento dos leitores.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {popularPosts.map((post, index) => (
             <Link key={post.id} href={`/blog/${post.slug}`} className="group">
               <div className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 {showImages && post.image && (
@@ -208,8 +148,9 @@ export default function PopularPosts({
                 </div>
               </div>
             </Link>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
@@ -222,8 +163,14 @@ export default function PopularPosts({
           {title}
         </h3>
         
-        <div className="space-y-4">
-          {popularPosts.map((post, index) => (
+        {popularPosts.length === 0 ? (
+          <div className="text-center py-8">
+            <TrendingUp className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+            <p className="text-gray-500">Posts populares aparecerão aqui conforme o engajamento dos leitores.</p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {popularPosts.map((post, index) => (
             <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
               <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                 <div className="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">

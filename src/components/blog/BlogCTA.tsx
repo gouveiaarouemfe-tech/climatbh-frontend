@@ -67,11 +67,11 @@ export default function BlogCTA({
           description: description || 'Agende uma consulta técnica gratuita. Nossos especialistas avaliarão suas necessidades e apresentarão a melhor solução.',
           primaryAction: primaryAction || {
             text: 'Agendar Consultoria',
-            href: '/contato'
+            href: 'https://wa.me/5531995352139?text=Olá! Gostaria de agendar uma consultoria gratuita em climatização.'
           },
           secondaryAction: secondaryAction || {
             text: 'Saiba Mais',
-            href: '/sobre'
+            href: '/contato'
           },
           bgColor: 'bg-gradient-to-r from-purple-600 to-purple-700',
           icon: Calendar
