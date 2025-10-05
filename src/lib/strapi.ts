@@ -46,7 +46,25 @@ export interface StrapiImageAttributes {
 export interface StrapiImage {
   id: number;
   documentId?: string;
-  attributes: StrapiImageAttributes;
+  attributes?: StrapiImageAttributes;
+  // Propriedades que podem estar diretamente na imagem (nova estrutura)
+  name?: string;
+  alternativeText?: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  formats?: Record<string, StrapiImageFormat>;
+  hash?: string;
+  ext?: string;
+  mime?: string;
+  size?: number;
+  url?: string;
+  previewUrl?: string | null;
+  provider?: string;
+  provider_metadata?: any;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
 }
 
 export interface Category {
