@@ -14,7 +14,7 @@ export async function generateMetadata(
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
-  if (!post || !post.attributes) {
+  if (!post) {
     return {
       title: 'Post não encontrado',
       description: 'O post solicitado não foi encontrado.',
@@ -22,35 +22,35 @@ export async function generateMetadata(
   }
 
   // Correção: featured_image já é um array de StrapiImage, não precisa de .data
-  const featuredImage: StrapiImage | undefined = post.attributes.featured_image?.[0];
+  const featuredImage: StrapiImage | undefined = post.featured_image?.[0];
   const finalImageUrlForMetadata = getImageUrl(featuredImage);
 
   return {
-    title: post.attributes.seo_title || post.attributes.title,
-    description: post.attributes.seo_description || post.attributes.content.substring(0, 160).replace(/[#*]/g, '') + '...',
-    keywords: [post.attributes.title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
+    title: post.seo_title || post.title,
+    description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...',
+    keywords: [post.title, 'blog climatização', 'VRF', 'Chiller', 'PMOC'],
     openGraph: {
-      title: post.attributes.seo_title || post.attributes.title,
-      description: post.attributes.seo_description || post.attributes.content.substring(0, 160).replace(/[#*]/g, '') + '...',
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.content.substring(0, 160).replace(/[#*]/g, '') + '...',
       images: [
         {
           url: finalImageUrlForMetadata,
-          alt: featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title,
+          alt: featuredImage?.attributes?.alternativeText || post.image_alt || post.title,
         },
       ],
       type: 'article',
-      publishedTime: post.attributes.publishedAt,
-      modifiedTime: post.attributes.updatedAt,
-      url: `https://climatbh.com.br/blog/${post.attributes.slug}`,
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
+      url: `https://climatbh.com.br/blog/${post.slug}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.attributes.seo_title || post.attributes.title,
-      description: post.attributes.seo_description || post.attributes.content.substring(0, 160  ).replace(/[#*]/g, '') + '...',
+      title: post.seo_title || post.title,
+      description: post.seo_description || post.content.substring(0, 160  ).replace(/[#*]/g, '') + '...',
       images: [
         {
           url: finalImageUrlForMetadata,
-          alt: featuredImage?.attributes?.alternativeText || post.attributes.image_alt || post.attributes.title,
+          alt: featuredImage?.attributes?.alternativeText || post.image_alt || post.title,
         },
       ],
     },
@@ -62,10 +62,10 @@ export async function generateStaticParams() {
   console.log("generateStaticParams - Posts recebidos:", JSON.stringify(posts, null, 2));
 
   // Filtra posts que não possuem slug válido para evitar erros de build
-  const validPosts = posts.filter(post => post.attributes && post.attributes.slug);
+  const validPosts = posts.filter(post => post.slug);
 
   return validPosts.map((post: Post) => ({
-    slug: post.attributes.slug,
+    slug: post.slug,
   }));
 }
 
@@ -73,7 +73,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   const { slug } = params;
   const post = await getPostBySlug(slug);
 
-  if (!post || !post.attributes) {
+  if (!post) {
     notFound();
   }
 
