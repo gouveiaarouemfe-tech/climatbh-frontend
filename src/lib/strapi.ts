@@ -119,8 +119,8 @@ export const getPosts = async (): Promise<Post[]> => {
       const firstPost = res.data.dados[0]; // Acessando diretamente res.data.dados
       if (firstPost) {
         console.log("GET_POSTS - First post object:", JSON.stringify(firstPost, null, 2));
-        console.log("GET_POSTS - First post attributes:", JSON.stringify(firstPost.attributes, null, 2));
-        console.log("GET_POSTS - First post featured image URL:", firstPost.attributes?.featured_image?.[0]?.attributes?.url);
+        console.log("GET_POSTS - First post title:", firstPost.title);
+        console.log("GET_POSTS - First post featured image URL:", firstPost.featured_image?.[0]?.attributes?.url);
       } else {
         console.log("GET_POSTS - No first post found in data.");
       }
@@ -145,7 +145,7 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[slug][$eq]=${slug}&populate=*`);
     console.log(`GET_POST_BY_SLUG (${slug}) - Status:`, res.status);
     console.log(`GET_POST_BY_SLUG (${slug}) - Data:`, JSON.stringify(res.data, null, 2));
-    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.dados?.[0]?.attributes?.featured_image?.[0]?.attributes?.url); // Acessando diretamente res.data.dados
+    console.log(`GET_POST_BY_SLUG (${slug}) - Featured Image:`, res.data.dados?.[0]?.featured_image?.[0]?.attributes?.url); // Acessando diretamente res.data.dados
     return res.data.dados?.[0] || null; // Acessando diretamente res.data.dados
   } catch (error) {
     console.error(`Erro ao buscar post pelo slug: ${slug}`, error);
