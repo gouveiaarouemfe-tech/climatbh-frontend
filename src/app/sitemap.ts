@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next'
+import { getPosts } from '@/lib/strapi'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.climatbh.com.br'
   
-  return [
+  // Páginas estáticas
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -65,17 +67,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/manutencao-splitao`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/politica-privacidade`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/termos-uso`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ]
-}
 
+  // Buscar posts do blog dinamicamente
+  let blogPosts: MetadataRoute.Sitemap = []
+  try {
+    const posts = await getPosts()
+    blogPosts = posts
+      .filter(post => post.slug && post.publishedAt)
+      .map(post => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.updatedAt || post.publishedAt),
+        changeFrequency: 'weekly' as const,
+        priority: 0.6,
+      }))
+  } catch (error) {
+    console.error('Erro ao buscar posts para sitemap:', error)
+  }
+
+  return [...staticPages, ...blogPosts]
+}

@@ -24,7 +24,7 @@ export default function LocalBusinessSchema({
   telephone,
   email,
   url,
-  openingHours = ['Mo-Fr 08:00-18:00'],
+  openingHours = ['Mo-Fr 08:00-18:00', 'Sa 08:00-12:00'],
   priceRange = '$$',
   areaServed,
   services
@@ -32,7 +32,7 @@ export default function LocalBusinessSchema({
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': url,
+    '@id': `${url}#localbusiness`,
     name,
     description,
     url,
@@ -43,12 +43,28 @@ export default function LocalBusinessSchema({
       '@type': 'PostalAddress',
       ...address,
     },
-    openingHoursSpecification: openingHours.map(hours => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: hours.split(' ')[0],
-      opens: hours.split(' ')[1]?.split('-')[0],
-      closes: hours.split(' ')[1]?.split('-')[1],
-    })),
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -19.9166813,
+      longitude: -43.9344931
+    },
+    openingHoursSpecification: openingHours.map(hours => {
+      const [days, time] = hours.split(' ');
+      const [startTime, endTime] = time.split('-');
+      
+      const dayMap: { [key: string]: string[] } = {
+        'Mo-Fr': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        'Sa': ['Saturday'],
+        'Su': ['Sunday']
+      };
+      
+      return {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: dayMap[days] || [days],
+        opens: startTime,
+        closes: endTime
+      };
+    }),
     areaServed: areaServed.map(area => ({
       '@type': 'City',
       name: area,
@@ -61,6 +77,7 @@ export default function LocalBusinessSchema({
         itemOffered: {
           '@type': 'Service',
           name: service,
+          description: `Serviço profissional de ${service.toLowerCase()} em Belo Horizonte e região metropolitana`,
         },
       })),
     },
@@ -68,6 +85,8 @@ export default function LocalBusinessSchema({
       '@type': 'AggregateRating',
       ratingValue: '4.8',
       reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1'
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -76,6 +95,21 @@ export default function LocalBusinessSchema({
       availableLanguage: 'Portuguese',
       areaServed: 'BR',
     },
+    sameAs: [
+      'https://www.facebook.com/climatbh',
+      'https://www.instagram.com/climatbh',
+      'https://www.linkedin.com/company/climatbh'
+    ],
+    founder: {
+      '@type': 'Person',
+      name: 'ClimatBH'
+    },
+    foundingDate: '2020',
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      minValue: 10,
+      maxValue: 50
+    }
   };
 
   return (

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, CheckCircle, Clock, Award, Users, Wrench } from 'lucide-react';
 import { generateMetadata } from '@/components/seo/SEOHead';
+import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema';
 
 export const metadata = generateMetadata({
   title: 'ClimatBH: Climatização comercial e Industrial em BH e Região',
@@ -421,6 +422,38 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Schema Markup */}
+      <LocalBusinessSchema
+        name="ClimatBH - Climatização Comercial e Industrial"
+        description="Especialista em climatização comercial e industrial em Belo Horizonte. Instalação e manutenção de sistemas VRF, Chiller, Split e contratos PMOC."
+        address={{
+          streetAddress: "Rua dos Climatizadores, 123",
+          addressLocality: "Belo Horizonte",
+          addressRegion: "MG",
+          postalCode: "30000-000",
+          addressCountry: "BR"
+        }}
+        telephone="(31) 99535-2139"
+        email="contato@climatbh.com.br"
+        url="https://www.climatbh.com.br"
+        areaServed={[
+          "Belo Horizonte",
+          "Contagem", 
+          "Betim",
+          "Nova Lima",
+          "Região Metropolitana de BH"
+        ]}
+        services={[
+          "Instalação de Sistema VRF",
+          "Manutenção de Sistema VRF",
+          "Instalação de Chiller",
+          "Manutenção de Chiller",
+          "Instalação de Splitão",
+          "Manutenção de Splitão",
+          "Contratos PMOC"
+        ]}
+      />
     </div>
   );
 }

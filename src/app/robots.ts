@@ -5,13 +5,33 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: [
+          '/',
+          '/sobre',
+          '/contato',
+          '/instalacao-vrf',
+          '/manutencao-vrf',
+          '/instalacao-chiller',
+          '/manutencao-chiller',
+          '/instalacao-splitao',
+          '/manutencao-splitao',
+          '/contratos-pmoc',
+          '/blog',
+          '/blog/*',
+          '/images/',
+          '/_next/static/',
+          '/_next/image/',
+        ],
         disallow: [
           '/api/',
           '/admin/',
           '/_next/',
           '/private/',
+          '*.json$',
+          '*.xml$',
+          '/favicon.ico',
         ],
+        crawlDelay: 1,
       },
       {
         userAgent: 'Googlebot',
@@ -36,4 +56,3 @@ export default function robots(): MetadataRoute.Robots {
     host: 'https://www.climatbh.com.br',
   }
 }
-
