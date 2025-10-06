@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata, ResolvingMetadata } from 'next';
 
 import { getPostBySlug, getPosts, getImageUrl, Post, StrapiImage } from '@/lib/strapi';
+import { mockPosts } from '@/lib/mock-posts';
 import PostClientPage from './PostClientPage';
 
 export const dynamic = "force-dynamic";
@@ -58,20 +59,32 @@ export async function generateMetadata(
 }
 
 export async function generateStaticParams() {
-  // Durante o build, não fazemos chamadas de API para evitar erros de conexão
-  // As páginas serão geradas dinamicamente quando acessadas
-  return [];
+  // Gerar parâmetros estáticos para os posts mocados
+  return mockPosts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const post = await getPostBySlug(slug);
+  
+  // Primeiro, tentar encontrar o post nos posts mocados
+  let post: Post | null = mockPosts.find(p => p.slug === slug) || null;
+  
+  // Se não encontrar nos mocados, tentar no Strapi
+  if (!post) {
+    post = await getPostBySlug(slug);
+  }
 
   if (!post) {
     notFound();
   }
 
-  const allPosts = await getPosts();
+  // Combinar posts mocados com posts do Strapi
+  const strapiPosts = await getPosts();
+  const allPosts = [...mockPosts, ...strapiPosts.filter(strapiPost => 
+    !mockPosts.some(mockPost => mockPost.slug === strapiPost.slug)
+  )];
 
   return (
     <PostClientPage post={post} allPosts={allPosts} slug={slug} />

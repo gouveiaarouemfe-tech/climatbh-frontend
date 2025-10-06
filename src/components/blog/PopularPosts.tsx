@@ -33,8 +33,8 @@ export default function PopularPosts({
   const [popularPosts, setPopularPosts] = useState<PopularPost[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Em produção, os posts populares virão da API do Strapi
-  // Por enquanto, retornamos array vazio até que posts reais sejam criados
+  // Posts populares aparecerão conforme o engajamento dos leitores
+  // Array vazio para evitar erro 404 em posts inexistentes
   const mockPopularPosts: PopularPost[] = [];
 
   useEffect(() => {

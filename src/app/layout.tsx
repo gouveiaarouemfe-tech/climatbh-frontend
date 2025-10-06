@@ -64,9 +64,18 @@ export const metadata: Metadata = {
     google: 'google-site-verification-code',
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' }
+    ],
     shortcut: '/favicon.ico',
     apple: '/favicon.png',
+    other: [
+      {
+        rel: 'icon',
+        url: '/favicon.ico',
+      },
+    ],
   },
 };
 
