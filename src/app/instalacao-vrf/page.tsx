@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, CheckCircle, Clock, Award, Users, Wrench, ArrowRight } from 'lucide-react';
 import { generateMetadata } from '@/components/seo/SEOHead';
 import StructuredData from '@/components/seo/StructuredData';
@@ -128,7 +128,7 @@ export default function InstalacaoVRF() {
             </div>
             <div className="relative">
               <Image
-                src="/images/instalacao-de-VRF.webp"
+                src="/images/instalacao-de-VRF.jpeg"
                 alt="Instalação de Sistema VRF em BH - ClimatBH"
                 width={600}
                 height={500}
@@ -192,7 +192,7 @@ export default function InstalacaoVRF() {
             </div>
             <div>
               <Image
-                src="/images/oqueeVRF.webp"
+                src="/images/oqueeVRF.jpeg"
                 alt="Sistema VRF - Como funciona"
                 width={600}
                 height={400}

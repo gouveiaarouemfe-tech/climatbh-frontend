@@ -35,7 +35,7 @@ export default function BlogStructuredData({ posts }: BlogStructuredDataProps) {
   const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    'name': 'Blog ClimatBH: Notícias e Dicas sobre Climatização e Refrigeração',
+    'name': 'Notícias sobre Climatização Industrial : ClimatBH',
     'description': 'Fique por dentro das últimas notícias, dicas e tendências sobre sistemas de climatização, VRF, Chiller e PMOC com o blog da ClimatBH.',
     'url': 'https://www.climatbh.com.br/blog',
     'image': 'https://www.climatbh.com.br/images/logo-climatbh.png',

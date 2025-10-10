@@ -66,7 +66,7 @@ export default function BlogClientPage({ initialPosts, initialCategories = [] }:
         <div className="container mx-auto px-4 py-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-blue-800">
-              Blog ClimatBH
+              Notícias sobre Climatização Industrial : ClimatBH
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Notícias, dicas e guias especializados sobre climatização, refrigeração e qualidade do ar
