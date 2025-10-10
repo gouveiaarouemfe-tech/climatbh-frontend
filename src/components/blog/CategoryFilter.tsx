@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Tag, Filter, Grid, List, Search, X } from 'lucide-react';
@@ -17,6 +17,7 @@ interface CategoryFilterProps {
   currentCategory?: string;
   onCategoryChange?: (category: string) => void;
   onViewChange?: (view: 'grid' | 'list') => void;
+  initialCategories?: CategoryWithCount[];
 }
 
 export default function CategoryFilter({
@@ -25,7 +26,8 @@ export default function CategoryFilter({
   showViewToggle = false,
   currentCategory = '',
   onCategoryChange,
-  onViewChange
+  onViewChange,
+  initialCategories = []
 }: CategoryFilterProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -36,20 +38,32 @@ export default function CategoryFilter({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCategoriesAndPosts = async () => {
+    const processCategoriesAndPosts = async () => {
       try {
         setLoading(true);
-        const [categoriesWithCount, allPosts] = await Promise.all([
-          getCategoriesWithPostCount(),
-          getPosts()
-        ]);
+        
+        let categoriesWithCount = initialCategories;
+        let allPostsCount = 0;
+        
+        // Se não temos categorias iniciais, buscar da API
+        if (categoriesWithCount.length === 0) {
+          const [fetchedCategories, allPosts] = await Promise.all([
+            getCategoriesWithPostCount(),
+            getPosts()
+          ]);
+          categoriesWithCount = fetchedCategories;
+          allPostsCount = allPosts.length;
+        } else {
+          // Calcular total de posts das categorias iniciais
+          allPostsCount = categoriesWithCount.reduce((total, cat) => total + cat.postCount, 0);
+        }
         
         // Adiciona categoria "Todos os Posts" no início
         const allCategory: CategoryWithCount = {
           id: 0,
           name: 'Todos os Posts',
           slug: '',
-          postCount: allPosts.length,
+          postCount: allPostsCount,
           Category: 'Todos os Posts',
           createdAt: '',
           updatedAt: '',
@@ -57,9 +71,9 @@ export default function CategoryFilter({
         };
         
         setCategories([allCategory, ...categoriesWithCount.filter(cat => cat.postCount > 0)]);
-        setTotalPosts(allPosts.length);
+        setTotalPosts(allPostsCount);
       } catch (error) {
-        console.error('Erro ao buscar categorias:', error);
+        console.error('Erro ao processar categorias:', error);
         setCategories([]);
         setTotalPosts(0);
       } finally {
@@ -67,8 +81,8 @@ export default function CategoryFilter({
       }
     };
 
-    fetchCategoriesAndPosts();
-  }, []);
+    processCategoriesAndPosts();
+  }, [initialCategories]);
 
   const handleCategoryClick = (categorySlug: string) => {
     if (onCategoryChange) {

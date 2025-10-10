@@ -1,14 +1,30 @@
-import { getPosts, Post } from '@/lib/strapi';
+import { getPosts, Post, getCategoriesWithPostCount } from '@/lib/strapi';
 import BlogClientPage from './BlogClientPage';
 
-export const dynamic = "force-dynamic";
+// Usar ISR (Incremental Static Regeneration) para melhor performance
+export const revalidate = 300; // Revalidar a cada 5 minutos
 
 export default async function BlogPage() {
   try {
-    const posts = await getPosts();
-    return <BlogClientPage initialPosts={posts} />;
+    // Buscar posts e categorias em paralelo para otimizar performance
+    const [posts, categoriesWithCount] = await Promise.all([
+      getPosts(),
+      getCategoriesWithPostCount()
+    ]);
+    
+    return (
+      <BlogClientPage 
+        initialPosts={posts} 
+        initialCategories={categoriesWithCount}
+      />
+    );
   } catch (error) {
-    console.error('Erro ao carregar posts:', error);
-    return <BlogClientPage initialPosts={[]} />;
+    console.error('Erro ao carregar dados do blog:', error);
+    return (
+      <BlogClientPage 
+        initialPosts={[]} 
+        initialCategories={[]}
+      />
+    );
   }
 }

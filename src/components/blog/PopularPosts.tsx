@@ -12,25 +12,32 @@ interface PopularPostsProps {
   showImages?: boolean;
   variant?: 'sidebar' | 'grid' | 'list';
   title?: string;
+  initialPosts?: Post[];
 }
 
 export default function PopularPosts({ 
   limit = 5, 
   showImages = true, 
   variant = 'sidebar',
-  title = "Posts Mais Populares"
+  title = "Posts Mais Populares",
+  initialPosts = []
 }: PopularPostsProps) {
   const [popularPosts, setPopularPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchPopularPosts = async () => {
+    const processPopularPosts = async () => {
       try {
         setLoading(true);
-        const allPosts = await getPosts();
+        
+        let allPosts = initialPosts;
+        
+        // Se não temos posts iniciais, buscar da API
+        if (allPosts.length === 0) {
+          allPosts = await getPosts();
+        }
         
         // Ordena os posts por data de publicação (mais recentes primeiro) como proxy para popularidade
-        // Em uma implementação real, você poderia ter um campo de visualizações ou popularidade
         const sortedPosts = allPosts
           .filter(post => post.slug && post.title && post.content) // Filtra posts válidos
           .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
@@ -38,15 +45,15 @@ export default function PopularPosts({
         
         setPopularPosts(sortedPosts);
       } catch (error) {
-        console.error('Erro ao buscar posts populares:', error);
+        console.error('Erro ao processar posts populares:', error);
         setPopularPosts([]);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPopularPosts();
-  }, [limit]);
+    processPopularPosts();
+  }, [limit, initialPosts]);
 
   const getReadTime = (content: string) => {
     const wordsPerMinute = 200;

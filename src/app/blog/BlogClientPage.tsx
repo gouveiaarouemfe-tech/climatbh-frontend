@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 import { getPosts, Post, getImageUrl, StrapiImage, StrapiImageAttributes } from '@/lib/strapi';
 import FormattedDate from '@/components/common/FormattedDate';
 import BlogStructuredData from '@/components/seo/BlogStructuredData';
-import CategoryFilter from '@/components/blog/CategoryFilter';
+import CategoryFilterWrapper from '@/components/blog/CategoryFilterWrapper';
 import PopularPosts from '@/components/blog/PopularPosts';
 import BlogCTA from '@/components/blog/BlogCTA';
 import ContactSection from '@/components/blog/ContactSection';
@@ -18,9 +18,10 @@ const DynamicBlogFilter = dynamic(() => import('@/components/blog/BlogFilter'), 
 
 interface BlogClientPageProps {
   initialPosts: Post[];
+  initialCategories?: any[];
 }
 
-export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
+export default function BlogClientPage({ initialPosts, initialCategories = [] }: BlogClientPageProps) {
   console.log("BlogClientPage - initialPosts recebidos:", initialPosts);
   console.log("BlogClientPage - Número de initialPosts:", initialPosts.length);
   console.log("BlogClientPage - Primeiro initialPost (se existir):", initialPosts[0] ? JSON.stringify(initialPosts[0], null, 2) : "Nenhum post encontrado");
@@ -73,10 +74,11 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
           </div>
 
           {/* Category Filter Header */}
-          <CategoryFilter 
+          <CategoryFilterWrapper 
             variant="header" 
             showSearch={true} 
             showViewToggle={true}
+            initialCategories={initialCategories}
           />
         </div>
 
@@ -86,10 +88,10 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
             {/* Sidebar */}
             <div className="lg:col-span-1 space-y-8">
               {/* Categories */}
-              <CategoryFilter variant="sidebar" />
+              <CategoryFilterWrapper variant="sidebar" initialCategories={initialCategories} />
               
               {/* Popular Posts */}
-              <PopularPosts variant="sidebar" limit={5} />
+              <PopularPosts variant="sidebar" limit={5} initialPosts={initialPosts} />
               
               {/* Contact CTA */}
               <ContactSection compact={true} />
@@ -189,7 +191,7 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
                   </div>
 
                   {/* Popular Posts Grid */}
-                  <PopularPosts variant="grid" limit={6} title="Posts em Destaque" />
+                  <PopularPosts variant="grid" limit={6} title="Posts em Destaque" initialPosts={initialPosts} />
 
                   {/* CTA Section */}
                   <BlogCTA variant="contact" />
@@ -202,7 +204,7 @@ export default function BlogClientPage({ initialPosts }: BlogClientPageProps) {
         {/* Bottom Sections */}
         <div className="container mx-auto px-4 pb-8 space-y-12">
           {/* Categories Grid */}
-          <CategoryFilter variant="grid" />
+          <CategoryFilterWrapper variant="grid" initialCategories={initialCategories} />
           
           {/* Contact Section */}
           <ContactSection showScheduling={true} />

@@ -4,8 +4,8 @@ import type { Metadata, ResolvingMetadata } from 'next';
 import { getPostBySlug, getPosts, getImageUrl, Post, StrapiImage } from '@/lib/strapi';
 import PostClientPage from './PostClientPage';
 
-export const dynamic = "force-dynamic";
-export const revalidate = 60; // Revalidar a cada 60 segundos
+// Usar ISR para melhor performance e SEO
+export const revalidate = 300; // Revalidar a cada 5 minutos
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -65,15 +65,23 @@ export async function generateStaticParams() {
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const post = await getPostBySlug(slug);
+  
+  try {
+    // Buscar post e todos os posts em paralelo para otimizar performance
+    const [post, allPosts] = await Promise.all([
+      getPostBySlug(slug),
+      getPosts()
+    ]);
 
-  if (!post) {
+    if (!post) {
+      notFound();
+    }
+
+    return (
+      <PostClientPage post={post} allPosts={allPosts} slug={slug} />
+    );
+  } catch (error) {
+    console.error('Erro ao carregar post:', error);
     notFound();
   }
-
-  const allPosts = await getPosts();
-
-  return (
-    <PostClientPage post={post} allPosts={allPosts} slug={slug} />
-  );
 }
