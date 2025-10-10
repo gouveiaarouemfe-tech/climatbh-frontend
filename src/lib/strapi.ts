@@ -231,5 +231,72 @@ export const getImageUrl = (image?: StrapiImage, format?: string): string => {
   }
 };
 
+// Função para buscar todas as categorias
+export const getCategories = async (): Promise<Category[]> => {
+  try {
+    console.log("GET_CATEGORIES - API_URL:", API_URL);
+    if (!API_URL) {
+      console.warn('URL da API do Strapi não configurada.');
+      return [];
+    }
+    
+    const res = await strapiApi.get<StrapiResponse<Category>>(`/api/categories?populate=*`);
+    console.log("GET_CATEGORIES - Status:", res.status);
+    console.log("GET_CATEGORIES - Data:", JSON.stringify(res.data, null, 2));
+    
+    return res.data.dados || [];
+  } catch (error) {
+    console.error('Erro ao buscar categorias:', error);
+    return [];
+  }
+};
+
+// Função para buscar posts por categoria
+export const getPostsByCategory = async (categorySlug: string): Promise<Post[]> => {
+  try {
+    console.log("GET_POSTS_BY_CATEGORY - API_URL:", API_URL);
+    console.log("GET_POSTS_BY_CATEGORY - Category slug:", categorySlug);
+    
+    if (!API_URL) {
+      console.warn('URL da API do Strapi não configurada.');
+      return [];
+    }
+    
+    const res = await strapiApi.get<StrapiResponse<Post>>(`/api/posts?filters[categories][slug][$eq]=${categorySlug}&populate=*`);
+    console.log(`GET_POSTS_BY_CATEGORY (${categorySlug}) - Status:`, res.status);
+    console.log(`GET_POSTS_BY_CATEGORY (${categorySlug}) - Number of posts:`, res.data.dados?.length);
+    
+    return res.data.dados || [];
+  } catch (error) {
+    console.error(`Erro ao buscar posts por categoria: ${categorySlug}`, error);
+    return [];
+  }
+};
+
+// Função para contar posts por categoria
+export const getCategoriesWithPostCount = async (): Promise<(Category & { postCount: number })[]> => {
+  try {
+    const [categories, allPosts] = await Promise.all([
+      getCategories(),
+      getPosts()
+    ]);
+    
+    return categories.map(category => {
+      const postCount = allPosts.filter(post => 
+        post.categories?.some(cat => cat.slug === category.slug) ||
+        post.category === category.name
+      ).length;
+      
+      return {
+        ...category,
+        postCount
+      };
+    });
+  } catch (error) {
+    console.error('Erro ao buscar categorias com contagem de posts:', error);
+    return [];
+  }
+};
+
 export default strapiApi;
 // Force rebuild Sun Oct  5 16:26:52 EDT 2025
