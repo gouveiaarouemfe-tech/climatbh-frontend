@@ -47,18 +47,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/instalacao-splitao`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/manutencao-splitao`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
+	    {
+	      url: `${baseUrl}/instalacao-ar-condicionado-central`,
+	      lastModified: new Date(),
+	      changeFrequency: 'weekly',
+	      priority: 0.9,
+	    },
+	    {
+	      url: `${baseUrl}/manutencao-ar-condicionado-central`,
+	      lastModified: new Date(),
+	      changeFrequency: 'weekly',
+	      priority: 0.9,
+	    },
+	    {
+	      url: `${baseUrl}/manutencao-fancoil`,
+	      lastModified: new Date(),
+	      changeFrequency: 'weekly',
+	      priority: 0.9,
+	    },
     {
       url: `${baseUrl}/contratos-pmoc`,
       lastModified: new Date(),

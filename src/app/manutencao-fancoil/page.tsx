@@ -121,7 +121,7 @@ export default function ManutencaoFanCoil() {
             <div className="relative">
               <Image
                 src="/images/manutencao-fancoil-BH.webp"
-                alt="Manutenção de Sistema FanCoil em BH - ClimatBH"
+                alt="Técnico realizando manutenção preventiva em unidade FanCoil em ambiente comercial de Belo Horizonte"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
@@ -215,9 +215,51 @@ export default function ManutencaoFanCoil() {
             </div>
           </div>
         </div>
-      </section>
+	      </section>
 
-      {/* Services Types */}
+	      {/* PMOC Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gray-100">
+	        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+	            <div>
+	              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+	                Contratos PMOC para Sistemas FanCoil em BH
+	              </h2>
+	              <p className="text-lg text-gray-600 mb-6">
+	                O **PMOC (Plano de Manutenção, Operação e Controle)** é fundamental para sistemas FanCoil, garantindo a conformidade com a legislação e a qualidade do ar interior. Nossos contratos são personalizados para atender às necessidades específicas do seu negócio em Belo Horizonte e região.
+	              </p>
+	              <p className="text-lg text-gray-600 mb-6">
+	                Com o PMOC da ClimatBH, você garante a manutenção preventiva periódica, o registro de todas as ações e a emissão de laudos técnicos, evitando multas e assegurando um ambiente saudável para seus colaboradores e clientes.
+	              </p>
+	              <Link href="/contratos-pmoc" className="text-blue-600 font-semibold hover:underline flex items-center space-x-2">
+	                <span>Conheça nossos Planos de Manutenção PMOC</span>
+	                <ArrowRight className="h-4 w-4" />
+	              </Link>
+	            </div>
+	            <div className="bg-white p-8 rounded-lg shadow-xl">
+	              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+	                Por que Contratar o PMOC?
+	              </h3>
+	              <ul className="space-y-3">
+	                <li className="flex items-start space-x-3">
+	                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+	                  <p className="text-gray-700">**Obrigatoriedade Legal:** Atendimento à Lei 13.589/2018.</p>
+	                </li>
+	                <li className="flex items-start space-x-3">
+	                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+	                  <p className="text-gray-700">**Saúde Ocupacional:** Prevenção de doenças respiratórias.</p>
+	                </li>
+	                <li className="flex items-start space-x-3">
+	                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+	                  <p className="text-gray-700">**Eficiência:** Redução de custos operacionais e aumento da vida útil do FanCoil.</p>
+	                </li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* Services Types */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -303,9 +345,38 @@ export default function ManutencaoFanCoil() {
             </div>
           </div>
         </div>
-      </section>
+	      </section>
 
-      {/* FAQ Section */}
+	      {/* CTA Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+	        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+	          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+	            Não Deixe a Manutenção do seu FanCoil para Depois
+	          </h2>
+	          <p className="text-xl mb-8 text-blue-100">
+	            Fale com a ClimatBH e garanta a máxima performance e durabilidade do seu sistema de climatização.
+	          </p>
+	          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+	            <a
+	              href="tel:+5531995352139"
+	              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+	            >
+	              <Phone className="h-5 w-5" />
+	              <span>Ligar Agora: (31) 99535-2139</span>
+	            </a>
+	            <a
+	              href="https://wa.me/5531995352139?text=Olá! Gostaria de um orçamento para manutenção de FanCoil."
+	              target="_blank"
+	              rel="noopener noreferrer"
+	              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 text-center"
+	            >
+	              Solicitar Orçamento via WhatsApp
+	            </a>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

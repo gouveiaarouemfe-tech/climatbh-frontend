@@ -119,7 +119,7 @@ export default function InstalacaoArCondicionadoCentral() {
             <div className="relative">
               <Image
                 src="/images/instalacao-ar-condicionado-central-BH.webp"
-                alt="Instalação de Ar Condicionado Central em BH - ClimatBH"
+                alt="Equipe da ClimatBH instalando unidade de ar condicionado central em galpão industrial em Belo Horizonte"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-2xl"
@@ -182,7 +182,7 @@ export default function InstalacaoArCondicionadoCentral() {
             <div>
               <Image
                 src="/images/oque-e-splitao.jpg"
-                alt="Sistema Ar Condicionado Central - Componentes e funcionamento"
+                alt="Diagrama de componentes e funcionamento de um sistema de ar condicionado central de grande porte"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-lg"
@@ -190,9 +190,47 @@ export default function InstalacaoArCondicionadoCentral() {
             </div>
           </div>
         </div>
-      </section>
+	      </section>
 
-      {/* Installation Process */}
+	      {/* Tipos de Ambientes - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gray-100">
+	        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	          <div className="text-center mb-16">
+	            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+	              Onde a ClimatBH Instala Ar Condicionado Central em BH?
+	            </h2>
+	            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+	              Nossa expertise abrange uma ampla gama de ambientes comerciais e industriais que exigem climatização de alta performance.
+	            </p>
+	          </div>
+
+	          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+	            <div className="bg-white rounded-lg p-6 shadow-lg text-center">
+	              <Factory className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+	              <h3 className="text-xl font-semibold mb-3">Indústrias e Galpões</h3>
+	              <p className="text-gray-600">
+	                Soluções robustas para grandes áreas de produção e armazenamento, garantindo o conforto térmico e a preservação de equipamentos.
+	              </p>
+	            </div>
+	            <div className="bg-white rounded-lg p-6 shadow-lg text-center">
+	              <Building className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+	              <h3 className="text-xl font-semibold mb-3">Escritórios e Corporativos</h3>
+	              <p className="text-gray-600">
+	                Climatização eficiente para grandes edifícios comerciais, auditórios e salas de reunião, promovendo a produtividade.
+	              </p>
+	            </div>
+	            <div className="bg-white rounded-lg p-6 shadow-lg text-center">
+	              <Warehouse className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+	              <h3 className="text-xl font-semibold mb-3">Comércio e Varejo</h3>
+	              <p className="text-gray-600">
+	                Instalação em shoppings, supermercados e grandes lojas, criando um ambiente agradável para clientes e funcionários.
+	              </p>
+	            </div>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* Installation Process */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -340,9 +378,38 @@ export default function InstalacaoArCondicionadoCentral() {
             </div>
           </div>
         </div>
-      </section>
+	      </section>
 
-      {/* FAQ Section */}
+	      {/* CTA Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+	        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+	          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+	            Pronto para Instalar seu Ar Condicionado Central em BH?
+	          </h2>
+	          <p className="text-xl mb-8 text-blue-100">
+	            Fale com nossos especialistas e receba um projeto de instalação personalizado e sem compromisso.
+	          </p>
+	          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+	            <a
+	              href="tel:+5531995352139"
+	              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+	            >
+	              <Phone className="h-5 w-5" />
+	              <span>Ligar Agora: (31) 99535-2139</span>
+	            </a>
+	            <a
+	              href="https://wa.me/5531995352139?text=Olá! Gostaria de um orçamento para instalação de ar condicionado central."
+	              target="_blank"
+	              rel="noopener noreferrer"
+	              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 text-center"
+	            >
+	              Solicitar Orçamento via WhatsApp
+	            </a>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

@@ -127,7 +127,7 @@ export default function ManutencaoArCondicionadoCentral() {
             <div>
               <Image
                 src="/images/manutencao-ar-condicionado-central-BH.webp"
-                alt="Manutenção de Ar Condicionado Central em BH"
+                alt="Técnico da ClimatBH realizando manutenção preventiva em unidade de ar condicionado central em Belo Horizonte"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-lg"
@@ -186,9 +186,51 @@ export default function ManutencaoArCondicionadoCentral() {
             </div>
           </div>
         </div>
-      </section>
+	      </section>
 
-      {/* Maintenance Benefits */}
+	      {/* PMOC Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gray-100">
+	        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+	            <div>
+	              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+	                A Importância do PMOC para seu Ar Condicionado Central
+	              </h2>
+	              <p className="text-lg text-gray-600 mb-6">
+	                O **Plano de Manutenção, Operação e Controle (PMOC)** é uma exigência legal (Lei Federal nº 13.589/2018) para edifícios de uso público e coletivo. Para sistemas de Ar Condicionado Central, o PMOC não é apenas uma obrigação, mas uma garantia de que seu sistema opera com máxima eficiência e segurança.
+	              </p>
+	              <p className="text-lg text-gray-600 mb-6">
+	                Nossa equipe elabora e executa o PMOC completo, que inclui a manutenção preventiva programada, análise da qualidade do ar e registro de todas as intervenções técnicas. Isso assegura a conformidade legal, evita multas e, o mais importante, protege a saúde dos ocupantes do seu ambiente.
+	              </p>
+	              <Link href="/contratos-pmoc" className="text-blue-600 font-semibold hover:underline flex items-center space-x-2">
+	                <span>Saiba mais sobre nossos Contratos PMOC</span>
+	                <ArrowRight className="h-4 w-4" />
+	              </Link>
+	            </div>
+	            <div className="bg-white p-8 rounded-lg shadow-xl">
+	              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+	                Benefícios do PMOC ClimatBH
+	              </h3>
+	              <ul className="space-y-3">
+	                <li className="flex items-start space-x-3">
+	                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+	                  <p className="text-gray-700">**Conformidade Legal:** Evite penalidades e garanta a operação dentro da lei.</p>
+	                </li>
+	                <li className="flex items-start space-x-3">
+	                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+	                  <p className="text-gray-700">**Qualidade do Ar:** Redução de fungos, bactérias e poluentes, promovendo a saúde.</p>
+	                </li>
+	                <li className="flex items-start space-x-3">
+	                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+	                  <p className="text-gray-700">**Otimização de Custos:** Manutenção preventiva reduz gastos com energia e reparos caros.</p>
+	                </li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* Maintenance Benefits */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -199,70 +241,70 @@ export default function ManutencaoArCondicionadoCentral() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <CheckCircle className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Economia de Energia</h3>
-                    <p className="text-gray-600">
-                      Um ar condicionado central bem mantido pode consumir até 30% menos energia, resultando em uma redução significativa na sua conta de luz e contribuindo para a sustentabilidade ambiental.
-                    </p>
-                  </div>
-                </div>
+	              <div className="space-y-6">
+	                <div className="flex items-start space-x-4">
+	                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
+	                    <CheckCircle className="h-6 w-6 text-blue-600" />
+	                  </div>
+	                  <div>
+	                    <h3 className="text-lg font-semibold mb-2">Economia de Energia</h3>
+	                    <p className="text-gray-600">
+	                      Um ar condicionado central bem mantido pode consumir até 30% menos energia, resultando em uma redução significativa na sua conta de luz e contribuindo para a sustentabilidade ambiental.
+	                    </p>
+	                  </div>
+	                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <CheckCircle className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Maior Vida Útil do Equipamento</h3>
-                    <p className="text-gray-600">
-                      A manutenção preventiva regular prolonga a vida útil do seu ar condicionado central em até 50%, protegendo seu investimento e adiando a necessidade de substituição.
-                    </p>
-                  </div>
-                </div>
+	                <div className="flex items-start space-x-4">
+	                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
+	                    <CheckCircle className="h-6 w-6 text-blue-600" />
+	                  </div>
+	                  <div>
+	                    <h3 className="text-lg font-semibold mb-2">Maior Vida Útil do Equipamento</h3>
+	                    <p className="text-gray-600">
+	                      A manutenção preventiva regular prolonga a vida útil do seu ar condicionado central em até 50%, protegendo seu investimento e adiando a necessidade de substituição.
+	                    </p>
+	                  </div>
+	                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <CheckCircle className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Melhora da Qualidade do Ar</h3>
-                    <p className="text-gray-600">
-                      Filtros limpos e um sistema higienizado garantem um ar mais puro, livre de poeira, alérgenos e microrganismos, promovendo um ambiente mais saudável para todos.
-                    </p>
-                  </div>
-                </div>
+	                <div className="flex items-start space-x-4">
+	                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
+	                    <CheckCircle className="h-6 w-6 text-blue-600" />
+	                  </div>
+	                  <div>
+	                    <h3 className="text-lg font-semibold mb-2">Melhora da Qualidade do Ar</h3>
+	                    <p className="text-gray-600">
+	                      Filtros limpos e um sistema higienizado garantem um ar mais puro, livre de poeira, alérgenos e microrganismos, promovendo um ambiente mais saudável para todos.
+	                    </p>
+	                  </div>
+	                </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
-                    <CheckCircle className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-2">Prevenção de Falhas e Quebras</h3>
-                    <p className="text-gray-600">
-                      A identificação precoce de pequenos problemas evita que se tornem grandes falhas, prevenindo paradas inesperadas do equipamento e reparos emergenciais caros.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <Image
-                src="/images/manutencao-splitao-BH.webp"
-                alt="Manutenção de Ar Condicionado Central - Componentes Internos"
-                width={600}
-                height={500}
-                className="rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+	                <div className="flex items-start space-x-4">
+	                  <div className="bg-blue-100 rounded-full p-2 flex-shrink-0">
+	                    <CheckCircle className="h-6 w-6 text-blue-600" />
+	                  </div>
+	                  <div>
+	                    <h3 className="text-lg font-semibold mb-2">Prevenção de Falhas e Quebras</h3>
+	                    <p className="text-gray-600">
+	                      A identificação precoce de pequenos problemas evita que se tornem grandes falhas, prevenindo paradas inesperadas do equipamento e reparos emergenciais caros.
+	                    </p>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	            <div>
+	              <Image
+	                src="/images/manutencao-ar-condicionado-central-BH.webp"
+	                alt="Componentes internos de um sistema de ar condicionado central durante a manutenção preventiva"
+	                width={600}
+	                height={500}
+	                className="rounded-lg shadow-lg"
+	              />
+	            </div>
+	          </div>
+	        </div>
+	      </section>
 
-      {/* Maintenance Process */}
+	      {/* Maintenance Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -421,9 +463,109 @@ export default function ManutencaoArCondicionadoCentral() {
             </a>
           </div>
         </div>
-      </section>
+	      </section>
 
-      {/* FAQ Section */}
+	      {/* Common Problems Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-white">
+	        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+	          <div className="text-center mb-16">
+	            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+	              Problemas Comuns e a Solução ClimatBH
+	            </h2>
+	            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+	              Identificamos e resolvemos os desafios mais frequentes em sistemas de climatização central.
+	            </p>
+	          </div>
+
+	          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+	            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+	              <h3 className="text-xl font-semibold text-gray-900 mb-3">Baixo Desempenho (Não Gela)</h3>
+	              <p className="text-gray-600 mb-4">
+	                **Causa:** Vazamento de gás refrigerante, compressor com falha ou sujeira excessiva nas serpentinas.
+	              </p>
+	              <p className="text-blue-600 font-medium">
+	                **Solução ClimatBH:** Diagnóstico de precisão com ferramentas digitais, reparo de vazamentos e recarga de gás conforme as normas.
+	              </p>
+	            </div>
+
+	            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+	              <h3 className="text-xl font-semibold text-gray-900 mb-3">Aumento no Consumo de Energia</h3>
+	              <p className="text-gray-600 mb-4">
+	                **Causa:** Falta de manutenção preventiva, que força o sistema a trabalhar mais para atingir a temperatura desejada.
+	              </p>
+	              <p className="text-blue-600 font-medium">
+	                **Solução ClimatBH:** Limpeza completa, ajuste de componentes e otimização do sistema para restaurar a eficiência original.
+	              </p>
+	            </div>
+
+	            <div className="bg-red-50 rounded-lg p-6 border-l-4 border-red-500">
+	              <h3 className="text-xl font-semibold text-gray-900 mb-3">Ruídos Estranhos e Vibração</h3>
+	              <p className="text-gray-600 mb-4">
+	                **Causa:** Desalinhamento de correias, problemas no motor do ventilador ou peças soltas.
+	              </p>
+	              <p className="text-blue-600 font-medium">
+	                **Solução ClimatBH:** Inspeção detalhada, lubrificação e substituição de peças danificadas, garantindo operação silenciosa.
+	              </p>
+	            </div>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* CTA Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+	        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+	          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+	            Garanta a Eficiência do seu Ar Condicionado Central em BH
+	          </h2>
+	          <p className="text-xl mb-8 text-blue-100">
+	            Não espere a falha acontecer. Contrate o PMOC da ClimatBH e tenha tranquilidade e economia.
+	          </p>
+	          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+	            <a
+	              href="tel:+5531995352139"
+	              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+	            >
+	              <Phone className="h-5 w-5" />
+	              <span>Ligar Agora: (31) 99535-2139</span>
+	            </a>
+	            <Link
+	              href="/contratos-pmoc"
+	              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 text-center"
+	            >
+	              Ver Contratos PMOC
+	            </Link>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* CTA Section - Novo Conteúdo para SEO/AEO */}
+	      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+	        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+	          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+	            Garanta a Eficiência do seu Ar Condicionado Central em BH
+	          </h2>
+	          <p className="text-xl mb-8 text-blue-100">
+	            Não espere a falha acontecer. Contrate o PMOC da ClimatBH e tenha tranquilidade e economia.
+	          </p>
+	          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+	            <a
+	              href="tel:+5531995352139"
+	              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+	            >
+	              <Phone className="h-5 w-5" />
+	              <span>Ligar Agora: (31) 99535-2139</span>
+	            </a>
+	            <Link
+	              href="/contratos-pmoc"
+	              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 text-center"
+	            >
+	              Ver Contratos PMOC
+	            </Link>
+	          </div>
+	        </div>
+	      </section>
+
+	      {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
