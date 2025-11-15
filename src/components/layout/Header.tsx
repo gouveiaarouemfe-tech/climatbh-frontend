@@ -45,11 +45,14 @@ export default function Header() {
                   <Link href="/manutencao-chiller" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                     Manutenção de Chiller
                   </Link>
-                  <Link href="/instalacao-splitao" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Instalação de Splitão
+                  <Link href="/instalacao-ar-condicionado-central" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Instalação de Ar Condicionado
                   </Link>
-                  <Link href="/manutencao-splitao" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    Manutenção de Splitão
+                  <Link href="/manutencao-ar-condicionado-central" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Manutenção de Ar Condicionado
+                  </Link>
+                  <Link href="/manutencao-fancoil" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    Manutenção de FanCoil
                   </Link>
                   <Link href="/contratos-pmoc" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                     Contratos PMOC
@@ -134,18 +137,25 @@ export default function Header() {
                     Manutenção de Chiller
                   </Link>
                   <Link
-                    href="/instalacao-splitao"
+                    href="/instalacao-ar-condicionado-central"
                     className="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Instalação de Splitão
+                    Instalação de Ar Condicionado
                   </Link>
                   <Link
-                    href="/manutencao-splitao"
+                    href="/manutencao-ar-condicionado-central"
                     className="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Manutenção de Splitão
+                    Manutenção de Ar Condicionado
+                  </Link>
+                  <Link
+                    href="/manutencao-fancoil"
+                    className="block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Manutenção de FanCoil
                   </Link>
                   <Link
                     href="/contratos-pmoc"

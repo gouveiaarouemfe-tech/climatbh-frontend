@@ -6,16 +6,16 @@ import StructuredData from '@/components/seo/StructuredData';
 import FAQStructuredData from '@/components/seo/FAQStructuredData';
 
 export const metadata = generateMetadata({
-  title: 'Manutenção de Splitão em BH: Assistência Técnica Especializada | ClimatBH',
-  description: 'Manutenção preventiva e corretiva de splitão em BH. Assistência técnica 24h, peças originais e equipe especializada. Atendemos toda região metropolitana.',
-  keywords: 'manutenção splitão BH, assistência técnica splitão, reparo splitão Belo Horizonte, manutenção ar condicionado industrial',
-  url: '/manutencao-splitao',
+  title: 'Manutenção de Ar Condicionado Central em BH: Assistência Técnica Especializada | ClimatBH',
+  description: 'Manutenção preventiva e corretiva de ar condicionado central em BH. Assistência técnica 24h, peças originais e equipe especializada. Atendemos toda região metropolitana.',
+  keywords: 'manutenção ar condicionado central BH, assistência técnica ar condicionado, reparo ar condicionado central Belo Horizonte, manutenção climatização industrial',
+  url: '/manutencao-ar-condicionado-central',
 });
 
 const serviceStructuredData = {
   '@type': 'Service',
-  name: 'Manutenção de Splitão em BH',
-  description: 'Serviços de manutenção preventiva e corretiva para sistemas splitão em Belo Horizonte',
+  name: 'Manutenção de Ar Condicionado Central em BH',
+  description: 'Serviços de manutenção preventiva e corretiva para sistemas de ar condicionado central em Belo Horizonte',
   provider: {
     '@type': 'Organization',
     name: 'ClimatBH',
@@ -41,7 +41,7 @@ const serviceStructuredData = {
       name: 'Nova Lima',
     },
   ],
-  serviceType: 'Manutenção de Splitão',
+  serviceType: 'Manutenção de Ar Condicionado Central',
   availableChannel: {
     '@type': 'ServiceChannel',
     servicePhone: '+5531995352139',
@@ -51,48 +51,48 @@ const serviceStructuredData = {
 
 const faqData = [
   {
-    question: "Com que frequência devo fazer manutenção no splitão?",
-    answer: "A frequência ideal para a manutenção de um splitão depende do seu uso e do ambiente. Para ambientes comerciais com uso intenso, recomendamos a manutenção preventiva a cada 3 a 6 meses. Já para uso menos frequente, uma manutenção anual pode ser suficiente. A ClimatBH pode te ajudar a definir o plano ideal."
+    question: "Com que frequência devo fazer manutenção no ar condicionado central?",
+    answer: "A frequência ideal para a manutenção de um ar condicionado central depende do seu uso e do ambiente. Para ambientes comerciais com uso intenso, recomendamos a manutenção preventiva a cada 3 a 6 meses. Já para uso menos frequente, uma manutenção anual pode ser suficiente. A ClimatBH pode te ajudar a definir o plano ideal."
   },
   {
-    question: "Quanto custa a manutenção de splitão em BH?",
-    answer: "O custo da manutenção de splitão em Belo Horizonte varia conforme o tipo de serviço (preventiva ou corretiva), a capacidade do equipamento e a complexidade do problema. Oferecemos orçamentos transparentes e sem compromisso após uma avaliação técnica. Entre em contato para saber mais!"
+    question: "Quanto custa a manutenção de ar condicionado central em BH?",
+    answer: "O custo da manutenção de ar condicionado central em Belo Horizonte varia conforme o tipo de serviço (preventiva ou corretiva), a capacidade do equipamento e a complexidade do problema. Oferecemos orçamentos transparentes e sem compromisso após uma avaliação técnica. Entre em contato para saber mais!"
   },
   {
-    question: "Vocês atendem emergência de splitão 24 horas?",
-    answer: "Sim, a ClimatBH entende que problemas com climatização podem surgir a qualquer momento. Por isso, oferecemos atendimento de emergência 24 horas para splitão em BH e região. Nossa equipe está pronta para agir rapidamente e minimizar qualquer transtorno."
+    question: "Vocês atendem emergência de ar condicionado central 24 horas?",
+    answer: "Sim, a ClimatBH entende que problemas com climatização podem surgir a qualquer momento. Por isso, oferecemos atendimento de emergência 24 horas para ar condicionado central em BH e região. Nossa equipe está pronta para agir rapidamente e minimizar qualquer transtorno."
   },
   {
-    question: "Meu splitão parou de gelar, qual pode ser o problema?",
-    answer: "Quando um splitão para de gelar, as causas podem ser diversas: falta de gás refrigerante, filtros sujos, problemas no compressor, falha no sensor de temperatura, entre outros. Nossos técnicos especializados realizam um diagnóstico preciso para identificar a raiz do problema e propor a solução mais eficaz."
+    question: "Meu ar condicionado central parou de gelar, qual pode ser o problema?",
+    answer: "Quando um ar condicionado central para de gelar, as causas podem ser diversas: falta de gás refrigerante, filtros sujos, problemas no compressor, falha no sensor de temperatura, entre outros. Nossos técnicos especializados realizam um diagnóstico preciso para identificar a raiz do problema e propor a solução mais eficaz."
   },
   {
     question: "Vocês usam peças originais na manutenção?",
-    answer: "Priorizamos sempre o uso de peças originais e de alta qualidade em todas as manutenções de splitão. Caso uma peça original não esteja disponível, utilizamos componentes compatíveis que atendam aos mais altos padrões de desempenho e durabilidade, sempre com garantia."
+    answer: "Priorizamos sempre o uso de peças originais e de alta qualidade em todas as manutenções de ar condicionado central. Caso uma peça original não esteja disponível, utilizamos componentes compatíveis que atendam aos mais altos padrões de desempenho e durabilidade, sempre com garantia."
   },
   {
-    question: "Splitão fazendo barulho estranho, é grave?",
-    answer: "Barulhos incomuns no splitão podem ser um sinal de alerta. Eles podem indicar problemas no motor do ventilador, no compressor, desalinhamento de componentes ou falta de lubrificação. É fundamental que um técnico avalie a situação o quanto antes para evitar danos maiores e mais caros."
+    question: "Ar Condicionado Central fazendo barulho estranho, é grave?",
+    answer: "Barulhos incomuns no ar condicionado central podem ser um sinal de alerta. Eles podem indicar problemas no motor do ventilador, no compressor, desalinhamento de componentes ou falta de lubrificação. É fundamental que um técnico avalie a situação o quanto antes para evitar danos maiores e mais caros."
   },
   {
-    question: "Qual a garantia da manutenção de splitão?",
-    answer: "A ClimatBH oferece garantia em todos os serviços de manutenção de splitão. A duração da garantia pode variar conforme o tipo de serviço e as peças substituídas, mas sempre garantimos a qualidade do nosso trabalho e a sua tranquilidade."
+    question: "Qual a garantia da manutenção de ar condicionado central?",
+    answer: "A ClimatBH oferece garantia em todos os serviços de manutenção de ar condicionado central. A duração da garantia pode variar conforme o tipo de serviço e as peças substituídas, mas sempre garantimos a qualidade do nosso trabalho e a sua tranquilidade."
   },
   {
-    question: "Splitão consome muita energia após manutenção?",
-    answer: "Após uma manutenção adequada, o consumo de energia do seu splitão deve normalizar e até mesmo diminuir, devido à otimização do sistema. Se o consumo continuar alto, pode ser um indicativo de que há algo errado, e uma nova avaliação técnica é recomendada."
+    question: "Ar Condicionado Central consome muita energia após manutenção?",
+    answer: "Após uma manutenção adequada, o consumo de energia do seu ar condicionado central deve normalizar e até mesmo diminuir, devido à otimização do sistema. Se o consumo continuar alto, pode ser um indicativo de que há algo errado, e uma nova avaliação técnica é recomendada."
   },
   {
-    question: "Fazem limpeza completa do splitão?",
-    answer: "Sim, nossa manutenção inclui uma limpeza completa e profunda do splitão, abrangendo filtros, serpentinas, bandejas de dreno, ventiladores e gabinetes. Utilizamos produtos específicos que garantem a higienização e a eliminação de fungos e bactérias, melhorando a qualidade do ar."
+    question: "Fazem limpeza completa do ar condicionado central?",
+    answer: "Sim, nossa manutenção inclui uma limpeza completa e profunda do ar condicionado central, abrangendo filtros, serpentinas, bandejas de dreno, ventiladores e gabinetes. Utilizamos produtos específicos que garantem a higienização e a eliminação de fungos e bactérias, melhorando a qualidade do ar."
   }
 ];
 
-export default function ManutencaoSplitao() {
+export default function ManutencaoArCondicionadoCentral() {
   return (
     <div className="min-h-screen">
       <StructuredData type="Service" data={serviceStructuredData} />
-      <FAQStructuredData faqs={faqData} pageTitle="Manutenção de Splitão em BH" />
+      <FAQStructuredData faqs={faqData} pageTitle="Manutenção de Ar Condicionado Central em BH" />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
@@ -100,10 +100,10 @@ export default function ManutencaoSplitao() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Manutenção de Splitão em Belo Horizonte e Região: Assistência Técnica Especializada 24h em Climatização comercial
+                Manutenção de Ar Condicionado Central: ClimatBH
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Manutenção preventiva e corretiva para sistemas splitão em Belo Horizonte. 
+                Manutenção preventiva e corretiva para sistemas de ar condicionado central em Belo Horizonte e região. 
                 Equipe especializada, atendimento 24h e garantia em todos os serviços.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -115,7 +115,7 @@ export default function ManutencaoSplitao() {
                   <span>Ligar Agora: (31) 99535-2139</span>
                 </a>
                 <a
-                  href="https://wa.me/5531995352139?text=Olá! Preciso de manutenção para splitão."
+                  href="https://wa.me/5531995352139?text=Olá! Preciso de manutenção para ar condicionado central."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200 text-center"
@@ -126,8 +126,8 @@ export default function ManutencaoSplitao() {
             </div>
             <div>
               <Image
-                src="/images/manutencao-splitao-BH.webp"
-                alt="Manutenção de Splitão em BH"
+                src="/images/manutencao-ar-condicionado-central-BH.webp"
+                alt="Manutenção de Ar Condicionado Central em BH"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-lg"
@@ -137,15 +137,15 @@ export default function ManutencaoSplitao() {
         </div>
       </section>
 
-      {/* What is Splitão Maintenance */}
+      {/* What is Ar Condicionado Central Maintenance */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              O que é Manutenção de Splitão?
+              O que é Manutenção de Ar Condicionado Central?
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              A manutenção de splitão é um conjunto de procedimentos técnicos realizados para garantir o funcionamento eficiente, 
+              A manutenção de ar condicionado central é um conjunto de procedimentos técnicos realizados para garantir o funcionamento eficiente, 
               seguro e duradouro dos sistemas de ar condicionado de grande porte, preservando sua capacidade de climatização 
               e prevenindo falhas que podem comprometer o conforto e gerar custos elevados de reparo.
             </p>
@@ -193,7 +193,7 @@ export default function ManutencaoSplitao() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Vantagens da Manutenção Regular de Splitão
+              Vantagens da Manutenção Regular de Ar Condicionado Central
             </h2>
           </div>
 
@@ -207,7 +207,7 @@ export default function ManutencaoSplitao() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Economia de Energia</h3>
                     <p className="text-gray-600">
-                      Um splitão bem mantido pode consumir até 30% menos energia, resultando em uma redução significativa na sua conta de luz e contribuindo para a sustentabilidade ambiental.
+                      Um ar condicionado central bem mantido pode consumir até 30% menos energia, resultando em uma redução significativa na sua conta de luz e contribuindo para a sustentabilidade ambiental.
                     </p>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export default function ManutencaoSplitao() {
                   <div>
                     <h3 className="text-lg font-semibold mb-2">Maior Vida Útil do Equipamento</h3>
                     <p className="text-gray-600">
-                      A manutenção preventiva regular prolonga a vida útil do seu splitão em até 50%, protegendo seu investimento e adiando a necessidade de substituição.
+                      A manutenção preventiva regular prolonga a vida útil do seu ar condicionado central em até 50%, protegendo seu investimento e adiando a necessidade de substituição.
                     </p>
                   </div>
                 </div>
@@ -252,7 +252,7 @@ export default function ManutencaoSplitao() {
             <div>
               <Image
                 src="/images/manutencao-splitao-BH.webp"
-                alt="Manutenção de Splitão - Componentes Internos"
+                alt="Manutenção de Ar Condicionado Central - Componentes Internos"
                 width={600}
                 height={500}
                 className="rounded-lg shadow-lg"
@@ -267,7 +267,7 @@ export default function ManutencaoSplitao() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Nosso Processo de Manutenção de Splitão
+              Nosso Processo de Manutenção de Ar Condicionado Central
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Metodologia técnica especializada que garante máxima eficiência e durabilidade do seu sistema
@@ -323,10 +323,10 @@ export default function ManutencaoSplitao() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Problemas Comuns em Splitão
+              Problemas Comuns em Ar Condicionado Central
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Identificamos e solucionamos os principais problemas que afetam sistemas splitão
+              Identificamos e solucionamos os principais problemas que afetam sistemas ar condicionado central
             </p>
           </div>
 
@@ -398,7 +398,7 @@ export default function ManutencaoSplitao() {
       <section className="py-20 bg-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Precisa de Manutenção para seu Splitão?
+            Precisa de Manutenção para seu Ar Condicionado Central?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
             Nossa equipe especializada está pronta para atender sua necessidade em Belo Horizonte e região
@@ -412,7 +412,7 @@ export default function ManutencaoSplitao() {
               <span>Ligar Agora: (31) 99535-2139</span>
             </a>
             <a
-              href="https://wa.me/5531995352139?text=Olá! Preciso de manutenção para splitão."
+              href="https://wa.me/5531995352139?text=Olá! Preciso de manutenção para ar condicionado central."
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
@@ -428,10 +428,10 @@ export default function ManutencaoSplitao() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Perguntas Frequentes sobre Manutenção de Splitão
+              Perguntas Frequentes sobre Manutenção de Ar Condicionado Central
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tire suas dúvidas sobre manutenção de sistemas splitão em Belo Horizonte
+              Tire suas dúvidas sobre manutenção de sistemas ar condicionado central em Belo Horizonte
             </p>
           </div>
 
@@ -463,13 +463,13 @@ export default function ManutencaoSplitao() {
             <Link href="/instalacao-splitao" className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
               <Image
                 src="/images/splitao-em-BH.jpg"
-                alt="Instalação de Splitão"
+                alt="Instalação de Ar Condicionado Central"
                 width={400}
                 height={250}
                 className="rounded-lg w-full h-48 object-cover mb-4"
               />
-              <h3 className="text-xl font-semibold mb-3">Instalação de Splitão</h3>
-              <p className="text-gray-600 mb-4">Instalação profissional de sistemas splitão para grandes ambientes</p>
+              <h3 className="text-xl font-semibold mb-3">Instalação de Ar Condicionado Central</h3>
+              <p className="text-gray-600 mb-4">Instalação profissional de sistemas ar condicionado central para grandes ambientes</p>
               <div className="flex items-center text-blue-600 font-medium">
                 <span>Saiba mais</span>
                 <ArrowRight className="h-4 w-4 ml-2" />

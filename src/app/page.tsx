@@ -114,21 +114,21 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/instalacao-splitao" className="group">
+            <Link href="/instalacao-ar-condicionado-central" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/splitao-em-BH.jpg"
-                  alt="Instalação de splitão para climatização de grandes ambientes comerciais em Belo Horizonte"
+                  src="/images/instalacao-ar-condicionado-central-BH.webp"
+                  alt="Instalação de ar condicionado central para climatização de grandes ambientes comerciais em Belo Horizonte"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">
-                    Instalação de Splitão
+                    Instalação de Ar Condicionado
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Ar condicionado de grande porte para ambientes amplos como galpões e auditórios.
+                    Ar condicionado central de grande porte para ambientes amplos como galpões e auditórios.
                   </p>
                   <span className="text-blue-600 font-semibold group-hover:underline">
                     Saiba mais →
@@ -183,21 +183,44 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/manutencao-splitao" className="group">
+            <Link href="/manutencao-ar-condicionado-central" className="group">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/manutencao-splitao-BH.webp"
-                  alt="Manutenção de splitão para grandes ambientes comerciais em Belo Horizonte - Serviço especializado ClimatBH"
+                  src="/images/manutencao-ar-condicionado-central-BH.webp"
+                  alt="Manutenção de ar condicionado central para grandes ambientes comerciais em Belo Horizonte - Serviço especializado ClimatBH"
                   width={400}
                   height={250}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">
-                    Manutenção de Splitão
+                    Manutenção de Ar Condicionado
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    Manutenção especializada para sistemas splitão e contratos PMOC.
+                    Manutenção especializada para sistemas de ar condicionado central e contratos PMOC.
+                  </p>
+                  <span className="text-blue-600 font-semibold group-hover:underline">
+                    Saiba mais →
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/manutencao-fancoil" className="group">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src="/images/manutencao-fancoil-BH.webp"
+                  alt="Manutenção de FanCoil em Belo Horizonte - Serviço especializado ClimatBH"
+                  width={400}
+                  height={250}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors">
+                    Manutenção de FanCoil
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Manutenção especializada para sistemas FanCoil em Belo Horizonte e região.
                   </p>
                   <span className="text-blue-600 font-semibold group-hover:underline">
                     Saiba mais →
